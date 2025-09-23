@@ -11,7 +11,8 @@ body {
 /* Contenedor principal */
 .container {
   min-height: 100vh;
-  max-width: 95%;   /* límite de ancho en desktop */
+ width: 100%;         /* siempre ocupa todo el ancho disponible */
+  max-width: 850px;    /* pero en escritorio nunca más ancho que 850px */
    margin: 0 auto;
   display: flex;
   flex-direction: column;
