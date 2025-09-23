@@ -204,21 +204,21 @@ footer {
 }
 
 /* Estilos para visor PDF */
-.pdf-viewer-container {
+..pdf-viewer-container {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
   padding: 0 15px;
-  background-color: #ffffff;
+  background: #fff;
   color: #000;
 }
-
 .pdf-viewer-container canvas {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
 }
+
 
 .pdf-controls {
   display: flex;

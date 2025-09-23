@@ -1,76 +1,35 @@
-// pdf-viewer.js
+// pdf-viewer.js (versión scroll continuo)
 
-// Configurar pdf.js
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.worker.min.js";
 
-function initPDFViewer(
-  pdfUrl,
-  canvasId,
-  prevBtnId,
-  nextBtnId,
-  pageNumId,
-  pageCountId
-) {
-  let pdfDoc = null,
-    pageNum = 1,
-    pageRendering = false,
-    pageNumPending = null,
-    scale = 1.3,
-    canvas = document.getElementById(canvasId),
-    ctx = canvas.getContext("2d");
+function initPDFViewer(pdfUrl, containerId) {
+  const container = document.getElementById(containerId);
 
-  function renderPage(num) {
-    pageRendering = true;
-    pdfDoc.getPage(num).then(function (page) {
-      const viewport = page.getViewport({ scale: scale });
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
+  pdfjsLib.getDocument(pdfUrl).promise.then(function (pdfDoc) {
+    // Renderizar todas las páginas en orden
+    for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+      pdfDoc.getPage(pageNum).then(function (page) {
+        const scale = 1.3;
+        const viewport = page.getViewport({ scale: scale });
 
-      const renderContext = {
-        canvasContext: ctx,
-        viewport: viewport,
-      };
-      const renderTask = page.render(renderContext);
+        // Crear un canvas por página
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        canvas.style.display = "block";
+        canvas.style.margin = "20px auto";
 
-      renderTask.promise.then(function () {
-        pageRendering = false;
-        if (pageNumPending !== null) {
-          renderPage(pageNumPending);
-          pageNumPending = null;
-        }
+        container.appendChild(canvas);
+
+        // Renderizar página en el canvas
+        const renderContext = {
+          canvasContext: ctx,
+          viewport: viewport,
+        };
+        page.render(renderContext);
       });
-    });
-
-    document.getElementById(pageNumId).textContent = num;
-  }
-
-  function queueRenderPage(num) {
-    if (pageRendering) {
-      pageNumPending = num;
-    } else {
-      renderPage(num);
     }
-  }
-
-  function onPrevPage() {
-    if (pageNum <= 1) return;
-    pageNum--;
-    queueRenderPage(pageNum);
-  }
-
-  function onNextPage() {
-    if (pageNum >= pdfDoc.numPages) return;
-    pageNum++;
-    queueRenderPage(pageNum);
-  }
-
-  document.getElementById(prevBtnId).addEventListener("click", onPrevPage);
-  document.getElementById(nextBtnId).addEventListener("click", onNextPage);
-
-  pdfjsLib.getDocument(pdfUrl).promise.then(function (pdf) {
-    pdfDoc = pdf;
-    document.getElementById(pageCountId).textContent = pdfDoc.numPages;
-    renderPage(pageNum);
   });
 }
