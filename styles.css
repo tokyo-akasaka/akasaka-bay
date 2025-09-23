@@ -1,4 +1,6 @@
-/* Fuente y colores base */
+/* =========================
+   Fuente y colores base
+========================= */
 body {
   font-family: Arial, sans-serif;
   background-color: #4b2c25;
@@ -8,22 +10,37 @@ body {
   text-align: center;
 }
 
-/* Contenedor principal */
+/* =========================
+   Contenedor principal
+========================= */
 .container {
   min-height: 100vh;
- width: 100%;         /* siempre ocupa todo el ancho disponible */
-  max-width: 850px;    /* pero en escritorio nunca más ancho que 850px */
-   margin: 0 auto;
+  width: 100%;         /* ocupa todo el ancho */
+  max-width: 850px;    /* límite en escritorio */
+  margin: 0 auto;      /* centrado */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 15px; 
+  padding: 0 15px;     /* aire lateral en móvil */
 }
 
+/* =========================
+   Logo
+========================= */
+.logo img {
+  max-width: 60%;      /* móvil por defecto */
+  margin: 20px auto 10px;
+  display: block;
+}
 
-/* Menús */
+/* =========================
+   Menús
+========================= */
 .menus {
-  margin: 20px;
+  max-width: 800px;    /* límite en desktop */
+  margin: 20px auto;
+  padding: 0 20px;
+  text-align: center;
 }
 
 .menus h2 {
@@ -31,27 +48,26 @@ body {
   margin-bottom: 15px;
 }
 
-.menus ul {
-  list-style: none;
-  padding: 0;
+.buttons {
+  margin-top: 20px;
 }
 
-.menus ul {
+.buttons ul {
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centra los botones */
+  margin: 0;
 }
 
-.menus li {
+.buttons li {
   margin: 15px 0;
-  width: 100%; /* cada li ocupa todo el ancho */
-  max-width: 500px; /* límite para que no se hagan gigantes en desktop */
 }
 
+/* Botones */
 .menu-btn {
   display: block;
+  width: 100%;
+  max-width: 500px;    /* que no se haga gigante en desktop */
+  margin: 0 auto;
   background: #5a322a;
   color: #fff;
   font-weight: bold;
@@ -60,13 +76,12 @@ body {
   padding: 14px 18px;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
   text-align: center;
-  word-wrap: break-word;   /* permite cortes */
-  white-space: normal;     /* permite salto de línea */
-  line-height: 1.4;        /* aire entre líneas */
+  line-height: 1.4;
+  white-space: normal;    /* permite varias líneas */
+  word-wrap: break-word;  /* asegura cortes limpios */
 }
-
-
 
 .menu-btn:hover {
   background: #ff3b3b;
@@ -79,8 +94,9 @@ body {
   box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 }
 
-
-/* Imagen hero */
+/* =========================
+   Imagen Hero
+========================= */
 .hero img {
   width: 100%;
   height: auto;
@@ -88,7 +104,9 @@ body {
   margin: 20px 0;
 }
 
-/* Ubicación */
+/* =========================
+   Ubicación
+========================= */
 .location {
   display: flex;
   flex-direction: column;
@@ -106,7 +124,9 @@ body {
   margin-bottom: 10px;
 }
 
-/* Footer */
+/* =========================
+   Footer
+========================= */
 footer {
   background: #3a201a;
   padding: 20px;
@@ -129,32 +149,30 @@ footer {
   font-weight: bold;
 }
 
-/* --- Responsive --- */
+/* =========================
+   Responsive
+========================= */
 @media (min-width: 768px) {
   .location {
     flex-direction: row;
     justify-content: space-around;
   }
 
-  .menus a {
+  .menus h2 {
+    font-size: 24px;
+  }
+
+  .menu-btn {
     font-size: 18px;
   }
 
-    .logo img {
-    max-width: 300px; /* tamaño fijo en tablets/ordenadores */
+  .logo img {
+    max-width: 300px; /* tablets/ordenadores */
   }
 }
 
-/* En pantallas grandes */
 @media (min-width: 1200px) {
   .logo img {
-    max-width: 400px; /* más grande en desktop */
+    max-width: 400px; /* desktop grande */
   }
-}
-
- /* Logo base (móvil) */
-.logo img {
-  max-width: 60%;   /* ocupa 80% del ancho en móviles */
-  margin: 20px auto 10px;
-  display: block;
 }
