@@ -11,14 +11,14 @@ body {
 /* Contenedor principal */
 .container {
   min-height: 100vh;
-  max-width: 85vh;   /* límite de ancho en desktop */
+  max-width: 95%;   /* límite de ancho en desktop */
+   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 0 15px; 
 }
 
-}
 
 /* Menús */
 .menus {
