@@ -328,7 +328,7 @@ footer {
 }
 
 /* 📱 En móviles (<901px): título primero, botón debajo */
-@media (max-width: 901px) {
+@media (max-width: 1081px) {
   .header-bar {
     flex-direction: column;   /* apila título y botón */
     height: auto;
