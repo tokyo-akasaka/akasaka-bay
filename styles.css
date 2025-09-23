@@ -202,3 +202,41 @@ footer {
     max-width: 300px;
   }
 }
+
+/* Estilos para visor PDF */
+.pdf-viewer-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 15px;
+  background-color: #ffffff;
+  color: #000;
+}
+
+.pdf-viewer-container canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.pdf-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.pdf-controls button {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: none;
+  background: #5a322a;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pdf-controls button:hover {
+  background: #ff3b3b;
+}

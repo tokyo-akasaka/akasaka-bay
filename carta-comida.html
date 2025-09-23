@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Comida</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <h2>🍽️ Carta Comida</h2>
+
+    <div class="pdf-viewer-container">
+      <div class="pdf-controls">
+        <button id="prev-page">⬅️ Anterior</button>
+        <span>Página <span id="page_num">1</span> de <span id="page_count">--</span></span>
+        <button id="next-page">➡️ Siguiente</button>
+      </div>
+      <canvas id="pdf-canvas"></canvas>
+    </div>
+
+    <!-- Botón volver al menú -->
+    <div style="margin:20px;">
+      <a href="index.html" class="menu-btn">← Volver al menú</a>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
+  <script src="pdf-viewer.js"></script>
+  <script>
+    // Inicializar el visor indicando el PDF y los IDs de los elementos
+    initPDFViewer(
+      'pdf/carta-comida.pdf',
+      'pdf-canvas',
+      'prev-page',
+      'next-page',
+      'page_num',
+      'page_count'
+    );
+  </script>
+
+</body>
+</html>
