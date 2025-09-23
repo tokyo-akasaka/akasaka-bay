@@ -1,4 +1,4 @@
-// pdf-viewer.js (versión scroll continuo)
+// pdf-viewer.js (scroll continuo adaptado a móviles)
 
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.worker.min.js";
@@ -7,26 +7,28 @@ function initPDFViewer(pdfUrl, containerId) {
   const container = document.getElementById(containerId);
 
   pdfjsLib.getDocument(pdfUrl).promise.then(function (pdfDoc) {
-    // Renderizar todas las páginas en orden
     for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
       pdfDoc.getPage(pageNum).then(function (page) {
-        const scale = 1.3;
-        const viewport = page.getViewport({ scale: scale });
+        // Escalar al ancho del contenedor
+        const desiredWidth = container.clientWidth;
+        const viewport = page.getViewport({ scale: 1 });
+        const scale = desiredWidth / viewport.width;
+        const scaledViewport = page.getViewport({ scale: scale });
 
-        // Crear un canvas por página
+        // Crear canvas ajustado
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+        canvas.height = scaledViewport.height;
+        canvas.width = scaledViewport.width;
         canvas.style.display = "block";
         canvas.style.margin = "20px auto";
 
         container.appendChild(canvas);
 
-        // Renderizar página en el canvas
+        // Renderizar página
         const renderContext = {
           canvasContext: ctx,
-          viewport: viewport,
+          viewport: scaledViewport,
         };
         page.render(renderContext);
       });
