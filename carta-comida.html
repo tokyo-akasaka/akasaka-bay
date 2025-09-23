@@ -8,8 +8,9 @@
 </head>
 <body>
 <div class="container">
-  <!-- Loader -->
-  <div id="loader" class="loader">Cargando...</div>
+
+
+  
   <div class="fixed">
   <div class="header-bar">
     <a href="index.html" class="back-btn">← Volver al menú</a>
@@ -19,17 +20,21 @@
   </div>
 
 
-  <div class="pdf-viewer-container" id="pdf-container"></div>
-</div>
+<iframe 
+  src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://tokyo-akasaka.github.io/akasaka-bay/pdf/carta-comida.pdf" 
+  width="100%" 
+  height="100%" 
+  style="border:none; min-height: 100vh;">
+</iframe>
 
 
-  <!-- pdf.js desde CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
-  <!-- Tu visor en JS (versión continua) -->
-  <script src="pdf-viewer.js"></script>
-  <script>
-    // Render continuo del PDF de comida
-    initPDFViewer("pdf/carta-comida.pdf", "pdf-container");
-  </script>
+<script>
+  const loader = document.getElementById("loader");
+  const frame = document.getElementById("pdf-frame");
+
+  frame.onload = () => {
+    loader.style.display = "none"; // Ocultar loader cuando el visor carga
+  };
+</script>
 </body>
 </html>
