@@ -72,12 +72,17 @@ body {
 .buttons {
   margin-top: 20px;
   margin: 0 auto;
+  margin-left: -10px; /* para compensar el padding de los botones */
 }
 
 .buttons ul {
+   list-style: none;
+  margin: 0 auto;        /* centrado */
+  padding: 0 !important; /* quitamos el padding del navegador */
+  text-align: center;    /* asegura que los li se centren */
   list-style: none;
-  padding: 0;
-  margin: 0;
+  margin: 0 auto;
+
 }
 
 .buttons li {
@@ -87,7 +92,7 @@ body {
 /* Botones menú */
 .menu-btn {
   display: block;
-  width: 100%;
+
   max-width: 500px;
   margin: 0 auto;
   background: #6f4036;
