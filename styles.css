@@ -1,48 +1,36 @@
-/* Reset general */
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  width: 100% !important;
-  height: 100% !important;
-  overflow-x: hidden; /* evita scroll lateral raro */
-  background-color: #4b2c25; /* mismo color que tu fondo */
-}
-
-
-iframe {
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  display: block;
-}
-
-
 /* =========================
-   Fuente y colores base
+   Reset general
 ========================= */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #4b2c25;
-  color: #fff;
+html, body {
   margin: 0;
   padding: 0;
+  border: none;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #4b2c25;
+  font-family: Arial, sans-serif;
+  color: #fff;
   text-align: center;
+
+}
+/* =========================
+   Iframe para PDF
+========================= */
+iframe {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: block;
+  width: 100%;
+
 }
 
 /* =========================
    Contenedor principal
 ========================= */
 .container {
-
-  max-width: none !important; /* elimina límites de 850px */
-  width: 100% !important;     /* ocupa todo el iframe */
-  border: none !important;    /* quita el borde marrón si lo tienes */
-  border-radius: 0 !important;
-  box-shadow: none !important;
-
-
-  position: relative; 
+  position: relative;
   min-height: 100vh;
   width: 100%;
   max-width: 850px;      /* límite en escritorio */
@@ -59,7 +47,7 @@ body {
    Logo
 ========================= */
 .logo img {
-  max-width: 60%;        /* móvil por defecto */
+  max-width: 60%;
   margin: 20px auto 10px;
   display: block;
 }
@@ -81,17 +69,13 @@ body {
 
 .buttons {
   margin-top: 20px;
-  margin: 0 auto;
 }
 
 .buttons ul {
-   list-style: none;
-  margin: 0 auto;        /* centrado */
-  padding: 0 !important; /* quitamos el padding del navegador */
-  text-align: center;    /* asegura que los li se centren */
   list-style: none;
   margin: 0 auto;
-
+  padding: 0;
+  text-align: center;
 }
 
 .buttons li {
@@ -101,7 +85,6 @@ body {
 /* Botones menú */
 .menu-btn {
   display: block;
-
   max-width: 500px;
   margin: 0 auto;
   background: #6f4036;
@@ -186,22 +169,96 @@ footer {
 }
 
 /* =========================
-   Visor PDF
+   Header fijo (cartas PDF)
 ========================= */
-.pdf-viewer-container {
-  width: 100%;
-  max-width: 900px;
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-width: 300px;
+  max-width: 850px;
+  height: 60px;
   margin: 0 auto;
-
+  z-index: 1000;
 }
 
-.pdf-viewer-container canvas {
+.header-bar {
+  background: #4b2c25;
+  border-bottom: 2px solid #422721;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #5a322a;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #ff3b3b;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.header-bar h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* Deja espacio para que el PDF no quede tapado */
+.pdf-viewer-container {
+  margin-top: 70px;
+}
+
+/* =========================
+   Loader
+========================= */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  display: block;
-  margin: 20px auto;
+  height: 100%;
+  background: rgba(75, 44, 37, 0.9);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  z-index: 2000;
 }
 
+.loader::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  border: 4px solid #fff;
+  border-top: 4px solid #ff3b3b;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 15px;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 /* =========================
    Responsive
@@ -233,117 +290,23 @@ footer {
   }
 }
 
-/* Contenedor fijo */
-.fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  min-width: 300px;      /* límite en móvil */
-  max-width: 850px;      /* límite en escritorio */
-  height: 100px;
-  margin: 0 auto;        /* centrado */
-  z-index: 1000;
-}
-
-
-/* Barra superior fija */
-.header-bar {
-  background: #4b2c25;
-  border-bottom: 2px solid #422721;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* centra el título */
-  position: relative;      /* referencia para el botón */
-}
-
-/* Botón volver dentro de la barra */
-.back-btn {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #5a322a;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 6px 12px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  transition: all 0.2s ease;
-}}
-
-.back-btn:hover {
-  background: #ff3b3b;
-  transform: translateY(-50%) scale(1.05);
-}
-
-
-/* Título dentro de la barra */
-.header-bar h2 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #fff;
-}
-
-/* Deja espacio para que el PDF no quede tapado por la barra */
-.pdf-viewer-container {
-  margin-top: 70px;
-}
-
-/* Loader */
-.loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(75, 44, 37, 0.9);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4rem;
-  z-index: 2000;
-}
-
-/* Spinner opcional */
-.loader::after {
-  content: "";
-  width: 40px;
-  height: 40px;
-  border: 4px solid #fff;
-  border-top: 4px solid #ff3b3b;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-left: 15px;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* 📱 En móviles (<901px): título primero, botón debajo */
-@media (max-width: 1081px) {
+/* 📱 En móviles: título arriba, botón debajo */
+@media (max-width: 768px) {
   .header-bar {
-    flex-direction: column;   /* apila título y botón */
+    flex-direction: column;
     height: auto;
     padding: 8px;
   }
 
   .header-bar h2 {
-    order: 1;                /* título primero */
+    order: 1;
     margin-bottom: 6px;
   }
 
   .back-btn {
-    position: static;         /* deja de ser absolute */
-    order: 2;                 /* botón debajo */
-    margin: 0 auto; 
-    margin-top: 25px;          /* centrado */
+    position: static;
+    order: 2;
+    margin: 0 auto;
+    margin-top: 12px;
   }
 }
