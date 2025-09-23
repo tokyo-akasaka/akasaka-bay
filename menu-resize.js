@@ -6,7 +6,7 @@ function fitMenuText() {
     btn.style.fontSize = fontSize + "%";
 
     // reducir hasta que el texto quepa
-    while (btn.scrollWidth > btn.clientWidth && fontSize > 95) {
+    while (btn.scrollWidth > btn.clientWidth && fontSize > 80) {
       fontSize -= 1; // reducimos en 1% cada paso
       btn.style.fontSize = fontSize + "%";
     }
