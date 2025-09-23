@@ -11,7 +11,7 @@ body {
 /* Contenedor principal */
 .container {
   min-height: 100vh;
-  max-width: 95vh;   /* límite de ancho en desktop */
+  max-width: 85vh;   /* límite de ancho en desktop */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
