@@ -1,3 +1,21 @@
+/* Reset general */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+iframe {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  display: block;
+}
+
+
 /* =========================
    Fuente y colores base
 ========================= */
@@ -159,9 +177,7 @@ footer {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 15px;
-  background: #fff;
-  color: #000;
+
 }
 
 .pdf-viewer-container canvas {
@@ -202,10 +218,20 @@ footer {
   }
 }
 
+.fixed{
+   margin: 0 auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  display: block;           /* para centrar con margen auto */
+  z-index: 1000;
+}
+
 
 /* Barra superior fija */
 .header-bar {
-  position: fixed;
+  position: relative; /* referencia para el botón absolute */
   top: 0;
   left: 0;
   width: 100%;
@@ -213,17 +239,16 @@ footer {
   border-bottom: 2px solid #422721;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* centra el título */
   padding: 12px 0;
-  z-index: 1000;
+
 }
 
 /* Botón volver dentro de la barra */
-/* Botón volver */
 .back-btn {
   position: absolute;
   top: 50%;
-  left: 260px;
+  left: 15px; /* ahora sí, pegado a la izquierda */
   transform: translateY(-50%);
   background: #5a322a;
   color: #fff;
@@ -239,6 +264,14 @@ footer {
 .back-btn:hover {
   background: #ff3b3b;
   transform: translateY(-50%) scale(1.05);
+}
+
+
+/* Título dentro de la barra */
+.header-bar h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fff;
 }
 
 /* Deja espacio para que el PDF no quede tapado por la barra */
