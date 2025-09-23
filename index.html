@@ -2,39 +2,81 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Akasaka Bay</title>
   <link rel="stylesheet" href="styles.css">
+ 
+
 </head>
 <body>
 
-  <!-- Logo -->
-  <div class="logo">
-    <img src="img/logo.png" alt="Akasaka Bay Logo">
+  <div class="container">
+    <!-- Logo -->
+    <header class="logo">
+      <img src="img/akasaka-bay-logo.png" alt="Akasaka Bay Logo">
+    </header>
+
+    <!-- Menús -->
+    <section class="menus">
+  <h2>Carta · Menu · 菜单</h2>
+  <ul>
+    <li>
+      <a href="carta-comida.pdf" class="menu-btn">
+        🍽️ Carta comida · Food Menu · 食物菜单
+      </a>
+    </li>
+    <li>
+      <a href="carta-bebida.pdf" class="menu-btn">
+        🍹 Carta bebida · Drinks Menu · 饮料菜单
+      </a>
+    </li>
+    <li>
+      <a href="menu-degustacion.pdf" class="menu-btn">
+        ⭐ Menú degustación · Tasting Menu · 品鉴菜单
+      </a>
+    </li>
+  </ul>
+</section>
+
+
+    <!-- Imagen principal -->
+    <section class="hero">
+      <img src="img/hero.jpg" alt="Yakiniku grill">
+    </section>
+
+    <!-- QR y ubicación -->
+    <section class="location">
+      <div class="qr">
+        <img src="img/QR-ubicacion.jpg" alt="QR Google Maps">
+        <p>
+          Escanea QR, ubicación Google Maps <br>
+          Scan QR to location on Google Maps <br>
+          扫描二维码在 Google 地图中查看位置
+        </p>
+      </div>
+      <div class="map-link">
+        <img src="img/ubicacion-ico.png" alt="Map Icon">
+        <p>
+          Ver ubicación en Google Maps <br>
+          View location on Google Maps <br>
+          在 Google 地图中查看位置
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p>
+          Muelle 8, zona de Levante · Local 3 Y 4 · 03001 Alicante - España <br>
+          <span class="phone">T. 966 09 64 05</span>
+        </p>
+      </div>
+    </footer>
   </div>
 
-  <!-- Selección de carta -->
-  <h2>Selecciona carta:</h2>
-  <ul>
-    <li><a href="carta-comida.pdf" target="_blank">Carta comida</a></li>
-    <li><a href="carta-bebida.pdf" target="_blank">Carta bebida</a></li>
-  </ul>
-
-  <!-- Selección menú -->
-  <h2>Selecciona:</h2>
-  <ul>
-    <li><a href="menu-degustacion.pdf" target="_blank">Menú degustación</a></li>
-  </ul>
-
-  <!-- Footer -->
-  <div class="footer">
-    Escanea ubicación Google Maps <br>
-    <a href="https://maps.app.goo.gl/xxxx" target="_blank">Abrir en Google Maps</a>
-    <div class="qr">
-      <img src="img/qr.png" alt="QR Google Maps">
-    </div>
-    <p>Muelle 8, zona de Levante · Local 3 Y 4 · 03001 Alicante - España</p>
-    <p class="phone">T. 966 09 64 05</p>
-  </div>
+ <!-- al final del body -->
+<script src="menu-resize.js"></script>
 
 </body>
 </html>
