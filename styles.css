@@ -3,10 +3,12 @@ html, body {
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
+  width: 100% !important;
+  height: 100% !important;
+  overflow-x: hidden; /* evita scroll lateral raro */
+  background-color: #4b2c25; /* mismo color que tu fondo */
 }
+
 
 iframe {
   margin: 0 !important;
@@ -32,6 +34,14 @@ body {
    Contenedor principal
 ========================= */
 .container {
+
+  max-width: none !important; /* elimina límites de 850px */
+  width: 100% !important;     /* ocupa todo el iframe */
+  border: none !important;    /* quita el borde marrón si lo tienes */
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  
+
   position: relative; 
   min-height: 100vh;
   width: 100%;
@@ -72,7 +82,6 @@ body {
 .buttons {
   margin-top: 20px;
   margin: 0 auto;
-  margin-left: -10px; /* para compensar el padding de los botones */
 }
 
 .buttons ul {
