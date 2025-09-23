@@ -16,11 +16,6 @@ body {
   justify-content: space-between;
 }
 
-/* Logo */
-.logo img {
-  max-width: 60%;
-  margin: 20px auto 10px;
-  display: block;
 }
 
 /* Menús */
@@ -143,7 +138,21 @@ footer {
     font-size: 18px;
   }
 
-  .logo img {
-    max-width: 280px;
+    .logo img {
+    max-width: 300px; /* tamaño fijo en tablets/ordenadores */
   }
+}
+
+/* En pantallas grandes */
+@media (min-width: 1200px) {
+  .logo img {
+    max-width: 400px; /* más grande en desktop */
+  }
+}
+
+ /* Logo base (móvil) */
+.logo img {
+  max-width: 60%;   /* ocupa 80% del ancho en móviles */
+  margin: 20px auto 10px;
+  display: block;
 }
