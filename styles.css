@@ -52,21 +52,20 @@ body {
 
 .menu-btn {
   display: block;
-  width: 100%;
-  max-width: 500px;
   background: #5a322a;
   color: #fff;
   font-weight: bold;
   text-decoration: none;
-  font-size: 1.2rem;  /* tamaño base, JS lo ajusta */
+  font-size: 1rem;
   padding: 14px 18px;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  transition: all 0.2s ease;
   text-align: center;
-  white-space: nowrap; /* evita saltos de línea */
-  overflow: hidden;
+  word-wrap: break-word;   /* permite cortes */
+  white-space: normal;     /* permite salto de línea */
+  line-height: 1.4;        /* aire entre líneas */
 }
+
 
 
 .menu-btn:hover {
