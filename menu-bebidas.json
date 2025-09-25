@@ -1,0 +1,159 @@
+{
+  "sections": [
+    {
+      "title_es": "Aguas y refrescos",
+      "title_en": "Waters and soft drinks",
+      "items": [
+        {"code": "200", "name_es": "Agua 50 cl.", "name_en": "Water 50 cl", "price": "2,80"},
+        {"code": "201", "name_es": "Agua con gas 33 cl.", "name_en": "Sparkling water 33 cl", "price": "3,20"},
+        {"code": "202", "name_es": "Refresco, botella de 35 cl. (Coca Cola/zero, Fanta)", "name_en": "Soft drink, 35 cl bottle (Coca Cola/zero, Fanta)", "price": "3,80"},
+        {"code": "203", "name_es": "Nestea / Aquarius 35 cl.", "name_en": "Nestea / Aquarius 35 cl", "price": "4,00"},
+        {"code": "204", "name_es": "Mango passion fruit juice", "name_en": "Mango passion fruit juice", "price": "4,80"},
+        {"code": "205", "name_es": "Tónica japonesa", "name_en": "Japanese tonic", "price": "3,50"},
+        {"code": "206", "name_es": "Oí ocha 33cl.", "name_en": "Oí green tea 33cl", "price": "4,50"}
+      ]
+    },
+    {
+      "title_es": "Cervezas",
+      "title_en": "Beers",
+      "items": [
+        {"code": "207", "name_es": "Kirin Ichiban / Sin alcohol 33 cl.", "name_en": "Kirin Ichiban / Alcohol-free 33 cl", "price": "4,00"},
+        {"code": "208", "name_es": "Estrella Galicia 33 cl.", "name_en": "Estrella Galicia 33 cl.", "price": "3,50"},
+        {"code": "209", "name_es": "Kirin Ichiban 33 cl.", "name_en": "Kirin Ichiban 33 cl", "price": "3,80"},
+        {"code": "210", "name_es": "Alhambra reserva 1925, 33 cl.", "name_en": "Alhambra reserva 1925, 33 cl", "price": "3,50"}
+      ]
+    },
+    {
+      "title_es": "Vinos tintos",
+      "title_en": "Red wines",
+      "items": [
+        {"code": "211", "name_es": "Vinalopó Bouschet - Alicante", "name_en": "Vinalopó Alicante Bouschet - Alicante", "price_by_glass": "4,50", "price_by_bottle": "17,00"},
+        {"code": "212", "name_es": "Vinalopó Petit Verdot - Alicante", "name_en": "Vinalopó Petit Verdot - Alicante", "price_by_glass": "4,50", "price_by_bottle": "17,00"},
+        {"code": "213", "name_es": "Patojo 10 - Alicante", "name_en": "Patojo 10 - Alicante", "price": "24,00"},
+        {"code": "214", "name_es": "Porti - Jumilla", "name_en": "Porti - Jumilla", "price": "48,00"},
+        {"code": "215", "name_es": "Malasenda Crianza-Ribera del Duero", "name_en": "Malasenda Crianza – Ribera del Duero", "price_by_glass": "5,50", "price_by_bottle": "24,00"},
+        {"code": "216", "name_es": "Altos Valdoso Crianza - Ribera del Duero", "name_en": "Altos Valdoso Crianza – Ribera del Duero", "price": "24,50"},
+        {"code": "217", "name_es": "Pago de los Capellanes (Tempranillo) - Ribera del Duero", "name_en": "Pago de los Capellanes (Tempranillo) - Ribera del Duero", "price": "35,90"},
+        {"code": "218", "name_es": "Copa Tinto de verano /Sangría", "name_en": "Glass of Summer Red Wine or Sangria", "price": "4,50"},
+        {"code": "219", "name_es": "Jarra de Tinto de verano /Sangría", "name_en": "Pitcher of summer wine or Pitcher of sangria", "price": "14,50"},
+        {"code": "220", "name_es": "PSI 2022 - Ribera del Duero", "name_en": "PSI 2022 - Ribera del Duero", "price": "75,90"},
+        {"code": "221", "name_es": "Queirón Mi Lugar - Rioja", "name_en": "Queirón Mi Lugar – Rioja", "price": "29,00"},
+        {"code": "222", "name_es": "Cerro Añón Crianza - Rioja", "name_en": "Cerro Añón Crianza – Rioja", "price_by_glass": "5,00", "price_by_bottle": "19,50"},
+        {"code": "223", "name_es": "Saiñas Sinuoso - Ribera Sacra", "name_en": "Saiñas Sinuoso – Ribera Sacra", "price": "32,00"}
+      ]
+    },
+    {
+      "title_es": "Vinos blancos",
+      "title_en": "White wines",
+      "items": [
+        {"code": "224", "name_es": "Fortaleza Moscatel Seco - Alicante", "name_en": "Fortaleza Moscatel Seco – Alicante", "price_by_glass": "4,50", "price_by_bottle": "17,00"},
+        {"code": "225", "name_es": "Colección Luzon Sauvignon Blanc - Jumilla", "name_en": "Colección Luzón Sauvignon Blanc – Jumilla", "price": "19,50"},
+        {"code": "226", "name_es": "Pousada Albariño - Rías Baixas", "name_en": "Pousada Albariño – Rías Baixas", "price": "32,00"},
+        {"code": "227", "name_es": "Pousada Barrica Albariño - Rías Baixas", "name_en": "Pousada Barrica Albariño – Rías Baixas", "price": "49,00"},
+        {"code": "228", "name_es": "Pentecostes Varietal, Albariño, Treixadura - Rías Baixas", "name_en": "Pentecostes Varietal, Albariño, Treixadura – Rías Baixas", "price": "28,00"},
+        {"code": "229", "name_es": "Valdebarón - Rioja", "name_en": "Valdebarón - Rioja", "price_by_glass": "6,00", "price_by_bottle": "28,00"},
+        {"code": "230", "name_es": "A Telleira Godello - Ribeiro", "name_en": "A Telleira Godello - Ribeiro", "price": "26,00"},
+        {"code": "230I", "name_es": "Circe Verdejo - Rueda", "name_en": "Circe Verdejo - Rueda", "price": "24,00"}
+      ]
+    },
+    {
+      "title_es": "Vino rosado",
+      "title_en": "Rosé wine",
+      "items": [
+        {"code": "231", "name_es": "Templanza Pinot Noir - Alicante", "name_en": "Templanza Pinot Noir - Alicante", "price_by_glass": "4,50", "price_by_bottle": "17,00"},
+        {"code": "232", "name_es": "Colección Luzón Monastrell - Jumilla", "name_en": "Luzón Collection Monastrell - Jumilla", "price": "19,50"}
+      ]
+    },
+    {
+      "title_es": "Cavas",
+      "title_en": "Sparkling wines",
+      "items": [
+        {"code": "233", "name_es": "Segura Viudas Brut Rose - Cava", "name_en": "Segura Viudas Brut Rosé", "price": "25,00"},
+        {"code": "234", "name_es": "Segura Viudas Reserva Vintage - Cava", "name_en": "Segura Viudas Reserva Vintage", "price": "25,00"},
+        {"code": "235", "name_es": "Alfred Gratien Blanc de Blancs - Champagne", "name_en": "Alfred Gratien Blanc de Blancs - Champagne", "price": "105,00"},
+        {"code": "236", "name_es": "Alfred Gratien Rose - Champagne", "name_en": "Alfred Gratien Rosé - Champagne", "price": "85,00"}
+      ]
+    },
+    {
+      "title_es": "Sake",
+      "title_en": "Sake",
+      "items": [
+        {"code": "237", "name_es": "Cow Boy Yamahai /300ml", "name_en": "Cow Boy Yamahai", "price": "18,00"},
+        {"code": "238", "name_es": "Kakunoi /300ml", "name_en": "Kakunoi", "price": "22,00"},
+        {"code": "239", "name_es": "Kubota Senju /300ml", "name_en": "Kubota Senju Ginjo Sake", "price": "15,00"},
+        {"code": "240", "name_es": "Mutsu Hassen Kuro Label  /300ml", "name_en": "Mutsu Hassen Kuro Label", "price": "25,00"},
+        {"code": "241", "name_es": "Umenoyado No Lychee /720ml", "name_en": "Umenoyado No Lychee", "price_by_glass": "6,00", "price_by_bottle": "38,00"},
+        {"code": "242", "name_es": "Umeshu The Choya Extra Shiso/720ml", "name_en": "Umeshu The Choya Extra Shiso", "price_by_glass": "8,00", "price_by_bottle": "45,00"},
+        {"code": "243", "name_es": "Umenoyado No Umeshu /300ml", "name_en": "Umenoyado No Umeshu", "price": "25,00"},
+        {"code": "244", "name_es": "Kinoene /720ml", "name_en": "Kinoene", "price_by_glass": "7,00", "price_by_bottle": "42,00"},
+        {"code": "245", "name_es": "Munemasa /720ml", "name_en": "Munemasa", "price_by_glass": "6,00", "price_by_bottle": "38,00"}
+      ]
+    },
+    {
+      "title_es": "Copas",
+      "title_en": "Spirits",
+      "items": [
+        {"code": "246", "name_es": "Martini blanco / Rosado", "name_en": "Martini White / Rosé", "price": "5,50"},
+        {"code": "247", "name_es": "Bacardi - Ron Blanco", "name_en": "Bacardi - White Rum", "price": "6,00"},
+        {"code": "248", "name_es": "Glenfiddich - 15 años", "name_en": "Glenfiddich - 15 years old", "price": "8,50"},
+        {"code": "249", "name_es": "Baileys", "name_en": "Baileys", "price": "5,50"},
+        {"code": "250", "name_es": "El Afilador (Licor de hierbas)", "name_en": "El Afilador (Herbal Liqueur)", "price": "5,50"},
+        {"code": "251", "name_es": "El Afilador - Tradicional", "name_en": "El Afilador - Traditional", "price": "5,50"},
+        {"code": "252", "name_es": "Mediterráneo - limoncello", "name_en": "Mediterraneo - limoncello", "price": "5,50"},
+        {"code": "253", "name_es": "Brugal - Ron Añejo", "name_en": "Brugal - Aged Rum", "price": "8,00"},
+        {"code": "254", "name_es": "Veterano - brandy español", "name_en": "Veterano - spanish brandy", "price": "6,00"},
+        {"code": "255", "name_es": "Chivas Regal - whisky", "name_en": "Chivas Regal - whisky", "price": "8,50"},
+        {"code": "256", "name_es": "The Chita - whisky japonés", "name_en": "The Chita - Japanese Whisky", "price": "15,00"},
+        {"code": "257", "name_es": "HIBIKI - suntory whisky japonés", "name_en": "HIBIKI - Suntory Japanese Whisky", "price": "18,00"}
+      ]
+    },
+    {
+      "title_es": "Cócteles",
+      "title_en": "Cocktails",
+      "items": [
+        {"code": "258", "name_es": "San Francisco - Sin alcohol (zumo de piña, naranja, limón, melocotón, granadina, azúcar)", "name_en": "San Francisco - Alcohol-free (pineapple, orange, lemon, peach juice, grenadine, sugar)", "price": "7,00"},
+        {"code": "259", "name_es": "Rojo Frutal  - Sin alcohol (puré de frutos rojas, clavo, canela, zumo de lima)", "name_en": "Rojo Frutal - Alcohol-free (red fruit puree, cloves, cinnamon, lime juice)", "price": "8,00"},
+        {"code": "260", "name_es": "JinZu - gin tonic, guarnición de pomelo y manzana verde", "name_en": "Jinzu - gin & tonic, garnished with grapefruit and green apple", "price": "8,00"},
+        {"code": "261", "name_es": "GORDONS - pink tonic - fresa, frambuesa y grosella roja", "name_en": "GORDONS - pink tonic - strawberry, raspberry and redcurrant", "price": "7,00"},
+        {"code": "262", "name_es": "TANQUERAY - London Dry Gin & Tonic, bayas de enebro, guarnición de lima fresca y seca", "name_en": "Tanqueray - London Dry Gin & Tonic, juniper berries, garnished with fresh and dried lime", "price": "7,00"},
+        {"code": "263", "name_es": "TANQUERAY - ranepur & tonic - citricos, guarnición fresca y suave, naranja", "name_en": "Tanqueray - Rangpur & Tonic - Citrus notes, fresh & smooth garnish, orange", "price": "8,00"},
+        {"code": "264", "name_es": "MOJITO de Ciruela - bacardi, licor de ciruela, azúcar, lima, hojas de menta", "name_en": "Plum Mojito - Bacardi, plum liqueur, sugar, lime, mint", "price": "7,00"},
+        {"code": "265", "name_es": "PINK BALLET - vodka, baileys, leche, jarabe de granadina", "name_en": "PINK BALLET - vodka, Baileys, milk, grenadine syrup", "price": "8,00"},
+        {"code": "266", "name_es": "Wa Sake Yuzu", "name_en": "Wa Sake Yuzu", "price": "8,00"},
+        {"code": "267", "name_es": "Wa Sake Matcha", "name_en": "Wa Sake Matcha", "price": "8,00"},
+        {"code": "268", "name_es": "TAKARA SPRITZ - Aperol, sake Mio, soda Yuzu", "name_en": "TAKARA SPRITZ - Aperol, Mio sake, Yuzu soda", "price": "8,00"}
+      ]
+    },
+    {
+  "title_es": "Cafés e infusiones",
+  "title_en": "Coffees and infusions",
+  "items": [
+    {
+      "code": "269",
+      "name_es": "Café expreso, descafeinado, solo, cortado o con leche",
+      "name_en": "Espresso, decaffeinated, black, cortado or with milk",
+      "price": "2,00"
+    },
+    {
+      "code": "270",
+      "name_es": "Selección de Té japonés",
+      "name_en": "Japanese Tea Selection",
+      "price": "3,80"
+    },
+    {
+      "code": "271",
+      "name_es": "Café con Baileys",
+      "name_en": "Baileys Coffee",
+      "price": "3,00"
+    },
+    {
+      "code": "272",
+      "name_es": "Café irlandés",
+      "name_en": "Irish coffee",
+      "price": "7,00"
+    }
+  ]
+
+    }
+  ]
+}
