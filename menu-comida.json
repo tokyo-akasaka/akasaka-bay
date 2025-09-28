@@ -36,7 +36,6 @@
         { "code": "022", "name_es": "Atún - akami", "name_en": "Tuna - akami", "name_cn": "金枪鱼赤神", "price": "8" },
         { "code": "023", "name_es": "Vieira - hotate", "name_en": "Scallop - hotate", "name_cn": "扇贝", "price": "8" },
         { "code": "024", "name_es": "Ventresca - toro", "name_en": "Tuna Belly - Toro", "name_cn": "大腹 - 金枪鱼肚", "price": "10" },
-        { "code": "025", "name_es": "????", "name_en": "???", "name_cn": "????", "price": "??" },
         { "code": "026", "name_es": "Pargo-madai", "name_en": "Snapper-madai", "name_cn": "鲷鱼", "price": "6" },
         { "code": "027", "name_es": "Selección del chef 9 piezas de nigiri", "name_en": "Chef’s Selection 9 pieces of nigiri", "name_cn": "主厨精选 9 件握寿司", "price": "30" },
         { "code": "028", "name_es": "Selección del chef 6 piezas de nigiri", "name_en": "Chef’s Selection 6 pieces of nigiri", "name_cn": "主厨精选 6 件握寿司", "price": "20" },
