@@ -18,7 +18,7 @@
         { "code": "011", "name_es": "SOPA MISO - miso blanco con tofu, wakame y cebolleta", "name_en": "MISO SOUP - white miso with tofu, wakame, and spring onion", "name_cn": "味噌汤 - 白味噌配豆腐，裙带菜和葱", "price": "6" },
         { "code": "012", "name_es": "Chawanmushi de Cangrejo de Nieve", "name_en": "Snow Crab Chawanmushi", "name_cn": "蟹肉什锦茶碗蒸", "price": "8" },
         { "code": "013", "name_es": "Kurumaebi Tempura", "name_en": "Kurumaebi Tempura", "name_cn": "车虾天妇罗", "price": "18" },
-        { "code": "014", "name_es": "Croqueta de Cecina Wagyu (por unidad)", "name_en": "Wagyu Cecina Croquette", "name_cn": "和牛牛肉饼", "price": "3" },
+       { "code": "014", "name_es": "Kaki Furai - Ostras rebozadas", "name_en": "Kaki Furai – Deep-fried oysters", "name_cn": "炸牡蛎", "price": "11" },
         { "code": "015", "name_es": "Ensalada Yasai: tofu frito con aguacate y brotes", "name_en": "Fried tofu salad with avocado and sprouts", "name_cn": "炸豆腐沙拉配牛油果和嫩芽", "price": "12" },
         { "code": "016", "name_es": "Ensalada Akasaka Bay", "name_en": "Akasaka Bay Salad", "name_cn": "冰鲜鰤鱼嫩叶色拉", "price": "14" }
       ]
@@ -53,7 +53,7 @@
         { "code": "032", "name_es": "Atún toro con caviar de oscietra", "name_en": "Tuna bull with oscietra caviar", "name_cn": "金枪鱼配奥西特拉鱼子酱", "price": "8" },
         { "code": "033", "name_es": "Hamachi con aguacate y trufa", "name_en": "Hamachi with avocado and truffle", "name_cn": "鰤鱼配牛油果和松露", "price": "8" },
         { "code": "034", "name_es": "Salmón - Ikura y trufa", "name_en": "Salmon - ikura and truffle", "name_cn": "三文鱼 - 鲑鱼籽和松露", "price": "6" },
-        { "code": "035", "name_es": "Wagyu Nigiri Sushi A5 de Miyazaki (flambeado)", "name_en": "Wagyu Nigiri Sushi A5 from Miyazaki (flambéed)", "name_cn": "宫崎和牛握寿司 A5", "price": "10" }
+        { "code": "035", "name_es": "Wagyu Nigiri Sushi A5 de Miyazaki", "name_en": "Wagyu Nigiri Sushi A5 from Miyazaki", "name_cn": "宫崎和牛握寿司 A5", "price": "10" }
       ]
     },
     {
@@ -63,7 +63,7 @@
       "items": [
         { "code": "036", "name_es": "Hamachi - maki: mini rollo con hamachi y trufa", "name_en": "Hamachi - maki: mini roll with hamachi and truffle", "name_cn": "滨町卷: 鰤鱼松露迷你卷", "price": "8" },
         { "code": "037", "name_es": "Yasai - maki: jengibre, pepino y aguacate", "name_en": "Yasai - maki: ginger, cucumber and Avocado", "name_cn": "纯素卷：生姜、黄瓜、牛油果", "price": "6" },
-        { "code": "038", "name_es": "Toro - maki: mini rollo con ventresca de atún", "name_en": "Toro - maki: mini roll with tuna belly", "name_cn": "金枪鱼肚迷你卷", "price": "8" },
+        { "code": "038", "name_es": "Toro - maki: mini rollo con ventresca de atún", "name_en": "Toro - maki: mini roll with tuna belly", "name_cn": "金枪鱼肚迷你卷", "price": "10" },
         { "code": "039", "name_es": "Maguro - maki: mini rollo con atún", "name_en": "Maguro - maki: mini roll with tuna", "name_cn": "金枪鱼卷: 金枪鱼迷你卷", "price": "8" },
         { "code": "040", "name_es": "Futo - maki: rollo grueso: selección de pescado y salsa Sriracha con shiso", "name_en": "Futo - maki: Thick roll with a selection of fish, Sriracha sauce and shiso", "name_cn": "太卷： 精选鱼类，辣椒酱和紫苏", "price": "15" },
         { "code": "041", "name_es": "Kurumaebi Roll: langostino en tempura, aguacate y trufa", "name_en": "Kurumaebi Roll: tempura prawn, avocado, and truffle", "name_cn": "Kurumaebi Roll：天妇罗虾、牛油果和松露", "price": "18" },
@@ -90,9 +90,9 @@
       "items": [
         { "code": "049", "name_es": "Set de Wagyu + Bistec de Wagyu del Día (60 gramos)", "name_en": "Wagyu Set + Wagyu Steak of the Day", "name_cn": "和牛拼盘+和牛本日牛排", "price": "60" },
         { "code": "050", "name_es": "Set de Wagyu", "name_en": "Wagyu Set", "name_cn": "和牛拼盘", "price": "45" },
-        { "code": "051", "name_es": "Chuleta de lomo Alto, cortada al momento", "name_en": "Cut-to-Order Rib Eye Steak", "name_cn": "现切肋眼", "price": "100gr / 28" },
-        { "code": "051A", "name_es": "Lomo Wagyu Japonés A5 (Miyazaki), cortado al momento", "name_en": "Japanese Wagyu Loin A5 (Miyazaki), cut-to-order", "name_cn": "日本和牛里脊 A5（宫崎），现切", "price": "100gr / 38" },
-        { "code": "052", "name_es": "Chuletón de rubio gallego a la brasa", "name_en": "Grilled Galician blond steak", "name_cn": "碳烤利西亚牛排", "price": "100gr / 9" }
+        { "code": "051", "name_es": "Chuleta de lomo Alto, cortada al momento", "name_en": "Cut-to-Order Rib Eye Steak", "name_cn": "现切肋眼", "price": "28", "price_descript": "por 100gr." },
+        { "code": "051A", "name_es": "Lomo Wagyu Japonés A5 (Miyazaki), cortado al momento", "name_en": "Japanese Wagyu Loin A5 (Miyazaki), cut-to-order", "name_cn": "日本和牛里脊 A5（宫崎），现切", "price": "38", "price_descript": "por 100gr." },
+        { "code": "052", "name_es": "Chuletón de rubio gallego a la brasa", "name_en": "Grilled Galician blond steak", "name_cn": "碳烤利西亚牛排", "price": "80", "price_descript": "por 1kg."  }
       ]
     },
     {
@@ -155,14 +155,14 @@
       "title_en": "Rice and noodles",
       "title_cn": "米饭和面条",
       "items": [
-        { "code": "073", "name_es": "Kamameshi de Pollo", "name_en": "Chicken Kamameshi", "name_cn": "鸡肉釜饭", "price": "15" },
+        { "code": "073", "name_es": "Kamameshi de Pollo", "name_en": "Chicken Kamameshi", "name_cn": "鸡肉釜饭", "price": "12" },
         { "code": "074", "name_es": "Curry de Wagyu clásico del chef con Arroz", "name_en": "Chef’s Classic Wagyu Curry with Rice", "name_cn": "主厨经典和牛咖喱饭", "price": "18" },
         { "code": "075", "name_es": "Kamameshi de Arroz Blanco", "name_en": "Plain Rice Kamameshi", "name_cn": "白釜饭", "price": "5" },
-        { "code": "076", "name_es": "Kamameshi de Anguila y Wagyu", "name_en": "Eel & Wagyu Kamameshi", "name_cn": "蒲烧鳗鱼和牛时雨煮釜饭", "price": "22" },
-        { "code": "077", "name_es": "Kamameshi de Wagyu yakiniku", "name_en": "Wagyu Kamameshi yakiniku", "name_cn": "和牛釜饭", "price": "25" },
-        { "code": "078", "name_es": "Ramen con carne y caldo de wagyu", "name_en": "Ramen with wagyu beef and broth", "name_cn": "特制浓醇和牛高汤拉面", "price": "15" },
+        { "code": "076", "name_es": "Kamameshi de Anguila y Wagyu", "name_en": "Eel & Wagyu Kamameshi", "name_cn": "蒲烧鳗鱼和牛时雨煮釜饭", "price": "18" },
+        { "code": "077", "name_es": "Kamameshi de Wagyu yakiniku", "name_en": "Wagyu Kamameshi yakiniku", "name_cn": "和牛釜饭", "price": "18" },
+        { "code": "078", "name_es": "Ramen con carne y caldo de wagyu", "name_en": "Ramen with wagyu beef and broth", "name_cn": "特制浓醇和牛高汤拉面", "price": "12" },
         { "code": "079", "name_es": "Wagyu yakimeshi: wagyu, arroz salteado, huevo y cebollino", "name_en": "Wagyu yakimeshi: wagyu, sauteed rice, egg and chives", "name_cn": "和牛炒饭：和牛、炒饭、鸡蛋和小葱", "price": "12" },
-        { "code": "080", "name_es": "Wagyu Yakisoba: tallarines de huevo con wagyu y verduras", "name_en": "Wagyu Yakisoba: wagyu egg noodles with vegetables", "name_cn": "和牛炒面加蔬菜", "price": "12" }
+        { "code": "080", "name_es": "Wagyu Yakisoba: tallarines con wagyu y verduras", "name_en": "Wagyu Yakisoba: noodles with wagyu beef and vegetables", "name_cn": "和牛炒面：配和牛和蔬菜", "price": "12" }
       ]
     },
     {

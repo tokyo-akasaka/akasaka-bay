@@ -78,21 +78,18 @@ async function loadMenuComida() {
       "</span></h3>";
 
     sec.items.forEach(function renderItem(it) {
-      let price = "";
-      if (it.price_by_glass && it.price_by_bottle) {
-        price =
-          "🍷 " +
-          it.price_by_glass +
-          "€ <br/>" +
-          "🍾 " +
-          it.price_by_bottle +
-          "€";
-      } else if (it.price_by_glass) {
-        price = "🍷 " + it.price_by_glass + "€";
-      } else if (it.price_by_bottle) {
-        price = "🍾 " + it.price_by_bottle + "€";
-      } else {
-        price = it.price + "€";
+      // 👉 construimos contenedor del precio
+      let priceBlock = "";
+      if (it.price) {
+        priceBlock =
+          '<div class="price-container">' +
+          '<div class="price-main">' +
+          it.price +
+          "€</div>" +
+          (it.price_descript
+            ? '<div class="price-descript">' + it.price_descript + "</div>"
+            : "") +
+          "</div>";
       }
 
       const row = document.createElement("div");
@@ -109,9 +106,8 @@ async function loadMenuComida() {
         "</div>" +
         (it.name_cn ? '<div class="cn muted">' + it.name_cn + "</div>" : "") +
         "</div>" +
-        '<div class="item-price">' +
-        price +
-        "</div>";
+        // 👉 aquí insertamos el nuevo bloque de precio
+        priceBlock;
 
       wrap.appendChild(row);
     });
