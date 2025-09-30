@@ -1,85 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Akasaka Bay</title>
-  <link rel="stylesheet" href="styles.css">
-<script defer src="js/clear.js"></script>
+    <title>Akasaka Bay</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="js/clear.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Logo -->
+      <header class="logo">
+        <img src="img/akasaka-bay-logo.png" alt="Akasaka Bay Logo" />
+      </header>
 
-</head>
-<body>
+      <!-- Menús -->
+      <section class="menus">
+        <h2>Carta · Menu · 菜单</h2>
+        <div class="buttons">
+          <ul>
+            <li>
+              <a href="carta-comida.html" class="menu-btn">
+                🍽️ Carta comida <br />· Food Menu · 食物菜单
+              </a>
+            </li>
+            <li>
+              <a href="carta-bebida.html" class="menu-btn">
+                🍹 Carta bebida <br />· Drinks Menu · 饮料菜单
+              </a>
+            </li>
+            <li>
+              <a href="menu-degustacion.html" class="menu-btn">
+                ⭐ Menú degustación <br />· Tasting Menu · 品鉴菜单
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-  <div class="container">
-    <!-- Logo -->
-    <header class="logo">
-      <img src="img/akasaka-bay-logo.png" alt="Akasaka Bay Logo">
-    </header>
+      <!-- Imagen principal -->
+      <section class="hero">
+        <img src="img/hero.jpg" alt="Yakiniku grill" />
+      </section>
 
-    <!-- Menús -->
-    <section class="menus">
-      <h2>Carta · Menu · 菜单</h2>
-      <div class="buttons">
-        <ul>
-          <li>
-            <a href="carta-comida.html" class="menu-btn">
-              🍽️ Carta comida <br>· Food Menu · 食物菜单
-            </a>
-          </li>
-          <li>
-            <a href="carta-bebida.html" class="menu-btn">
-              🍹 Carta bebida <br>· Drinks Menu · 饮料菜单
-            </a>
-          </li>
-          <li>
-            <a href="menu-degustacion.html" class="menu-btn">
-              ⭐ Menú degustación <br>· Tasting Menu · 品鉴菜单
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
+      <!-- QR y ubicación -->
+      <section class="location">
+        <div class="qr">
+          <img src="img/QR-ubicacion.jpg" alt="QR Google Maps" />
+          <p>
+            Escanea QR, ubicación Google Maps <br />
+            Scan QR to location on Google Maps <br />
+            扫描二维码在 Google 地图中查看位置
+          </p>
+        </div>
+        <div class="map-link">
+          <a
+            href="https://maps.app.goo.gl/iS6YsNH4xA5bWvEP6?g_st=ac"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="img/googleMaps.svg" alt="Map Icon" />
+          </a>
+          <p>
+            Ver ubicación en Google Maps <br />
+            View location on Google Maps <br />
+            在 Google 地图中查看位置
+          </p>
+        </div>
+      </section>
 
-    <!-- Imagen principal -->
-    <section class="hero">
-      <img src="img/hero.jpg" alt="Yakiniku grill">
-    </section>
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <p>
+            Muelle 8, zona de Levante · Local 3 Y 4 · 03001 Alicante - España
+            <br />
+            <span class="phone">T. 966 09 64 05</span>
+          </p>
+        </div>
+      </footer>
+    </div>
 
-    <!-- QR y ubicación -->
-    <section class="location">
-      <div class="qr">
-        <img src="img/QR-ubicacion.jpg" alt="QR Google Maps">
-        <p>
-          Escanea QR, ubicación Google Maps <br>
-          Scan QR to location on Google Maps <br>
-          扫描二维码在 Google 地图中查看位置
-        </p>
-      </div>
-      <div class="map-link">
-        <a href="https://goo.gl/maps/Y2TXiboUe6zvPyQU6?g_st=ac" target="_blank" rel="noopener noreferrer">
-          <img src="img/googleMaps.svg" alt="Map Icon">
-        </a>
-        <p>
-          Ver ubicación en Google Maps <br>
-          View location on Google Maps <br>
-          在 Google 地图中查看位置
-        </p>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <p>
-          Muelle 8, zona de Levante · Local 3 Y 4 · 03001 Alicante - España <br>
-          <span class="phone">T. 966 09 64 05</span>
-        </p>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Script para ajuste de botones -->
-  <script src="js/menu-resize.js"></script>
-</body>
+    <!-- Script para ajuste de botones -->
+    <script src="js/menu-resize.js"></script>
+  </body>
 </html>
