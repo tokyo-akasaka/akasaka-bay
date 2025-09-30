@@ -68,7 +68,7 @@ async function loadMenuComida() {
         .map((id) => {
           const al = allergens.allergens.find((a) => a.id === id);
           return `<div class="allergen">
-                    <img src="/${al.slug}" alt="${al.es}">
+                    <img src="${al.slug}" alt="${al.es}">
                     <span>${al.es}</span>
                   </div>`;
         })
