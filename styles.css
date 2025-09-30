@@ -426,9 +426,10 @@ footer {
 }
 
 #allergen-popup p  {
-font-size: 1.2rem;
+font-size: 0.9rem;
   color: white;
   margin: 8px;
+text-align: left;
 }
 
 

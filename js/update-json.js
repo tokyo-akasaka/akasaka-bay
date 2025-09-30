@@ -62,7 +62,8 @@ async function loadMenuComida() {
 
   function showAllergensForRow(row, codes) {
     if (!codes || codes.length === 0) {
-      allergenPopup.innerHTML = "<p>No contiene alérgenos ✅</p>";
+      allergenPopup.innerHTML =
+        "<p>✅ No contiene alérgenos  </br>✅ No allergens declared   ✅不含过敏原 </p>";
     } else {
       allergenPopup.innerHTML = codes
         .map((id) => {
