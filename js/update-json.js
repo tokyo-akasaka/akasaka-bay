@@ -129,6 +129,14 @@ async function loadMenuComida() {
   });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Crear contenedor fijo
+  const fixed = document.getElementsByClassName("fixed-bottom")[0];
+
+  // Eliminar automáticamente después de 10 segundos
+  setTimeout(() => fixed.remove(), 10000);
+});
+
 // 👉 Llamadas de carga (fuera de las funciones)
 loadMenuBebidas();
 loadMenuComida();

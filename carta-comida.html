@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carta Comida</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="viewer.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carta Comida</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="viewer.css" />
     <script defer src="js/update-json.js"></script>
     <script defer src="js/clear.js"></script>
-
-  
-</head>
-<body>
-  <div class="container">
-
-
-
-    <!-- Barra fija -->
-    <div class="fixed">
-      <div class="header-bar">
-        <a href="index.html" class="back-btn">← Volver al menú</a>
-        <h2>🍽️ Carta Comida</h2>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Barra fija -->
+      <div class="fixed">
+        <div class="header-bar">
+          <a href="index.html" class="back-btn">← Volver al menú</a>
+          <h2>🍽️ Carta Comida</h2>
+        </div>
       </div>
+
+      <div id="menu-comida"></div>
     </div>
 
-<div id="menu-comida"></div>
+    <!-- Overlay para bloquear clics y scroll -->
+    <div id="allergen-overlay"></div>
 
-  </div>
-
-
-  <!-- Overlay para bloquear clics y scroll -->
-<div id="allergen-overlay"></div>
-
-  <!-- Popup para alérgenos (oculto al inicio) -->
-<div id="allergen-popup" style="display:none;">
-  <div id="allergen-content"></div>
-  <span id="close-popup">×</span>
-</div>
-
-</body>
+    <!-- Popup para alérgenos (oculto al inicio) -->
+    <div id="allergen-popup" style="display: none">
+      <div id="allergen-content"></div>
+      <span id="close-popup">×</span>
+    </div>
+    <div class="fixed-bottom">
+      <div id="allergen-hint">
+        Haz clic en cada plato para ver alérgenos - Click each dish to see
+        allergens - 点击每道菜查看过敏原
+      </div>
+    </div>
+  </body>
 </html>
