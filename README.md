@@ -103,7 +103,7 @@ El objetivo fue **crear una carta interactiva** con una solución **HTML dinámi
 
 ## 📌 Roadmap
 
-Puedes consultar el roadmap del proyecto aquí: [Roadmap – Akasaka Bay](./RoadmapAkasakaBay.html)
+Puedes consultar el roadmap del proyecto aquí: <a href="https://tokyo-akasaka.github.io/akasaka-bay/RoadmapAkasakaBay.html" target="_blank">Roadmap – Akasaka Bay</a>
 
 ---
 
