@@ -6,8 +6,8 @@
   <title>Carta Comida</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="viewer.css">
-    <script defer src="update-json.js"></script>
-    <script defer src="clear.js"></script>
+    <script defer src="js/update-json.js"></script>
+    <script defer src="js/clear.js"></script>
 
   
 </head>
@@ -27,5 +27,16 @@
 <div id="menu-comida"></div>
 
   </div>
+
+
+  <!-- Overlay para bloquear clics y scroll -->
+<div id="allergen-overlay"></div>
+
+  <!-- Popup para alérgenos (oculto al inicio) -->
+<div id="allergen-popup" style="display:none;">
+  <div id="allergen-content"></div>
+  <span id="close-popup">×</span>
+</div>
+
 </body>
 </html>
