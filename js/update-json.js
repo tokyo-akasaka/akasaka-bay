@@ -60,10 +60,11 @@ async function loadMenuComida() {
   const allergenPopup = document.getElementById("allergen-popup");
   const overlay = document.getElementById("allergen-overlay");
 
+  // 👉 Función para mostrar alérgenos
   function showAllergensForRow(row, codes) {
     if (!codes || codes.length === 0) {
       allergenPopup.innerHTML =
-        "<p>✅ No contiene alérgenos  </br>✅ No allergens declared   ✅不含过敏原 </p>";
+        "<p>✅ No contiene alérgenos </br>✅ No allergens declared </br>✅ 不含过敏原</p>";
     } else {
       allergenPopup.innerHTML = codes
         .map((id) => {
@@ -82,10 +83,10 @@ async function loadMenuComida() {
 
     allergenPopup.style.display = "flex";
     overlay.style.display = "block";
-
     document.body.style.overflow = "hidden"; // bloquea scroll
   }
 
+  // 👉 Renderizado de secciones
   data.sections.forEach(function renderSection(sec) {
     const wrap = document.createElement("section");
     wrap.className = "menu-section";
@@ -103,6 +104,21 @@ async function loadMenuComida() {
       const row = document.createElement("div");
       row.className = "menu-item";
 
+      // 👉 Lógica avanzada de precios
+      let priceBlock = "";
+      if (it.price) {
+        priceBlock =
+          '<div class="price-container">' +
+          '<div class="price-main">' +
+          it.price +
+          "€</div>" +
+          (it.price_descript
+            ? '<div class="price-descript">' + it.price_descript + "</div>"
+            : "") +
+          "</div>";
+      }
+
+      // 👉 Render del row
       row.innerHTML =
         '<div class="item-info">' +
         (it.code ? `<div class="code">${it.code}</div>` : "") +
@@ -110,8 +126,9 @@ async function loadMenuComida() {
         `<div class="en muted">${it.name_en || ""}</div>` +
         (it.name_cn ? `<div class="cn muted">${it.name_cn}</div>` : "") +
         "</div>" +
-        `<div class="item-price">${it.price ? it.price + "€" : ""}</div>`;
+        priceBlock;
 
+      // 👉 Evento de click para popup
       row.addEventListener("click", () => {
         showAllergensForRow(row, relData[it.code]);
       });
@@ -122,7 +139,7 @@ async function loadMenuComida() {
     root.appendChild(wrap);
   });
 
-  // 👉 cerrar cuando se pinche el overlay
+  // 👉 Cerrar cuando se pinche el overlay
   overlay.addEventListener("click", () => {
     allergenPopup.style.display = "none";
     overlay.style.display = "none";
