@@ -16,7 +16,7 @@ function CamareroMesas() {
     let camareroId;
     try {
       const parsed = JSON.parse(stored);
-      camareroId = parsed.camareroId;
+      camareroId = parsed.id; // 👈 usamos "id" real de la tabla camareros
     } catch (err) {
       console.error("Error leyendo camarero:", err);
       navigate("/camarero");
@@ -28,6 +28,7 @@ function CamareroMesas() {
       return;
     }
 
+    // 🔹 función para cargar mesas
     const loadMesas = async () => {
       const { data, error } = await supabase
         .from("mesas_con_comensales")
@@ -38,12 +39,13 @@ function CamareroMesas() {
       if (error) {
         console.error("Error cargando mesas:", error);
       } else {
-        setMesas(data);
+        setMesas(data || []);
       }
     };
 
     loadMesas();
 
+    // 🔹 suscripción en tiempo real
     const channel = supabase
       .channel("camarero-mesas")
       .on(

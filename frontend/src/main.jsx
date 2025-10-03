@@ -9,6 +9,7 @@ import AperturaComensal from "./pages/AperturaComensal";
 import AdminMesas from "./pages/AdminMesas";
 import MesaDetalle from "./pages/MesaDetalle"; // nueva vista
 import Header from "./components/Header";
+import CamareroLoginOtp from "./pages/CamareroLoginOtp";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -27,6 +28,8 @@ createRoot(document.getElementById("root")).render(
 
         {/* Admin */}
         <Route path="/admin/mesas" element={<AdminMesas />} />
+        {/* Login OTP */}
+        <Route path="/login-otp" element={<CamareroLoginOtp />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
