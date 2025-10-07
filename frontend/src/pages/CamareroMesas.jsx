@@ -9,7 +9,7 @@ function CamareroMesas() {
   useEffect(() => {
     const stored = localStorage.getItem("camarero");
     if (!stored) {
-      navigate("/camarero");
+      navigate("/camarero/login");
       return;
     }
 
@@ -19,12 +19,12 @@ function CamareroMesas() {
       camareroId = parsed.id; // 👈 usamos "id" real de la tabla camareros
     } catch (err) {
       console.error("Error leyendo camarero:", err);
-      navigate("/camarero");
+      navigate("/camarero/mesas");
       return;
     }
 
     if (!camareroId) {
-      navigate("/camarero");
+      navigate("/camarero/login");
       return;
     }
 

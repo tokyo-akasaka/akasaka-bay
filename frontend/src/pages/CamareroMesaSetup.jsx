@@ -32,7 +32,7 @@ function CamareroMesaSetup() {
 
     const payload = {
       mesa: parseInt(numeroMesa, 10),
-      camarero_id: camarero.camareroId,
+      camarero_id: camarero.id,
       num_comensales: parseInt(numComensales, 10),
       session_id: uuidv4(), // ✅ UUID seguro con la librería
       ts: Date.now(),
@@ -43,7 +43,9 @@ function CamareroMesaSetup() {
   };
 
   const baseUrl = window.location.origin;
-  const qrValue = token ? `${baseUrl}/apertura-comensal?token=${token}` : null;
+  const qrValue = token
+    ? `${baseUrl}/comensal/apertura-comensal?token=${token}`
+    : null;
 
   if (!camarero) {
     return (
@@ -60,8 +62,7 @@ function CamareroMesaSetup() {
     <div style={styles.container}>
       <h1>👨‍🍳 Asignación de mesa</h1>
       <p>
-        Camarero activo: <strong>{camarero.nombre}</strong> (ID{" "}
-        {camarero.camareroId})
+        Camarero activo: <strong>{camarero.nombre}</strong> (ID {camarero.id})
       </p>
 
       <div style={styles.field}>

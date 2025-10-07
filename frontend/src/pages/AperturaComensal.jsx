@@ -9,14 +9,18 @@ function AperturaComensal() {
   const [nombre, setNombre] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // 🔹 Decodificar el token del QR
   useEffect(() => {
     const token = searchParams.get("token");
     if (!token) return;
 
     try {
-      const decoded = JSON.parse(atob(token)); // decodificar Base64 → JSON
+      // Normaliza Base64URL → Base64 estándar y decodifica
+      const base64 = token.replace(/-/g, "+").replace(/_/g, "/");
+      const jsonString = atob(base64);
+      const decoded = JSON.parse(jsonString);
 
-      // 🔹 limpiar y normalizar número de mesa (por si venía como ":3")
+      // Limpiar número de mesa (por si venía como ":3")
       decoded.mesa = parseInt(String(decoded.mesa).replace(":", ""), 10);
 
       setTokenData(decoded);
@@ -25,6 +29,7 @@ function AperturaComensal() {
     }
   }, [searchParams]);
 
+  // 🔹 Registrar comensal
   const handleRegistro = async () => {
     if (!nombre.trim()) {
       alert("Introduce tu nombre");
@@ -35,92 +40,104 @@ function AperturaComensal() {
 
     setLoading(true);
 
-    // 1. Buscar mesa en la vista (para saber si existe y estado actual)
-    const { data: mesaVista, error: mesaError } = await supabase
-      .from("mesas_con_comensales")
-      .select("id, estado, comensales_activos, num_comensales")
-      .eq("numero", tokenData.mesa)
-      .single();
+    try {
+      // 1️⃣ Buscar mesa existente
+      const { data: mesaVista } = await supabase
+        .from("mesas_con_comensales")
+        .select("id, estado, comensales_activos, num_comensales")
+        .eq("numero", tokenData.mesa)
+        .maybeSingle();
 
-    let mesaId;
+      let mesaId;
 
-    if (!mesaVista) {
-      // 🔹 Crear mesa nueva porque no existe aún
-      const { data: nuevaMesa, error: insertMesaError } = await supabase
-        .from("mesas")
-        .insert([
-          {
-            numero: tokenData.mesa,
-            estado: true, // la abrimos directamente
-            fecha_apertura: new Date().toISOString(),
-            session_id: tokenData.session_id,
-            camarero_id: tokenData.camarero_id,
-            num_comensales: tokenData.num_comensales,
-          },
-        ])
-        .select("id")
-        .single();
-
-      if (insertMesaError) {
-        console.error("Error creando mesa:", insertMesaError);
-        alert("No se pudo crear la mesa");
-        setLoading(false);
-        return;
-      }
-
-      mesaId = nuevaMesa.id;
-    } else {
-      mesaId = mesaVista.id;
-
-      // 2. Si existe pero está cerrada → abrirla
-      if (mesaVista.estado === false) {
-        const { error: updateError } = await supabase
+      if (!mesaVista) {
+        // 2️⃣ Crear mesa nueva si no existe
+        const { data: nuevaMesa, error: insertMesaError } = await supabase
           .from("mesas")
-          .update({
-            estado: true,
-            fecha_apertura: new Date().toISOString(),
-            session_id: tokenData.session_id,
-            camarero_id: tokenData.camarero_id,
-            num_comensales: tokenData.num_comensales,
-          })
-          .eq("id", mesaVista.id);
+          .insert([
+            {
+              numero: tokenData.mesa,
+              estado: true,
+              fecha_apertura: new Date().toISOString(),
+              session_id: tokenData.session_id,
+              camarero_id: tokenData.camarero_id,
+              num_comensales: tokenData.num_comensales,
+            },
+          ])
+          .select("id")
+          .single();
 
-        if (updateError) {
-          console.error("Error abriendo mesa:", updateError);
-          alert("No se pudo abrir la mesa");
-          setLoading(false);
-          return;
+        if (insertMesaError) throw insertMesaError;
+
+        mesaId = nuevaMesa.id;
+      } else {
+        mesaId = mesaVista.id;
+
+        // 3️⃣ Si existe pero está cerrada → abrirla
+        if (mesaVista.estado === false) {
+          const { error: updateError } = await supabase
+            .from("mesas")
+            .update({
+              estado: true,
+              fecha_apertura: new Date().toISOString(),
+              session_id: tokenData.session_id,
+              camarero_id: tokenData.camarero_id,
+              num_comensales: tokenData.num_comensales,
+            })
+            .eq("id", mesaVista.id);
+
+          if (updateError) throw updateError;
         }
       }
-    }
 
-    // 3. Insertar comensal
-    const { error: insertError } = await supabase.from("comensales").insert([
-      {
-        mesa_id: mesaId,
+      // 4️⃣ Insertar comensal y recuperar su token
+      const { data: nuevoComensal, error: insertError } = await supabase
+        .from("comensales")
+        .insert([
+          {
+            mesa_id: mesaId,
+            nombre: nombre,
+            activo: true,
+            session_id: tokenData.session_id,
+            camarero_id: tokenData.camarero_id,
+          },
+        ])
+        .select("id, token")
+        .single();
+
+      if (insertError) throw insertError;
+
+      // 5️⃣ Redirigir al menú del comensal
+      alert(
+        `✅ Bienvenido ${nombre}, estás registrado en la mesa ${tokenData.mesa}`
+      );
+
+      // 🧠 Guardar datos del comensal en localStorage
+      const comensalData = {
+        id: nuevoComensal.id,
         nombre: nombre,
-        activo: true,
-      },
-    ]);
+        token: nuevoComensal.token,
+        mesa_id: mesaId,
+        session_id: tokenData.session_id,
+        camarero_id: tokenData.camarero_id,
+      };
+      localStorage.setItem("comensal", JSON.stringify(comensalData));
 
-    if (insertError) {
-      console.error("Error insertando comensal:", insertError);
-      alert("No se pudo registrar el comensal");
+      // 🔹 Redirigir al menú del comensal
+      navigate(
+        `/comensal/menu-comida?mesa=${tokenData.mesa}&session_id=${tokenData.session_id}&comensal_token=${nuevoComensal.token}`
+      );
+    } catch (err) {
+      console.error("❌ Error en registro:", err);
+      alert("Ocurrió un error al registrarte. Inténtalo nuevamente.");
+    } finally {
       setLoading(false);
-      return;
     }
-
-    setLoading(false);
-    alert(
-      `Bienvenido ${nombre}, estás registrado en la mesa ${tokenData.mesa}`
-    );
-
-    // Redirigir al componente de mesa (comensal)
-    navigate(`/mesa/${tokenData.mesa}?session_id=${tokenData.session_id}`);
   };
 
+  // 🔸 Si el token no es válido
   if (!tokenData) {
-    return <p>Token inválido o faltante</p>;
+    return <p style={styles.error}>❌ Token inválido o faltante</p>;
   }
 
   return (
@@ -139,6 +156,8 @@ function AperturaComensal() {
           type="text"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
+          placeholder="Ej. Sofía"
+          style={styles.input}
         />
       </div>
 
@@ -149,9 +168,16 @@ function AperturaComensal() {
   );
 }
 
+// 🎨 Estilos
 const styles = {
-  container: { padding: "20px", fontFamily: "Arial" },
+  container: { padding: "20px", fontFamily: "Arial, sans-serif" },
   field: { marginBottom: "15px" },
+  input: {
+    marginLeft: "10px",
+    padding: "6px 10px",
+    borderRadius: "4px",
+    border: "1px solid #ccc",
+  },
   button: {
     marginTop: "20px",
     padding: "10px 15px",
@@ -160,6 +186,11 @@ const styles = {
     border: "none",
     borderRadius: "5px",
     cursor: "pointer",
+  },
+  error: {
+    padding: "20px",
+    fontFamily: "Arial, sans-serif",
+    color: "red",
   },
 };
 
