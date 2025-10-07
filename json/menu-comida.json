@@ -69,7 +69,7 @@
         { "code": "042", "name_es": "Amaebi Matcha Roll: tartar de gamba roja, aguacate, pepino, salmón, crumble de té verde matcha", "name_en": "Amaebi Matcha Roll: red prawn tartar, avocado, cucumber, salmon, matcha green tea crumble", "name_cn": "甘虾抹茶脆卷：红虾他他，牛油果，黄瓜，三文鱼，抹茶绿茶脆粒", "price": "18" },
         { "code": "043", "name_es": "Hamachi Roll: pez limón con aguacate, pepino, wasabi y mayonesa", "name_en": "Hamachi Roll: lemon fish with avocado, cucumber, wasabi and mayonnaise", "name_cn": "鰤鱼卷: 配牛油果、黄瓜、芥末蛋黄酱", "price": "15" },
         { "code": "044", "name_es": "Spicy Tuna Roll: atún picante, mayonesa de chile y tobiko", "name_en": "Spicy Tuna Roll: spicy tuna, chili mayonnaise - flavored tobiko", "name_cn": "辣金枪鱼卷：辣金枪鱼、辣椒蛋黄酱、飞鱼子", "price": "18" },
-        { "code": "045", "name_es": "Sake Pistachio Roll: Uramaki - salmón, jengibre, col, miso, pistacho y sashimi de salmón flambeado con verdura sellada", "name_en": "Sake Pistachio Roll: Uramaki with salmon, ginger, cabbage, miso, pistachio, and flambéed salmon sashimi with sealed vegetables", "name_cn": "三文鱼、姜、卷心菜、味噌、开心果，配炙烤三文鱼刺身和锁汁蔬菜", "price": "15" }
+        { "code": "045", "name_es": "Sake Pistacho Roll: Uramaki - salmón, jengibre, col, miso, pistacho y sashimi de salmón flambeado con verdura sellada", "name_en": "Sake Pistacho Roll: Uramaki with salmon, ginger, cabbage, miso, pistacho, and flambéed salmon sashimi with sealed vegetables", "name_cn": "三文鱼、姜、卷心菜、味噌、开心果，配炙烤三文鱼刺身和锁汁蔬菜", "price": "15" }
       ]
     },
     {
@@ -169,11 +169,11 @@
       "title_en": "Desserts",
       "title_cn": "甜点",
       "items": [
-        { "code": "081", "name_es": "Surtido especial de postres Akasaka Bay (mín 2 per)", "name_en": "Akasaka Bay Deluxe Dessert Platter (min 2 per)", "name_cn": "赤坂湾豪华甜品拼盘", "price": "15" },
+        { "code": "081", "name_es": "Surtido especial de postres Akasaka Bay (mín 2 per)", "name_en": "Akasaka Bay Deluxe Dessert Platter (min 2 per)", "name_cn": "赤坂湾豪华甜品拼盘", "price": "15", "price_descript": "por persona" },
         { "code": "082", "name_es": "Soufflé de Chocolate: bizcocho de choco y choco líquido", "name_en": "Chocolate Soufflé: chocolate sponge cake and liquid choco", "name_cn": "巧克力蛋奶酥：巧克力海绵蛋糕和液体巧克力", "price": "8" },
         { "code": "083", "name_es": "Soufflé de Té y Almendra: bizcocho de té con crema almendra", "name_en": "Tea and Almond Soufflé: tea sponge cake with almond cream", "name_cn": "茶和杏仁蛋奶酥：杏仁奶油茶海绵蛋糕", "price": "8" },
         { "code": "084", "name_es": "Milhojas de Té y Almendra: milhojas de té con crema almendra", "name_en": "Tea and Almond Millefeuille: tea millefeuille with almond cream", "name_cn": "茶和杏仁千层酥：杏仁奶油茶千层酥", "price": "8" },
-        { "code": "085", "name_es": "Helado - pistacho, almendra, avellana, tiramisú o matcha", "name_en": "Ice-cream pistachio, almond, hazelnut, tiramisu or matcha", "name_cn": "冰淇淋(开心果、杏仁榛果、提拉米苏、抹茶)", "price": "6" },
+        { "code": "085", "name_es": "Helado - pistacho, almendra, avellana, tiramisú o matcha", "name_en": "Ice-cream pistacho, almond, hazelnut, tiramisu or matcha", "name_cn": "冰淇淋(开心果、杏仁榛果、提拉米苏、抹茶)", "price": "6" },
         { "code": "086", "name_es": "Sorbete de Temporada Especial del Chef - limón, mango", "name_en": "Chef’s Special Seasonal Sherbet - lemon, mango", "name_cn": "主厨特制季节雪葩(柠檬、芒果)", "price": "6" },
         { "code": "087", "name_es": "Mousse de Chocolate o Yuzu", "name_en": "Chocolate or Yuzu Mousse", "name_cn": "巧克力或柚子慕斯", "price": "9" },
         { "code": "088", "name_es": "Huevo de chocolate blanco y mango", "name_en": "White chocolate and mango egg", "name_cn": "白巧克力芒果蛋", "price": "8.50" }

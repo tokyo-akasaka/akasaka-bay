@@ -10,7 +10,8 @@
         {"code": "203", "name_es": "Nestea / Aquarius 35 cl.", "name_en": "Nestea / Aquarius 35 cl", "price": "4,00"},
         {"code": "204", "name_es": "Mango passion fruit juice", "name_en": "Mango passion fruit juice", "price": "4,80"},
         {"code": "205", "name_es": "Tónica japonesa", "name_en": "Japanese tonic", "price": "3,50"},
-        {"code": "206", "name_es": "Oí ocha 33cl.", "name_en": "Oí green tea 33cl", "price": "4,50"}
+        {"code": "206", "name_es": "Oí ocha 33cl.", "name_en": "Oí green tea 33cl", "price": "4,50"},
+        {"code": "206A", "name_es": "Zumo de naranja natural", "name_en": "Natural orange juice", "price": "4,80"}
       ]
     },
     {
@@ -53,7 +54,7 @@
         {"code": "228", "name_es": "Pentecostes Varietal, Albariño, Treixadura - Rías Baixas", "name_en": "Pentecostes Varietal, Albariño, Treixadura – Rías Baixas", "price": "28,00"},
         {"code": "229", "name_es": "Valdebarón - Rioja", "name_en": "Valdebarón - Rioja", "price_by_glass": "6,00", "price_by_bottle": "28,00"},
         {"code": "230", "name_es": "A Telleira Godello - Ribeiro", "name_en": "A Telleira Godello - Ribeiro", "price": "26,00"},
-        {"code": "230I", "name_es": "Circe Verdejo - Rueda", "name_en": "Circe Verdejo - Rueda", "price": "24,00"}
+        {"code": "230A", "name_es": "Circe Verdejo - Rueda", "name_en": "Circe Verdejo - Rueda", "price": "24,00"}
       ]
     },
     {
@@ -95,7 +96,7 @@
       "items": [
         {"code": "246", "name_es": "Martini blanco / Rosado", "name_en": "Martini White / Rosé", "price": "5,50"},
         {"code": "247", "name_es": "Bacardi - Ron Blanco", "name_en": "Bacardi - White Rum", "price": "6,00"},
-        {"code": "248", "name_es": "Glenfiddich - 15 años", "name_en": "Glenfiddich - 15 years old", "price": "8,50"},
+        {"code": "248", "name_es": "Glenfiddich - 12 años", "name_en": "Glenfiddich - 12 years old", "price": "8,50"},
         {"code": "249", "name_es": "Baileys", "name_en": "Baileys", "price": "5,50"},
         {"code": "250", "name_es": "El Afilador (Licor de hierbas)", "name_en": "El Afilador (Herbal Liqueur)", "price": "5,50"},
         {"code": "251", "name_es": "El Afilador - Tradicional", "name_en": "El Afilador - Traditional", "price": "5,50"},

@@ -272,7 +272,7 @@ footer {
   margin: 12px 0;
   border-bottom: 1px solid #fff3;
   padding-bottom: 6px;
-  color: red;
+  color: white;
   text-align: center;
 }
 .menu-item {
@@ -287,7 +287,7 @@ footer {
   max-width: 70%;
 }
 .code {
-  color: red;
+  color: white;
   font-weight: bold;
   text-align: left;
   white-space: nowrap;
