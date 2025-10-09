@@ -1,11 +1,16 @@
 // src/App.jsx
 
-function App() {
+export default function App() {
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h1>Bienvenido a Akasaka Bay</h1>
+    <div className="container">
+      <main>
+        <h1 className="logo">
+          <img src="/logo.png" alt="Logo del restaurante" />
+        </h1>
+        <section className="menus">
+          <h2>Bienvenido a nuestra carta digital</h2>
+        </section>
+      </main>
     </div>
   );
 }
-
-export default App;

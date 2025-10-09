@@ -1,0 +1,120 @@
+/* === Navegación principal === */
+.header-bar .nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* === Dropdown general === */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #6f4036;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+.dropbtn:hover {
+  background: #ff3b3b;
+}
+
+/* === Contenedor del menú desplegable === */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #fff;
+  color: #222;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  overflow: hidden;
+  z-index: 1001;
+}
+
+/* === Enlaces dentro del dropdown === */
+.dropdown-content a {
+  display: block;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #333;
+  background-color: #fff;
+  transition: background 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #ffefef;
+  color: #b10a0a;
+}
+
+/* === Mostrar el dropdown al pasar el ratón === */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* === Logo principal (Carta Digital) === */
+.logo-btn {
+  font-weight: bold;
+  font-size: 1.1rem;
+  background: #6f4036;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.logo-btn:hover {
+  background: #ff3b3b;
+  transform: translateY(-1px);
+}
+
+
+/* === Ajustes visuales del header === */
+.header-bar .left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo "Carta Digital" */
+.logo-btn {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.05rem;
+  background: #6f4036;
+  color: #fff !important;
+  padding: 6px 14px;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  transition: background 0.2s ease, transform 0.1s ease;
+  text-decoration: none;
+}
+.logo-btn:hover {
+  background: #ff3b3b;
+  transform: translateY(-1px);
+}
+
+/* Botón Logout */
+.logout-btn {
+  background: #ff3b3b !important;
+  color: #fff !important;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.logout-btn:hover {
+  background: #d12a2a !important;
+}
+

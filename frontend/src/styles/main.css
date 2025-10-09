@@ -1,0 +1,134 @@
+/* === Reset general === */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #4b2c25;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+/* === Contenedor principal === */
+.container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: #422721 solid 10px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+/* === Logo === */
+.logo img {
+  max-width: 60%;
+  margin: 20px auto 10px;
+  display: block;
+}
+
+/* === Menús principales === */
+.menus {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.menus h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.buttons ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.buttons li {
+  margin: 15px 0;
+}
+
+/* === Botones del menú === */
+.menu-btn {
+  display: block;
+  max-width: 500px;
+  margin: 0 auto;
+  background: #6f4036;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+.menu-btn:hover {
+  background: #ff3b3b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+}
+
+.menu-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+
+/* === Footer === */
+footer {
+  border-top: #b10a0a solid 1px;
+  padding: 15px;
+  font-size: 16px;
+  background-color: #4b2c25;
+  color: #fff;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo {
+  max-width: 50px;
+  margin-bottom: 10px;
+}
+
+.phone {
+  color: #ff3b3b;
+  font-weight: bold;
+}
+
+/* === Responsive básico === */
+@media (min-width: 768px) {
+  .menus h2 {
+    font-size: 24px;
+  }
+
+  .menu-btn {
+    font-size: 18px;
+  }
+
+  .logo img {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .logo img {
+    max-width: 400px;
+  }
+}

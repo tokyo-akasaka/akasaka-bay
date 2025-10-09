@@ -1,9 +1,14 @@
+// src/main.jsx
+
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./styles/main.css";
+import "./styles/layout.css";
 
 import App from "./App";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 // 🧍‍♂️ Comensal
 import AperturaComensal from "./pages/AperturaComensal";
@@ -41,6 +46,7 @@ createRoot(document.getElementById("root")).render(
         {/* === 🧑‍💼 ADMIN === */}
         <Route path="/admin/mesas" element={<AdminMesas />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   </StrictMode>
 );
