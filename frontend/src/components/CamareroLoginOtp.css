@@ -1,0 +1,35 @@
+/*frontend/src/components/CamareroLoginOtp.css */
+.login-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login-input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #005fa3;
+}
+
+.login-message {
+  margin-top: 15px;
+  color: #333;
+}

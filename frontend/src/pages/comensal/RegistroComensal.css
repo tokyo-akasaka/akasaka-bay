@@ -1,0 +1,74 @@
+/* frontend/src/pages/comensal/RegistroComensal.css */
+
+.registro-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #fffdf8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.registro-container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #d35400;
+}
+
+.registro-container p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #444;
+}
+
+.registro-field {
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.registro-field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.registro-input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #e67e22;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.registro-input:focus {
+  border-color: #d35400;
+}
+
+.registro-button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background-color: #e67e22;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.registro-button:hover {
+  background-color: #d35400;
+}
+
+.registro-error,
+.registro-loading {
+  text-align: center;
+  color: #c0392b;
+  font-size: 1.1rem;
+  margin-top: 3rem;
+}

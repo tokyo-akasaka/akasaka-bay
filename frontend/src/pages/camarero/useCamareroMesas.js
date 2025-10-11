@@ -1,8 +1,10 @@
+// frontend/src/pages/camarero/useCamareroMesas.js
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "../../lib/supabaseClient";
 
-function CamareroMesas() {
+export default function useCamareroMesas() {
   const navigate = useNavigate();
   const [mesas, setMesas] = useState([]);
 
@@ -16,10 +18,10 @@ function CamareroMesas() {
     let camareroId;
     try {
       const parsed = JSON.parse(stored);
-      camareroId = parsed.id; // 👈 usamos "id" real de la tabla camareros
+      camareroId = parsed.id;
     } catch (err) {
       console.error("Error leyendo camarero:", err);
-      navigate("/camarero/mesas");
+      navigate("/camarero/login");
       return;
     }
 
@@ -28,11 +30,12 @@ function CamareroMesas() {
       return;
     }
 
-    // 🔹 función para cargar mesas
     const loadMesas = async () => {
       const { data, error } = await supabase
         .from("mesas_con_comensales")
-        .select("id, numero, estado, num_comensales, comensales_activos")
+        .select(
+          "id, numero, estado, num_comensales, comensales_activos, platos_pendientes"
+        )
         .eq("camarero_id", camareroId)
         .order("numero", { ascending: true });
 
@@ -45,7 +48,6 @@ function CamareroMesas() {
 
     loadMesas();
 
-    // 🔹 suscripción en tiempo real
     const channel = supabase
       .channel("camarero-mesas")
       .on(
@@ -64,43 +66,5 @@ function CamareroMesas() {
     navigate(`/camarero/mesas/${numero}`);
   };
 
-  return (
-    <div style={styles.container}>
-      <h1>👨‍🍳 Mis Mesas</h1>
-      <div style={styles.grid}>
-        {mesas.map((mesa) => (
-          <div
-            key={mesa.id}
-            style={styles.card}
-            onClick={() => verMesa(mesa.numero)}
-          >
-            <h2>Mesa {mesa.numero}</h2>
-            <p>Estado: {mesa.estado ? "abierta" : "cerrada"}</p>
-            <p>
-              Comensales: {mesa.comensales_activos}/{mesa.num_comensales}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+  return { mesas, verMesa };
 }
-
-const styles = {
-  container: { padding: "20px", fontFamily: "Arial" },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-    gap: "20px",
-  },
-  card: {
-    border: "1px solid #ddd",
-    borderRadius: "8px",
-    padding: "15px",
-    background: "white",
-    cursor: "pointer",
-    transition: "0.2s",
-  },
-};
-
-export default CamareroMesas;

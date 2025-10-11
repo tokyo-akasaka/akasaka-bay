@@ -11,38 +11,35 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 // 🧍‍♂️ Comensal
-import AperturaComensal from "./pages/AperturaComensal";
-import MenuComida from "./pages/MenuComida";
-import LineasPedidos from "./pages/LineasPedidos";
+import RegistroComensal from "./pages/comensal/RegistroComensal";
+import MenuComida from "./components/MenuComida";
+import LineasPedidos from "./pages/comensal/LineasPedidos";
 
 // 👨‍🍳 Camarero
-import CamareroLoginOtp from "./pages/CamareroLoginOtp";
-import CamareroMesaSetup from "./pages/CamareroMesaSetup";
-import CamareroMesas from "./pages/CamareroMesas";
-import MesaDetalle from "./pages/MesaDetalle";
+import CamareroLoginOtp from "./components/CamareroLoginOtp";
+import CamareroMesaSetup from "./pages/camarero/CamareroMesaSetup";
+import CamareroMesas from "./pages/camarero/CamareroMesas";
+import MesaDetalle from "./pages/camarero/MesaDetalleCamarero";
 
 // 🧑‍💼 Admin
-import AdminMesas from "./pages/AdminMesas";
+import AdminMesas from "./pages/admin/AdminMesas";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Header />
       <Routes>
-        x{/* Página principal */}
+        {/* Página principal */}
         <Route path="/" element={<App />} />
         {/* === 🧍‍♂️ COMENSAL === */}
-        <Route
-          path="/comensal/apertura-comensal"
-          element={<AperturaComensal />}
-        />
         <Route path="/comensal/menu-comida" element={<MenuComida />} />
         <Route path="/comensal/mesa/:numero" element={<LineasPedidos />} />
+        <Route path="/comensal/registro" element={<RegistroComensal />} />
         {/* === 👨‍🍳 CAMARERO === */}
         <Route path="/camarero/login" element={<CamareroLoginOtp />} />
         <Route path="/camarero/setup" element={<CamareroMesaSetup />} />
         <Route path="/camarero/mesas" element={<CamareroMesas />} />
-        <Route path="/camarero/mesas/:numero" element={<MesaDetalle />} />
+        <Route path="/camarero/mesas/:id" element={<MesaDetalle />} />
         {/* === 🧑‍💼 ADMIN === */}
         <Route path="/admin/mesas" element={<AdminMesas />} />
       </Routes>

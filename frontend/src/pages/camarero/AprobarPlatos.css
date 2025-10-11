@@ -1,0 +1,88 @@
+/* frontend/src/pages/camarero/AprobarPlatos.css */
+
+.platos-container {
+  background: #4b2c25;
+  border: 1px solid #633730;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 10px;
+}
+
+.platos-list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.plato-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #5a322a;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.plato-nombre {
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.plato-cantidad {
+  font-size: 0.9em;
+  color: #ddd;
+  margin: 0 10px;
+}
+
+.btn-aprobar,
+.btn-aprobar-todos {
+  background: #28a745;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-aprobar-todos {
+  display: block;
+  margin: 10px auto;
+}
+
+.btn-aprobar:hover,
+.btn-aprobar-todos:hover {
+  background: #218838;
+}
+
+.plato-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-aprobar {
+  background: #28a745;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-eliminar {
+  background: #c0392b;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.btn-eliminar:hover {
+  background: #a93226;
+}

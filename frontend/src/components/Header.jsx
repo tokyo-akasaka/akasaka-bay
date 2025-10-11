@@ -9,21 +9,32 @@ function Header() {
   const [comensal, setComensal] = useState(null);
   const navigate = useNavigate();
 
-  // 🔹 Cargar camarero desde localStorage
+  // 🔹 Cargar camarero desde localStorage y escuchar login
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem("camarero");
-      if (!stored) return;
-      const parsed = JSON.parse(stored);
-      if (parsed && parsed.id && parsed.nombre) {
-        setCamarero(parsed);
-      } else {
+    const loadCamarero = () => {
+      try {
+        const stored = localStorage.getItem("camarero");
+        if (!stored) return setCamarero(null);
+        const parsed = JSON.parse(stored);
+        if (parsed?.id && parsed?.nombre) {
+          setCamarero(parsed);
+        } else {
+          localStorage.removeItem("camarero");
+          setCamarero(null);
+        }
+      } catch (err) {
+        console.error("Error leyendo datos de camarero:", err);
         localStorage.removeItem("camarero");
+        setCamarero(null);
       }
-    } catch (err) {
-      console.error("Error leyendo datos de camarero:", err);
-      localStorage.removeItem("camarero");
-    }
+    };
+
+    loadCamarero();
+    window.addEventListener("camarero-login", loadCamarero);
+
+    return () => {
+      window.removeEventListener("camarero-login", loadCamarero);
+    };
   }, []);
 
   // 🔹 Cargar comensal desde localStorage
@@ -32,13 +43,7 @@ function Header() {
       const stored = localStorage.getItem("comensal");
       if (!stored) return;
       const parsed = JSON.parse(stored);
-      if (
-        parsed &&
-        parsed.id &&
-        parsed.nombre &&
-        parsed.token &&
-        parsed.mesa_id
-      ) {
+      if (parsed?.id && parsed?.nombre && parsed?.token && parsed?.mesa_id) {
         setComensal(parsed);
       } else {
         localStorage.removeItem("comensal");

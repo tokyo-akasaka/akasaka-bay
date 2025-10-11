@@ -1,0 +1,58 @@
+/* frontend/src/pages/admin/AdminMesas.css */
+
+.admin-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #4b2c25;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* 📱 Móvil por defecto */
+.admin-table {
+  margin: 0 auto;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-table th {
+  background-color: #6f4036;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+}
+
+.admin-table tr:hover {
+  background-color: #765656;
+  color: #ffffff;
+}
+
+.admin-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* 🔴 Estilo para platos pendientes */
+.alerta {
+  color: #d40000;
+  font-weight: bold;
+}
+
+/* 💻 Escritorio */
+@media (min-width: 768px) {
+  .admin-table {
+    display: table;
+    white-space: normal;
+    font-size: 1rem;
+  }
+}

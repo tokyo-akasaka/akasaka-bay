@@ -1,0 +1,59 @@
+/* frontend/src/pages/comensal/LineasPedidos.css */
+
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.msg {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card {
+  display: flex;
+  gap: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.info {
+  flex: 1;
+}
+
+.badge {
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Colores según estado */
+.badge.pendiente {
+  background: #ffc107;
+}
+
+.badge.confirmado {
+  background: #28a745;
+}
+
+.badge.otro {
+  background: #6c757d;
+}

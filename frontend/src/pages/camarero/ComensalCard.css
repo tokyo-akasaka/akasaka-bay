@@ -1,0 +1,49 @@
+
+/*frontend/src/pages/camarero/ComensalCard.css*/
+
+/* === Botones secundarios === */
+.comensal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  gap: 0.5rem;
+}
+
+.btn-toggle,
+.btn-qr {
+  flex: 1;
+  padding: 6px 8px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-toggle {
+  background-color: #6f4036;
+  color: #fff;
+}
+.btn-toggle:hover {
+  background-color: #8b554a;
+}
+
+.btn-qr {
+  background-color: #ffeb99;
+  color: #222;
+}
+.btn-qr:hover {
+  background-color: #ffe36c;
+}
+
+/* === QR individual === */
+.qr-individual {
+  text-align: center;
+  margin-top: 0.6rem;
+}
+
+.qr-individual p {
+  font-size: 0.8rem;
+  margin-top: 6px;
+  color: #fff;
+}

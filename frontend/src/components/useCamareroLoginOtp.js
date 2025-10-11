@@ -2,20 +2,18 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
 
-function CamareroLoginOtp() {
+export default function useCamareroLoginOtp() {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState("request"); // "request" o "verify"
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
-  // Paso 1: pedir OTP al correo
+  // Paso 1️⃣: Enviar OTP al correo
   const sendOtp = async () => {
     const { error } = await supabase.auth.signInWithOtp({
       email,
-      options: {
-        shouldCreateUser: false, // evita crear usuario si no existe
-      },
+      options: { shouldCreateUser: false },
     });
 
     if (error) {
@@ -26,7 +24,7 @@ function CamareroLoginOtp() {
     }
   };
 
-  // Paso 2: verificar OTP introducido
+  // Paso 2️⃣: Verificar OTP introducido
   const verifyOtp = async () => {
     const {
       data: { session },
@@ -34,66 +32,58 @@ function CamareroLoginOtp() {
     } = await supabase.auth.verifyOtp({
       email,
       token: otp,
-      type: "email", // OTP por email
+      type: "email",
     });
 
-    if (error) {
+    console.log("DEBUG verifyOtp: session =", session, "error =", error);
+
+    if (error || !session) {
       setMessage("❌ OTP incorrecto o caducado.");
       return;
     }
 
     const authUser = session.user;
+    console.log("DEBUG authUser:", authUser);
 
-    // Buscar camarero en tu tabla
     const { data: camarero, error: camError } = await supabase
       .from("camareros")
       .select("id, nombre, email")
       .eq("email", authUser.email)
       .single();
 
+    console.log("DEBUG camarero:", camarero, "camError:", camError);
+
     if (camError || !camarero) {
       setMessage("⚠️ No existe un camarero con ese email en la base de datos");
       return;
     }
 
-    // Guardamos el camarero real en localStorage
-    localStorage.setItem("camarero", JSON.stringify(camarero));
+    try {
+      localStorage.setItem("camarero", JSON.stringify(camarero));
+      window.dispatchEvent(new Event("camarero-login")); // 🔔 Notificar al Header
+      console.log(
+        "DEBUG localStorage after set:",
+        localStorage.getItem("camarero")
+      );
+    } catch (e) {
+      console.error("ERROR al guardar en localStorage:", e);
+    }
 
     setMessage(`🎉 Bienvenido ${camarero.nombre} (ID ${camarero.id})`);
-    navigate("/camarero/mesas");
+
+    setTimeout(() => {
+      navigate("/camarero/mesas");
+    }, 50);
   };
 
-  return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h1>🔑 Login Camarero</h1>
-
-      {step === "request" && (
-        <>
-          <input
-            type="email"
-            placeholder="Tu email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button onClick={sendOtp}>Enviar código</button>
-        </>
-      )}
-
-      {step === "verify" && (
-        <>
-          <input
-            type="text"
-            placeholder="Introduce el código recibido"
-            value={otp}
-            onChange={(e) => setOtp(e.target.value)}
-          />
-          <button onClick={verifyOtp}>Verificar</button>
-        </>
-      )}
-
-      {message && <p>{message}</p>}
-    </div>
-  );
+  return {
+    email,
+    otp,
+    step,
+    message,
+    setEmail,
+    setOtp,
+    sendOtp,
+    verifyOtp,
+  };
 }
-
-export default CamareroLoginOtp;
