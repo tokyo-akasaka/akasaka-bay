@@ -14,63 +14,100 @@ export default function useMesaDetalle() {
   const [qrToken, setQrToken] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const loadMesa = async () => {
-      setLoading(true);
-      try {
-        const { data: mesaData, error: mesaError } = await supabase
-          .from("mesas")
-          .select("id, numero, estado, num_comensales, camarero_id, session_id")
-          .eq("numero", id)
-          .eq("estado", true)
-          .single();
+  // ✅ Función común para cargar datos de la mesa
+  const loadMesa = async () => {
+    setLoading(true);
+    try {
+      // 📦 Consultar mesa activa
+      const { data: mesaData, error: mesaError } = await supabase
+        .from("mesas")
+        .select("id, numero, estado, num_comensales, camarero_id, session_id")
+        .eq("numero", id)
+        .eq("estado", true)
+        .single();
 
-        if (mesaError || !mesaData) {
-          console.error("No se encontró mesa activa:", mesaError);
-          setMesa(null);
-          setComensales([]);
-          return;
-        }
-        setMesa(mesaData);
-
-        // Cargar comensales
-        const { data: comData, error: comErr } = await supabase
-          .from("comensales")
-          .select("id, nombre, activo, token, mesa_id")
-          .eq("mesa_id", mesaData.id);
-
-        if (comErr) {
-          console.error("Error cargando comensales:", comErr);
-          setComensales([]);
-        } else {
-          setComensales(comData);
-        }
-
-        // Preparar token
-        const payload = {
-          mesa_id: mesaData.id,
-          mesa_numero: mesaData.numero,
-          camarero_id: mesaData.camarero_id,
-          num_comensales: mesaData.num_comensales,
-          session_id: mesaData.session_id,
-        };
-        console.log("DEBUG payload QR:", payload);
-
-        const encoded = btoa(JSON.stringify(payload));
-        console.log("DEBUG encoded token:", encoded);
-
-        setQrToken(
-          `${window.location.origin}/comensal/registro?token=${encoded}`
-        );
-      } catch (err) {
-        console.error("Error en useMesaDetalle:", err);
-      } finally {
-        setLoading(false);
+      if (mesaError || !mesaData) {
+        console.error("No se encontró mesa activa:", mesaError);
+        setMesa(null);
+        setComensales([]);
+        return;
       }
-    };
 
+      setMesa(mesaData);
+
+      // 👥 Cargar comensales
+      const { data: comData, error: comErr } = await supabase
+        .from("comensales")
+        .select("id, nombre, activo, token, mesa_id")
+        .eq("mesa_id", mesaData.id);
+
+      if (comErr) {
+        console.error("Error cargando comensales:", comErr);
+        setComensales([]);
+      } else {
+        setComensales(comData);
+      }
+
+      // 🎟️ Generar token QR para nuevos comensales
+      const payload = {
+        mesa_id: mesaData.id,
+        mesa_numero: mesaData.numero,
+        camarero_id: mesaData.camarero_id,
+        num_comensales: mesaData.num_comensales,
+        session_id: mesaData.session_id,
+      };
+      console.log("DEBUG payload QR:", payload);
+
+      const encoded = btoa(JSON.stringify(payload));
+      console.log("DEBUG encoded token:", encoded);
+
+      setQrToken(
+        `${window.location.origin}/comensal/registro?token=${encoded}`
+      );
+    } catch (err) {
+      console.error("Error en loadMesa:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // ✅ 1️⃣ Cargar datos iniciales al montar o cambiar mesa
+  useEffect(() => {
     loadMesa();
   }, [id]);
+
+  // ✅ 2️⃣ Suscribirse a eventos en tiempo real (pedidos + comensales)
+  useEffect(() => {
+    const channelPedidos = supabase
+      .channel("lineas_pedido_updates")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "lineas_pedido" },
+        (payload) => {
+          console.log("🧾 Cambio detectado en lineas_pedido:", payload);
+          loadMesa();
+        }
+      )
+      .subscribe();
+
+    const channelComensales = supabase
+      .channel("comensales_updates")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "comensales" },
+        (payload) => {
+          console.log("🧍‍♀️ Cambio detectado en comensales:", payload);
+          loadMesa();
+        }
+      )
+      .subscribe();
+
+    // 🧹 Limpieza al desmontar
+    return () => {
+      supabase.removeChannel(channelPedidos);
+      supabase.removeChannel(channelComensales);
+    };
+  }, []); // 👈 solo se crea una vez al montar
 
   return {
     mesa,

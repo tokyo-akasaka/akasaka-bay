@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useMemo } from "react";
 import QRCode from "react-qr-code";
-import AprobarPlatos from "./AprobarPlatos";
+import AprobarPlatos from "../AprobarPlatos";
 import { supabase } from "../../lib/supabaseClient";
-import "./ComensalCard.css";
+import "../comensal/ComensalCard.css";
 
 function ComensalCard({ comensal }) {
   const [mostrarPlatos, setMostrarPlatos] = useState(false);

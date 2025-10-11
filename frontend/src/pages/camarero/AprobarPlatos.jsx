@@ -1,4 +1,5 @@
 // frontend/src/pages/camarero/AprobarPlatos.jsx
+
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
 import "./AprobarPlatos.css";

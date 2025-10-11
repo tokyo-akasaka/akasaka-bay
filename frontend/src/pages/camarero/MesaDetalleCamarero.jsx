@@ -2,7 +2,7 @@
 
 import React from "react";
 import useMesaDetalle from "./useMesaDetalleCamarero";
-import ComensalCard from "./ComensalCard";
+import ComensalCard from "../comensal/ComensalCard";
 import QRCode from "react-qr-code";
 import "./MesaDetalleCamarero.css";
 
