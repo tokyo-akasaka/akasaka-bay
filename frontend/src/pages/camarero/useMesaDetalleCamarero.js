@@ -35,7 +35,7 @@ export default function useMesaDetalle() {
 
       setMesa(mesaData);
 
-      // 👥 Cargar comensales
+      // 👥 Cargar comensales actuales
       const { data: comData, error: comErr } = await supabase
         .from("comensales")
         .select("id, nombre, activo, token, mesa_id")
@@ -48,22 +48,29 @@ export default function useMesaDetalle() {
         setComensales(comData);
       }
 
-      // 🎟️ Generar token QR para nuevos comensales
+      // 🎟️ Generar token QR para nuevos comensales (sin token de comensal)
       const payload = {
         mesa_id: mesaData.id,
         mesa_numero: mesaData.numero,
         camarero_id: mesaData.camarero_id,
         num_comensales: mesaData.num_comensales,
         session_id: mesaData.session_id,
+        ts: Date.now(),
       };
+
       console.log("DEBUG payload QR:", payload);
 
-      const encoded = btoa(JSON.stringify(payload));
-      console.log("DEBUG encoded token:", encoded);
-
-      setQrToken(
-        `${window.location.origin}/comensal/registro?token=${encoded}`
+      // ✅ Codificación robusta en UTF-8 → evita caracteres inválidos
+      const encoded = btoa(
+        unescape(encodeURIComponent(JSON.stringify(payload)))
       );
+
+      // ✅ El QR apunta al registro de comensal (no a menú ni mesa)
+      const qrUrl = `${window.location.origin}/comensal/registro?token=${encoded}`;
+
+      console.log("DEBUG QR generado:", qrUrl);
+
+      setQrToken(qrUrl);
     } catch (err) {
       console.error("Error en loadMesa:", err);
     } finally {

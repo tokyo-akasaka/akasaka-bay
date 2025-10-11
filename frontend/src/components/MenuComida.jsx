@@ -29,12 +29,12 @@ function MenuComida() {
           <h2 className="menu-section-title">{cat.title_es}</h2>
 
           <div className="menu-grid">
-            {cat.items.length === 0 ? (
+            {!Array.isArray(cat.platos) || cat.platos.length === 0 ? ( // ← aquí antes decía .items
               <p className="menu-empty">
                 No hay platos disponibles en esta categoría.
               </p>
             ) : (
-              cat.items.map((plato) => (
+              cat.platos.map((plato) => (
                 <div key={plato.id} className="menu-card">
                   {plato.imagen && (
                     <img

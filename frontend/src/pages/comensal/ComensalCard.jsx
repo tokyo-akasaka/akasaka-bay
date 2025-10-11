@@ -1,4 +1,5 @@
 // frontend/src/pages/comensal/ComensalCard.jsx
+
 import QRCode from "react-qr-code";
 import AprobarPlatos from "../camarero/AprobarPlatos";
 import { useComensalCard } from "./useComensalCard";

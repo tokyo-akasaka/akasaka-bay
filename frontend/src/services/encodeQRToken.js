@@ -6,7 +6,7 @@
  * que puede ser incluido en un código QR.
  *
  * Este token será utilizado por el cliente comensal para unirse a una mesa
- * a través del flujo de apertura inicial (/comensal/apertura-comensal?token=...).
+ * a través del flujo de apertura inicial (/comensal/registro-comensal?token=...).
  *
  * Ejemplo de datos codificados:
  * {

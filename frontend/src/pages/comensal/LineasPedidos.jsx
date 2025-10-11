@@ -1,4 +1,4 @@
-// frontend/src/pages/comensal/LineasPedidos.jsx
+// 📁 frontend/src/pages/comensal/LineasPedidos.jsx
 
 import { useLineasPedidos } from "./useLineasPedidos";
 import "./LineasPedidos.css";

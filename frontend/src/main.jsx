@@ -7,7 +7,7 @@ import "./styles/main.css";
 import "./styles/layout.css";
 
 import App from "./App";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 
 // 🧍‍♂️ Comensal

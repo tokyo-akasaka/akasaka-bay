@@ -95,7 +95,7 @@ export function useComensalCard(comensal) {
       session_id: comensal.session_id,
       ts: Date.now(),
     };
-    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+    const encoded = btoa(JSON.stringify(payload)); // ← escape eliminado
     return `${window.location.origin}/comensal/menu-comida?mesa=${comensal.mesa_id}&comensal=${comensal.id}&token=${encoded}`;
   }, [comensal]);
 
