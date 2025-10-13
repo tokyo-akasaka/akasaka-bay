@@ -1,12 +1,15 @@
 // frontend/src/pages/camarero/MesaDetalleCamarero.jsx
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 import useMesaDetalle from "./useMesaDetalleCamarero";
 import ComensalCard from "../comensal/ComensalCard";
 import QRCode from "react-qr-code";
 import "./MesaDetalleCamarero.css";
 
 function MesaDetalleCamarero() {
+  const { t } = useTranslation();
+
   const {
     mesa,
     comensales,
@@ -17,10 +20,8 @@ function MesaDetalleCamarero() {
     navigate,
   } = useMesaDetalle();
 
-  console.log("DEBUG mostrarQR:", mostrarQR, "qrValue:", qrValue);
-
-  if (loading) return <p className="msg">⏳ Cargando mesa...</p>;
-  if (!mesa) return <p className="msg">❌ No se encontró la mesa activa.</p>;
+  if (loading) return <p className="msg">{t("table_detail_waiter.loading")}</p>;
+  if (!mesa) return <p className="msg">{t("table_detail_waiter.not_found")}</p>;
 
   const comensalesActivos = comensales.filter((c) => c.activo).length;
 
@@ -29,33 +30,39 @@ function MesaDetalleCamarero() {
       <header className="mesa-header">
         <div className="mesa-left">
           <button className="back-btn" onClick={() => navigate(-1)}>
-            ⬅ Volver
+            ⬅ {t("table_detail_waiter.back")}
           </button>
-          <h1 className="mesa-titulo">🍽️ Mesa {mesa.numero}</h1>
+          <h1 className="mesa-titulo">
+            🍽️ {t("table_detail_waiter.table")} {mesa.numero}
+          </h1>
         </div>
         <button
           className="qr-btn small"
           onClick={() => setMostrarQR(!mostrarQR)}
         >
-          {mostrarQR ? "Ocultar QR" : "Mostrar QR"}
+          {mostrarQR
+            ? t("table_detail_waiter.hide_qr")
+            : t("table_detail_waiter.show_qr")}
         </button>
       </header>
 
       <section className="mesa-info">
         <div>
-          <strong>Comensales activos:</strong> {comensalesActivos} /{" "}
-          {mesa.num_comensales}
+          <strong>{t("table_detail_waiter.active_guests")}:</strong>{" "}
+          {comensalesActivos} / {mesa.num_comensales}
         </div>
         <div>
-          <strong>Estado:</strong>{" "}
+          <strong>{t("table_detail_waiter.status")}:</strong>{" "}
           <span className={mesa.estado ? "open" : "closed"}>
-            {mesa.estado ? "Abierta" : "Cerrada"}
+            {mesa.estado
+              ? t("table_detail_waiter.open")
+              : t("table_detail_waiter.closed")}
           </span>
         </div>
       </section>
 
       <section className="mesa-comensales">
-        <h2>👥 Lista de comensales</h2>
+        <h2>{t("table_detail_waiter.guest_list")}</h2>
         {comensales.length > 0 ? (
           <div className="comensales-grid">
             {comensales.map((c) => (
@@ -63,14 +70,18 @@ function MesaDetalleCamarero() {
             ))}
           </div>
         ) : (
-          <p className="sin-comensales">No hay comensales registrados aún.</p>
+          <p className="sin-comensales">
+            {t("table_detail_waiter.no_guests_yet")}
+          </p>
         )}
       </section>
 
       {mostrarQR && qrValue ? (
         <section className="qr-section">
           <QRCode value={qrValue} size={200} />
-          <p>📱 Escanea para unirte a la mesa número: {mesa.numero}</p>
+          <p>
+            {t("table_detail_waiter.scan_to_join")} {mesa.numero}
+          </p>
         </section>
       ) : null}
     </div>

@@ -1,29 +1,28 @@
 // frontend/src/pages/camarero/AprobarPlatos.jsx
-
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
+import { useTranslation } from "react-i18next";
 import "./AprobarPlatos.css";
 
 /**
  * ✅ Muestra los platos pendientes del comensal y permite aprobar o eliminar
  */
 function AprobarPlatos({ comensalId }) {
+  const { t } = useTranslation();
   const [platos, setPlatos] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  /** 🔹 Cargar platos pendientes del comensal */
   useEffect(() => {
     if (!comensalId) return;
 
     const fetchPendientes = async () => {
       setLoading(true);
 
-      // 1️⃣ Traer las líneas pendientes o confirmadas
       const { data: lineas, error: err1 } = await supabase
         .from("lineas_pedido")
         .select("id, cantidad, estado, plato_id")
         .eq("comensal_id", comensalId)
-        .in("estado", ["pendiente", "confirmado"]); // ahora traemos ambas
+        .in("estado", ["pendiente", "confirmado"]);
 
       if (err1) {
         console.error("❌ Error cargando lineas_pedido:", err1);
@@ -32,7 +31,6 @@ function AprobarPlatos({ comensalId }) {
         return;
       }
 
-      // 2️⃣ Obtener los platos asociados
       const platoIds = [...new Set(lineas.map((l) => l.plato_id))];
       let platosMap = {};
 
@@ -59,7 +57,6 @@ function AprobarPlatos({ comensalId }) {
         }
       }
 
-      // 3️⃣ Combinar resultados
       const enriched = lineas.map((l) => ({
         ...l,
         ...platosMap[l.plato_id],
@@ -71,7 +68,6 @@ function AprobarPlatos({ comensalId }) {
 
     fetchPendientes();
 
-    // 🔄 Escucha cambios en tiempo real
     const channel = supabase
       .channel(`comensal-${comensalId}-lineas-pedido`)
       .on(
@@ -88,9 +84,7 @@ function AprobarPlatos({ comensalId }) {
     };
   }, [comensalId]);
 
-  /** 🔹 Aprobar un plato individual */
   const aprobarPlato = async (lineaId) => {
-    // Actualización optimista: marcar localmente
     setPlatos((prev) =>
       prev.map((p) => (p.id === lineaId ? { ...p, estado: "confirmado" } : p))
     );
@@ -103,7 +97,6 @@ function AprobarPlatos({ comensalId }) {
     if (error) console.error("❌ Error al aprobar plato:", error);
   };
 
-  /** 🔹 Eliminar un plato individual */
   const eliminarPlato = async (lineaId) => {
     const { error } = await supabase
       .from("lineas_pedido")
@@ -117,7 +110,6 @@ function AprobarPlatos({ comensalId }) {
     }
   };
 
-  /** 🔹 Aprobar todos los platos */
   const aprobarTodos = async () => {
     const { error } = await supabase
       .from("lineas_pedido")
@@ -128,16 +120,16 @@ function AprobarPlatos({ comensalId }) {
     if (error) console.error("❌ Error al aprobar todos:", error);
   };
 
-  if (loading) return <p>⏳ Cargando platos...</p>;
+  if (loading) return <p>{t("approve_dishes.loading")}</p>;
 
   return (
     <div className="platos-container">
-      <h4>🍽️ Pendientes</h4>
+      <h4>🍽️ {t("approve_dishes.pending_title")}</h4>
 
       {platos.length > 0 ? (
         <>
           <button className="btn-aprobar-todos" onClick={aprobarTodos}>
-            Aprobar todos (
+            {t("approve_dishes.approve_all")} (
             {platos.filter((p) => p.estado === "pendiente").length})
           </button>
 
@@ -156,18 +148,18 @@ function AprobarPlatos({ comensalId }) {
                         className="btn-eliminar"
                         onClick={() => eliminarPlato(p.id)}
                       >
-                        ❌ Eliminar
+                        {t("approve_dishes.remove")}
                       </button>
                       <button
                         className="btn-aprobar"
                         onClick={() => aprobarPlato(p.id)}
                       >
-                        ✅ Aprobar
+                        {t("approve_dishes.approve")}
                       </button>
                     </>
                   ) : (
                     <button className="btn-aprobado" disabled>
-                      🩶 Aprobado
+                      {t("approve_dishes.approved")}
                     </button>
                   )}
                 </div>
@@ -176,7 +168,7 @@ function AprobarPlatos({ comensalId }) {
           </ul>
         </>
       ) : (
-        <p>✅ No hay platos pendientes.</p>
+        <p>{t("approve_dishes.none_pending")}</p>
       )}
     </div>
   );

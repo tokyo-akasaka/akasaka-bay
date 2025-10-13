@@ -1,15 +1,17 @@
-// 📁 components/header/Header.jsx
-
+import LanguageSelector from "./LanguageSelector";
 import { useNavigate, Link } from "react-router-dom";
 import { useHeader } from "./useHeader";
 import { useHeaderContext } from "./useHeaderContext";
 import NavComensal from "./NavComensal";
 import NavCamarero from "./NavCamarero";
 import NavAdmin from "./NavAdmin";
+import { useTranslation } from "react-i18next";
 import "./Header.css";
 
 function Header() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
   const {
     camarero,
     comensal,
@@ -19,15 +21,12 @@ function Header() {
   } = useHeader(navigate);
   const context = useHeaderContext();
 
-  console.log("🧭 Header context:", context);
-  console.log("👤 Comensal:", comensal);
-
   return (
     <header className="header-bar fixed">
       {/* IZQUIERDA */}
       <div className="left">
         <Link to="/" className="logo-btn">
-          🍣 Carta Digital
+          🍣 {t("header.brand")}
         </Link>
 
         <nav className="nav">
@@ -48,7 +47,7 @@ function Header() {
           <div className="session-box">
             👨‍🍳 <strong>{camarero.nombre}</strong> (ID {camarero.id})
             <button className="logout-btn" onClick={handleLogoutCamarero}>
-              Logout
+              {t("header.logout")}
             </button>
           </div>
         ) : context === "camarero" ? (
@@ -56,9 +55,11 @@ function Header() {
             className="login-btn"
             onClick={() => navigate("/camarero/login")}
           >
-            Login Camarero
+            {t("header.login_waiter")}
           </button>
         ) : null}
+
+        <LanguageSelector />
       </div>
     </header>
   );

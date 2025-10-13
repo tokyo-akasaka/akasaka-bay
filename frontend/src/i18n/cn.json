@@ -1,0 +1,137 @@
+{
+  "_comment": "./ frontend/src/i18n/cn.json",
+  "menu":{
+  "menu_title": "桌子菜单",
+  "welcome": "欢迎",
+  "add_to_order": "添加到订单",
+  "loading_menu": "⏳ 正在加载菜单...",
+  "not_found": "❌ 未找到您的信息。"
+  },
+
+  "admin": {
+    "menu_title": "管理员",
+    "tables": "桌子"
+  },
+    "waiter": {
+    "menu_title": "服务员",
+    "open_table": "开桌",
+    "my_tables": "我的桌子"
+  },
+   "guest": {
+    "menu_title": "顾客",
+    "food_menu": "菜单",
+    "my_orders": "我的订单"
+  },
+  "comensalCard": {
+    "pending": "待处理",
+    "hide_dishes": "隐藏菜品",
+    "show_dishes": "查看菜品",
+    "hide_qr": "隐藏二维码",
+    "my_qr": "我的二维码",
+    "rejoin_table": "重新加入桌子"
+  },
+   "card": {
+    "pending": "待处理",
+    "show_dishes": "查看菜品",
+    "hide_dishes": "隐藏菜品",
+    "my_qr": "我的二维码",
+    "hide_qr": "隐藏二维码",
+    "rejoin_table": "重新加入桌子"
+  },
+   "approve_dishes": {
+    "loading": "⏳ 正在加载菜品…",
+    "pending_title": "待处理",
+    "approve_all": "全部批准",
+    "remove": "删除",
+    "approve": "批准",
+    "approved": "已批准",
+    "none_pending": "✅ 没有待处理的菜品。"
+  },
+  "table_detail_waiter": {
+    "loading": "⏳ 正在加载桌子…",
+    "not_found": "❌ 未找到活动桌子。",
+    "back": "返回",
+    "table": "桌子",
+    "show_qr": "显示二维码",
+    "hide_qr": "隐藏二维码",
+    "active_guests": "活动顾客",
+    "status": "状态",
+    "open": "开启",
+    "closed": "关闭",
+    "guest_list": "顾客列表",
+    "no_guests_yet": "尚无注册顾客。",
+    "scan_to_join": "📱 扫描加入桌号："
+  },
+   "order_line": {
+    "loading": "⏳ 正在加载你的订单…",
+    "no_session": "❌ 未找到你的会话。",
+    "order_of_table": "桌子的订单",
+    "welcome": "欢迎",
+    "no_dishes": "你还没添加任何菜。",
+    "quantity": "数量",
+    "price": "价格",
+    "status": "状态"
+  },
+   "waiter_tables": {
+    "my_tables": "我的桌子",
+    "pending_dishes": "待处理菜品",
+    "table": "桌子",
+    "status": "状态",
+    "open": "开启",
+    "closed": "关闭",
+    "guests": "顾客"
+  },
+    "w_tables_setup": {
+    "open_table": "开桌",
+    "table": "桌子",
+    "status": "状态",
+    "closed": "关闭",
+    "num_guests": "顾客人数",
+    "opening": "正在开桌…",
+    "open_button": "开桌"
+  },
+    "login_Otp": {
+    "title": "服务员登录",
+    "email_placeholder": "你的邮件",
+    "send_code": "发送验证码",
+    "code_placeholder": "输入收到的验证码",
+    "verify": "验证"
+  },
+  "guest_register": {
+    "invalid_token": "❌ 无效或缺失的令牌。",
+    "loading": "加载中...",
+    "join_table": "加入桌子",
+    "waiter": "服务员",
+    "allowed_seats": "允许的座位数",
+    "your_name": "你的名字",
+    "name_placeholder": "例如：Ana",
+    "registering": "注册中...",
+    "join": "加入"
+  },
+    "admin_tables": {
+    "all_tables": "所有桌子",
+    "table_number": "桌号",
+    "waiter_name": "服务员姓名",
+    "status": "状态",
+    "active_guests": "活动顾客",
+    "total_guests": "总顾客数",
+    "pending_confirmations": "待确认菜品",
+    "open": "开启",
+    "closed": "关闭"
+  },
+   "header": {
+    "brand": "数字菜单",
+    "logout": "登出",
+    "login_waiter": "服务员登录"
+  },
+    "footer": {
+    "brand": "数字菜单 - Akasaka Bay"
+  },
+  "app": {
+    "welcome": "欢迎来到我们的数字菜单",
+    "logo_alt": "餐厅标志"
+  }
+
+  
+
+}

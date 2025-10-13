@@ -3,9 +3,12 @@
 import QRCode from "react-qr-code";
 import AprobarPlatos from "../camarero/AprobarPlatos";
 import { useComensalCard } from "./useComensalCard";
+import { useTranslation } from "react-i18next";
 import "./ComensalCard.css";
 
 function ComensalCard({ comensal }) {
+  const { t } = useTranslation();
+
   const {
     mostrarPlatos,
     setMostrarPlatos,
@@ -18,7 +21,6 @@ function ComensalCard({ comensal }) {
 
   return (
     <div className="comensal-card">
-      {/* --- Cabecera --- */}
       <div className="comensal-header">
         <div className="comensal-status">
           <span className={comensal.activo ? "activo" : "inactivo"}>
@@ -31,38 +33,35 @@ function ComensalCard({ comensal }) {
             pendientes > 0 ? "alerta" : "sin-pendientes"
           }`}
         >
-          🍽️ Pendientes: {pendientes}
+          🍽️ {t("card.pending")}: {pendientes}
         </div>
 
         <div className="subtotal">💰 {Number(subtotal ?? 0).toFixed(2)} €</div>
       </div>
 
-      {/* --- Botones --- */}
       <div className="comensal-actions">
         <button
           className="btn-toggle"
           onClick={() => setMostrarPlatos((prev) => !prev)}
         >
-          {mostrarPlatos ? "Ocultar platos" : "Ver platos"}
+          {mostrarPlatos ? t("card.hide_dishes") : t("card.show_dishes")}
         </button>
 
         <button
           className="btn-qr"
           onClick={() => setMostrarQR((prev) => !prev)}
         >
-          {mostrarQR ? "Ocultar QR" : "📱 Mi QR"}
+          {mostrarQR ? t("card.hide_qr") : t("card.my_qr")}
         </button>
       </div>
 
-      {/* --- QR individual --- */}
       {mostrarQR && (
         <div className="qr-individual">
           <QRCode value={qrValue} size={130} />
-          <p>Reincorporar a la mesa</p>
+          <p>{t("card.rejoin_table")}</p>
         </div>
       )}
 
-      {/* --- Lista de platos --- */}
       {mostrarPlatos && (
         <div className="grupo-platos">
           <AprobarPlatos comensalId={comensal.id} />

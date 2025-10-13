@@ -1,14 +1,15 @@
 // frontend/src/pages/camarero/CamareroMesaSetup.jsx
 
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import useCamareroMesaSetup from "./useCamareroMesaSetup";
 import "./CamareroMesaSetup.css";
 
 function CamareroMesaSetup() {
+  const { t } = useTranslation();
   const { mesasFisicas, abrirMesa, loading } = useCamareroMesaSetup();
   const camarero = JSON.parse(localStorage.getItem("camarero"));
 
-  // Estado local por mesa para los comensales
   const [comensalesPorMesa, setComensalesPorMesa] = useState({});
 
   const handleChange = (mesaNumero, valor) => {
@@ -20,19 +21,23 @@ function CamareroMesaSetup() {
 
   return (
     <div className="setup-container">
-      <h1>Abrir Mesa</h1>
+      <h1>{t("w_tables_setup.open_table")}</h1>
 
       <div className="mesas-grid">
         {mesasFisicas
-          .filter((mesa) => !mesa.esta_abierta) // mostrar solo cerradas
+          .filter((mesa) => !mesa.esta_abierta)
           .map((mesa) => (
             <div key={mesa.numero} className="mesa-card">
-              <h2>Mesa #{mesa.numero}</h2>
-              <p>Estado: Cerrada</p>
+              <h2>
+                {t("w_tables_setup.table")} #{mesa.numero}
+              </h2>
+              <p>
+                {t("w_tables_setup.status")}: {t("w_tables_setup.closed")}
+              </p>
 
               <input
                 type="number"
-                placeholder="Nº comensales"
+                placeholder={t("w_tables_setup.num_guests")}
                 value={comensalesPorMesa[mesa.numero] || ""}
                 onChange={(e) => handleChange(mesa.numero, e.target.value)}
                 className="input-comensales"
@@ -48,7 +53,9 @@ function CamareroMesaSetup() {
                 }
                 disabled={loading}
               >
-                {loading ? "Abriendo..." : "Abrir Mesa"}
+                {loading
+                  ? t("w_tables_setup.opening")
+                  : t("w_tables_setup.open_button")}
               </button>
             </div>
           ))}

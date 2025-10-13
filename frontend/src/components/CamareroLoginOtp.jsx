@@ -2,26 +2,28 @@
 
 import "./CamareroLoginOtp.css";
 import useCamareroLoginOtp from "./useCamareroLoginOtp";
+import { useTranslation } from "react-i18next";
 
 function CamareroLoginOtp() {
+  const { t } = useTranslation();
   const { email, otp, step, message, setEmail, setOtp, sendOtp, verifyOtp } =
     useCamareroLoginOtp();
 
   return (
     <div className="login-container">
-      <h1>🔑 Login Camarero</h1>
+      <h1>🔑 {t("login_Otp.title")}</h1>
 
       {step === "request" && (
         <>
           <input
             type="email"
-            placeholder="Tu email"
+            placeholder={t("login_Otp.email_placeholder")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="login-input"
           />
           <button onClick={sendOtp} className="login-button">
-            Enviar código
+            {t("login_Otp.send_code")}
           </button>
         </>
       )}
@@ -30,13 +32,13 @@ function CamareroLoginOtp() {
         <>
           <input
             type="text"
-            placeholder="Introduce el código recibido"
+            placeholder={t("login_Otp.code_placeholder")}
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
             className="login-input"
           />
           <button onClick={verifyOtp} className="login-button">
-            Verificar
+            {t("login_Otp.verify")}
           </button>
         </>
       )}

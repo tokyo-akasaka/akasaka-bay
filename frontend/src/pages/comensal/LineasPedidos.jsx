@@ -1,23 +1,27 @@
 // 📁 frontend/src/pages/comensal/LineasPedidos.jsx
 
+import { useTranslation } from "react-i18next";
 import { useLineasPedidos } from "./useLineasPedidos";
 import "./LineasPedidos.css";
 
 function LineasPedidos() {
+  const { t } = useTranslation();
   const { comensal, lineas, loading } = useLineasPedidos();
 
-  if (loading) return <p className="msg">⏳ Cargando tus pedidos...</p>;
-  if (!comensal) return <p className="msg">❌ No se encontró tu sesión.</p>;
+  if (loading) return <p className="msg">{t("order_line.loading")}</p>;
+  if (!comensal) return <p className="msg">{t("order_line.no_session")}</p>;
 
   return (
     <div className="container">
-      <h1>🧾 Pedido de la Mesa {comensal.mesa_id}</h1>
+      <h1>
+        🧾 {t("order_line.order_of_table")} {comensal.mesa_id}
+      </h1>
       <p>
-        Bienvenido, <strong>{comensal.nombre}</strong> 👋
+        {t("order_line.welcome")}, <strong>{comensal.nombre}</strong> 👋
       </p>
 
       {lineas.length === 0 ? (
-        <p className="msg">Aún no has añadido ningún plato.</p>
+        <p className="msg">{t("order_line.no_dishes")}</p>
       ) : (
         <div className="list">
           {lineas.map((linea) => (
@@ -32,16 +36,16 @@ function LineasPedidos() {
               <div className="info">
                 <h3>{linea.platos?.name_es}</h3>
                 <p>
-                  Cantidad: <strong>{linea.cantidad}</strong>
+                  {t("order_line.quantity")}: <strong>{linea.cantidad}</strong>
                 </p>
                 <p>
-                  Precio:{" "}
+                  {t("order_line.price")}:{" "}
                   <strong>
                     {(linea.precio_unitario * linea.cantidad).toFixed(2)}€
                   </strong>
                 </p>
                 <p>
-                  Estado:{" "}
+                  {t("order_line.status")}:{" "}
                   <span
                     className={`badge ${
                       linea.estado === "pendiente"

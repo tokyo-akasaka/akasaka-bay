@@ -1,0 +1,128 @@
+{
+  "_comment": "./ frontend/src/i18n/en.json",
+
+  "menu": {
+    "menu_title": "Table Menu",
+    "welcome": "Welcome",
+    "add_to_order": "Add to order",
+    "loading_menu": "⏳ Loading menu...",
+    "not_found": "❌ Your information could not be found."
+  },
+
+  "admin": {
+    "menu_title": "Admin",
+    "tables": "Tables"
+  },
+   "waiter": {
+    "menu_title": "Waiter",
+    "open_table": "Open Table",
+    "my_tables": "My Tables"
+  },
+   "guest": {
+    "menu_title": "Guest",
+    "food_menu": "Food Menu",
+    "my_orders": "My Orders"
+  },
+  "card": {
+    "pending": "Pending",
+    "show_dishes": "Show dishes",
+    "hide_dishes": "Hide dishes",
+    "my_qr": "My QR",
+    "hide_qr": "Hide QR",
+    "rejoin_table": "Rejoin table"
+  },
+   "approve_dishes": {
+    "loading": "⏳ Loading dishes...",
+    "pending_title": "Pending",
+    "approve_all": "Approve all",
+    "remove": "Remove",
+    "approve": "Approve",
+    "approved": "Approved",
+    "none_pending": "✅ No pending dishes."
+  },
+  "table_detail_waiter": {
+    "loading": "⏳ Loading table...",
+    "not_found": "❌ The active table could not be found.",
+    "back": "Back",
+    "table": "Table",
+    "show_qr": "Show QR",
+    "hide_qr": "Hide QR",
+    "active_guests": "Active guests",
+    "status": "Status",
+    "open": "Open",
+    "closed": "Closed",
+    "guest_list": "Guest list",
+    "no_guests_yet": "No guests registered yet.",
+    "scan_to_join": "📱 Scan to join table number:"
+  },
+   "order_line": {
+    "loading": "⏳ Loading your orders...",
+    "no_session": "❌ Your session could not be found.",
+    "order_of_table": "Order of Table",
+    "welcome": "Welcome",
+    "no_dishes": "You have not added any dish yet.",
+    "quantity": "Quantity",
+    "price": "Price",
+    "status": "Status"
+  },
+    "waiter_tables": {
+    "my_tables": "My Tables",
+    "pending_dishes": "Pending dishes",
+    "table": "Table",
+    "status": "Status",
+    "open": "Open",
+    "closed": "Closed",
+    "guests": "Guests"
+  },
+  "w_tables_setup": {
+    "open_table": "Open Table",
+    "table": "Table",
+    "status": "Status",
+    "closed": "Closed",
+    "num_guests": "Number of guests",
+    "opening": "Opening...",
+    "open_button": "Open Table"
+  },
+  "login_Otp": {
+    "title": "Waiter Login",
+    "email_placeholder": "Your email",
+    "send_code": "Send code",
+    "code_placeholder": "Enter the received code",
+    "verify": "Verify"
+  },
+   "guest_register": {
+    "invalid_token": "❌ Invalid or missing token.",
+    "loading": "Loading...",
+    "join_table": "Join Table",
+    "waiter": "Waiter",
+    "allowed_seats": "Allowed seats",
+    "your_name": "Your name",
+    "name_placeholder": "Eg: Ana",
+    "registering": "Registering...",
+    "join": "Join"
+  },
+   "admin_tables": {
+    "all_tables": "All Tables",
+    "table_number": "Table Number",
+    "waiter_name": "Waiter Name",
+    "status": "Status",
+    "active_guests": "Active Guests",
+    "total_guests": "Total Guests",
+    "pending_confirmations": "Pending Confirmations",
+    "open": "Open",
+    "closed": "Closed"
+  },
+   "header": {
+    "brand": "Digital Menu",
+    "logout": "Logout",
+    "login_waiter": "Login Waiter"
+  },
+  "footer": {
+    "brand": "Digital Menu - Akasaka Bay"
+  },
+   "app": {
+    "welcome": "Welcome to our digital menu",
+    "logo_alt": "Restaurant logo"
+  }
+
+}

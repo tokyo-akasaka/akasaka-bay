@@ -2,6 +2,7 @@
 
 import "./MenuComida.css";
 import useMenuComida from "./useMenuComida";
+import { useTranslation } from "react-i18next";
 
 function MenuComida() {
   const {
@@ -12,7 +13,9 @@ function MenuComida() {
     handleAddToOrder,
   } = useMenuComida();
 
-  if (loading) return <p className="menu-msg">⏳ Cargando menú...</p>;
+  const { t } = useTranslation();
+
+  if (loading) return <p className="menu-msg">{t("menu.loading_menu")}</p>;
   if (!comensal)
     return <p className="menu-msg">❌ No se encontró tu información.</p>;
 
@@ -21,7 +24,7 @@ function MenuComida() {
       <h1>🍽️ Menú de la Mesa {comensal.mesas?.numero ?? comensal.mesa_id}</h1>
 
       <p>
-        Bienvenido, <strong>{comensal.nombre}</strong> 👋
+        {t("menu.welcome")}, <strong>{comensal.nombre}</strong> 👋
       </p>
 
       {platosPorCategoria.map((cat) => (
@@ -55,7 +58,7 @@ function MenuComida() {
                     className="menu-btn-add"
                     onClick={() => handleAddToOrder(plato)}
                   >
-                    Añadir al pedido
+                    {t("menu.add_to_order")}
                   </button>
                 </div>
               ))

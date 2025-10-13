@@ -1,0 +1,128 @@
+{
+  "_comment": "./ frontend/src/i18n/es.json",
+
+
+  "menu":{
+  "menu_title": "Menú de la Mesa",
+  "welcome": "Bienvenido",
+  "add_to_order": "Añadir al pedido",
+  "loading_menu": "⏳ Cargando menú...",
+  "not_found": "❌ No se encontró tu información."
+},
+ "admin": {
+    "menu_title": "Administrador",
+    "tables": "Mesas"
+  },
+  "waiter": {
+    "menu_title": "Camarero",
+    "open_table": "Apertura Mesa",
+    "my_tables": "Mis Mesas"
+  },
+   "guest": {
+    "menu_title": "Comensal",
+    "food_menu": "Menú comida",
+    "my_orders": "Mis pedidos"
+  },
+   "card": {
+    "pending": "Pendientes",
+    "show_dishes": "Ver platos",
+    "hide_dishes": "Ocultar platos",
+    "my_qr": "Mi QR",
+    "hide_qr": "Ocultar QR",
+    "rejoin_table": "Reincorporar a la mesa"
+  },
+   "approve_dishes": {
+    "loading": "⏳ Cargando platos...",
+    "pending_title": "Pendientes",
+    "approve_all": "Aprobar todos",
+    "remove": "Eliminar",
+    "approve": "Aprobar",
+    "approved": "Aprobado",
+    "none_pending": "✅ No hay platos pendientes."
+  },
+   "table_detail_waiter": {
+    "loading": "⏳ Cargando mesa...",
+    "not_found": "❌ No se encontró la mesa activa.",
+    "back": "Volver",
+    "table": "Mesa",
+    "show_qr": "Mostrar QR",
+    "hide_qr": "Ocultar QR",
+    "active_guests": "Comensales activos",
+    "status": "Estado",
+    "open": "Abierta",
+    "closed": "Cerrada",
+    "guest_list": "Lista de comensales",
+    "no_guests_yet": "No hay comensales registrados aún.",
+    "scan_to_join": "📱 Escanea para unirte a la mesa número:"
+  },
+   "order_line": {
+    "loading": "⏳ Cargando tus pedidos...",
+    "no_session": "❌ No se encontró tu sesión.",
+    "order_of_table": "Pedido de la Mesa",
+    "welcome": "Bienvenido",
+    "no_dishes": "Aún no has añadido ningún plato.",
+    "quantity": "Cantidad",
+    "price": "Precio",
+    "status": "Estado"
+  },
+    "waiter_tables": {
+    "my_tables": "Mis Mesas",
+    "pending_dishes": "Platos pendientes",
+    "table": "Mesa",
+    "status": "Estado",
+    "open": "Abierta",
+    "closed": "Cerrada",
+    "guests": "Comensales"
+  },
+   "w_tables_setup": {
+    "open_table": "Abrir Mesa",
+    "table": "Mesa",
+    "status": "Estado",
+    "closed": "Cerrada",
+    "num_guests": "Nº comensales",
+    "opening": "Abriendo...",
+    "open_button": "Abrir Mesa"
+  },
+   "login_Otp": {
+    "title": "Login Camarero",
+    "email_placeholder": "Tu email",
+    "send_code": "Enviar código",
+    "code_placeholder": "Introduce el código recibido",
+    "verify": "Verificar"
+  },
+  "guest_register": {
+    "invalid_token": "❌ Token inválido o faltante.",
+    "loading": "Cargando...",
+    "join_table": "Unirse a la Mesa",
+    "waiter": "Camarero",
+    "allowed_seats": "Plazas permitidas",
+    "your_name": "Tu nombre",
+    "name_placeholder": "Ej: Ana",
+    "registering": "Registrando...",
+    "join": "Unirme"
+  },
+    "admin_tables": {
+    "all_tables": "Todas las Mesas",
+    "table_number": "Número de mesa",
+    "waiter_name": "Nombre de camarero",
+    "status": "Estado",
+    "active_guests": "Comensales activos",
+    "total_guests": "Total comensales",
+    "pending_confirmations": "Platos pendientes de confirmar",
+    "open": "Abierta",
+    "closed": "Cerrada"
+  },
+   "header": {
+    "brand": "Carta Digital",
+    "logout": "Cerrar sesión",
+    "login_waiter": "Login Camarero"
+  },
+   "footer": {
+    "brand": "Carta Digital - Akasaka Bay"
+  },
+   "app": {
+    "welcome": "Bienvenido a nuestra carta digital",
+    "logo_alt": "Logo del restaurante"
+  }
+
+}
