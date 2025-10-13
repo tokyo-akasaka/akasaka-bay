@@ -3,15 +3,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabaseClient";
-import { getComensalFromStorage } from "../../services/comensalLinks";
 
-/**
- * Hook que gestiona las líneas de pedido del comensal.
- * Compatible con el formato unificado:
- * /comensal/mesa/:mesa?comensal=<id>&token=<token_base64>
- */
 export function useLineasPedidos() {
-  const { numero: mesa } = useParams(); // viene de /comensal/mesa/:numero
+  const { numero: mesa } = useParams();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
@@ -66,7 +60,6 @@ export function useLineasPedidos() {
           return;
         }
 
-        // ✅ Enriquecer comensal con token y session_id del payload
         const enriched = {
           ...comensalData,
           token: payload.token,
@@ -74,7 +67,6 @@ export function useLineasPedidos() {
         };
         setComensal(enriched);
 
-        // 🍽️ Cargar líneas de pedido
         const { data: lineasData, error: lineasErr } = await supabase
           .from("lineas_pedido")
           .select(
@@ -85,7 +77,7 @@ export function useLineasPedidos() {
             subtotal,
             estado,
             creado_en,
-            platos ( name_es, imagen )
+            platos (*)
           `
           )
           .eq("comensal_id", comensalData.id)
@@ -103,7 +95,6 @@ export function useLineasPedidos() {
 
     loadPedidos();
 
-    // 🔄 Suscripción en tiempo real
     const channel = supabase
       .channel(`lineas_pedido_comensal_${comensalId}`)
       .on(
@@ -115,7 +106,7 @@ export function useLineasPedidos() {
           filter: `comensal_id=eq.${comensalId}`,
         },
         () => {
-          loadPedidos(); // recargar pedidos al cambiar
+          loadPedidos();
         }
       )
       .subscribe();

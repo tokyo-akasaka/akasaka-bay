@@ -2,6 +2,7 @@
 
 import { useTranslation } from "react-i18next";
 import { useLineasPedidos } from "./useLineasPedidos";
+import { getLocalizedText } from "../../services/getLocalizedText";
 import "./LineasPedidos.css";
 
 function LineasPedidos() {
@@ -26,36 +27,25 @@ function LineasPedidos() {
         <div className="list">
           {lineas.map((linea) => (
             <div key={linea.id} className="card">
-              {linea.platos?.imagen && (
-                <img
-                  src={linea.platos.imagen}
-                  alt={linea.platos.name_es}
-                  className="img"
-                />
-              )}
               <div className="info">
-                <h3>{linea.platos?.name_es}</h3>
+                <h3>
+                  {linea.platos
+                    ? getLocalizedText(linea.platos, "name")
+                    : "🥣 Plato desconocido"}
+                </h3>
                 <p>
                   {t("order_line.quantity")}: <strong>{linea.cantidad}</strong>
                 </p>
                 <p>
                   {t("order_line.price")}:{" "}
                   <strong>
-                    {(linea.precio_unitario * linea.cantidad).toFixed(2)}€
+                    {(linea.precio_unitario * linea.cantidad).toFixed(2)} €
                   </strong>
                 </p>
                 <p>
                   {t("order_line.status")}:{" "}
-                  <span
-                    className={`badge ${
-                      linea.estado === "pendiente"
-                        ? "pendiente"
-                        : linea.estado === "confirmado"
-                        ? "confirmado"
-                        : "otro"
-                    }`}
-                  >
-                    {linea.estado}
+                  <span className={`badge ${linea.estado}`}>
+                    {t(`order_line.states.${linea.estado}`)}
                   </span>
                 </p>
               </div>

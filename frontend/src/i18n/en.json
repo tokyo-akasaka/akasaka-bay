@@ -6,7 +6,8 @@
     "welcome": "Welcome",
     "add_to_order": "Add to order",
     "loading_menu": "⏳ Loading menu...",
-    "not_found": "❌ Your information could not be found."
+    "not_found": "❌ Your information could not be found.",
+    "no_dishes_category": "No dishes available in this category."
   },
 
   "admin": {
@@ -38,7 +39,11 @@
     "remove": "Remove",
     "approve": "Approve",
     "approved": "Approved",
-    "none_pending": "✅ No pending dishes."
+    "none_pending": "✅ No pending dishes.",
+    "state": {
+    "pendiente": "Pending",
+    "confirmado": "Confirmed"
+    }
   },
   "table_detail_waiter": {
     "loading": "⏳ Loading table...",
@@ -55,15 +60,19 @@
     "no_guests_yet": "No guests registered yet.",
     "scan_to_join": "📱 Scan to join table number:"
   },
-   "order_line": {
+  "order_line": {
     "loading": "⏳ Loading your orders...",
-    "no_session": "❌ Your session could not be found.",
+    "no_session": "❌ Your session was not found.",
     "order_of_table": "Order of Table",
     "welcome": "Welcome",
-    "no_dishes": "You have not added any dish yet.",
+    "no_dishes": "You haven't added any dishes yet.",
     "quantity": "Quantity",
     "price": "Price",
-    "status": "Status"
+    "status": "Status",
+    "states": {
+      "pendiente": "Pending",
+      "confirmado": "Confirmed"
+    }
   },
     "waiter_tables": {
     "my_tables": "My Tables",

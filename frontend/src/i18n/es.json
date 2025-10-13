@@ -7,7 +7,8 @@
   "welcome": "Bienvenido",
   "add_to_order": "Añadir al pedido",
   "loading_menu": "⏳ Cargando menú...",
-  "not_found": "❌ No se encontró tu información."
+  "not_found": "❌ No se encontró tu información.",
+ "no_dishes_category": "No hay platos disponibles en esta categoría."
 },
  "admin": {
     "menu_title": "Administrador",
@@ -38,7 +39,11 @@
     "remove": "Eliminar",
     "approve": "Aprobar",
     "approved": "Aprobado",
-    "none_pending": "✅ No hay platos pendientes."
+    "none_pending": "✅ No hay platos pendientes.",
+    "state": {
+    "pendiente": "Pendiente",
+    "confirmado": "Confirmado"
+    }
   },
    "table_detail_waiter": {
     "loading": "⏳ Cargando mesa...",
@@ -55,7 +60,7 @@
     "no_guests_yet": "No hay comensales registrados aún.",
     "scan_to_join": "📱 Escanea para unirte a la mesa número:"
   },
-   "order_line": {
+    "order_line": {
     "loading": "⏳ Cargando tus pedidos...",
     "no_session": "❌ No se encontró tu sesión.",
     "order_of_table": "Pedido de la Mesa",
@@ -63,7 +68,11 @@
     "no_dishes": "Aún no has añadido ningún plato.",
     "quantity": "Cantidad",
     "price": "Precio",
-    "status": "Estado"
+    "status": "Estado",
+    "states": {
+      "pendiente": "Pendiente",
+      "confirmado": "Confirmado"
+     }
   },
     "waiter_tables": {
     "my_tables": "Mis Mesas",

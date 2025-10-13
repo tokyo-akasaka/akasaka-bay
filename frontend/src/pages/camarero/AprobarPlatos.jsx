@@ -1,12 +1,11 @@
 // frontend/src/pages/camarero/AprobarPlatos.jsx
+
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
 import { useTranslation } from "react-i18next";
+import { getLocalizedText } from "../../services/getLocalizedText";
 import "./AprobarPlatos.css";
 
-/**
- * ✅ Muestra los platos pendientes del comensal y permite aprobar o eliminar
- */
 function AprobarPlatos({ comensalId }) {
   const { t } = useTranslation();
   const [platos, setPlatos] = useState([]);
@@ -37,7 +36,7 @@ function AprobarPlatos({ comensalId }) {
       if (platoIds.length > 0) {
         const { data: platosData, error: err2 } = await supabase
           .from("platos")
-          .select("id, code, name_es, name_en, name_cn")
+          .select("id, code, name_es, name_en, name_cn, precio")
           .in("id", platoIds);
 
         if (err2) {
@@ -51,6 +50,7 @@ function AprobarPlatos({ comensalId }) {
                 name_es: p.name_es,
                 name_en: p.name_en,
                 name_cn: p.name_cn,
+                precio: p.precio,
               },
             ])
           );
@@ -137,8 +137,7 @@ function AprobarPlatos({ comensalId }) {
             {platos.map((p) => (
               <li key={p.id} className="plato-item">
                 <span className="plato-nombre">
-                  {p.code ?? "??"} | {p.name_es ?? ""} | {p.name_en ?? ""} |{" "}
-                  {p.name_cn ?? ""}
+                  {p.code} | {getLocalizedText(p, "name")} | {p.precio} €
                 </span>
 
                 <div className="plato-actions">
@@ -157,12 +156,14 @@ function AprobarPlatos({ comensalId }) {
                         {t("approve_dishes.approve")}
                       </button>
                     </>
-                  ) : (
-                    <button className="btn-aprobado" disabled>
-                      {t("approve_dishes.approved")}
-                    </button>
-                  )}
+                  ) : null}
                 </div>
+
+                {p.estado === "confirmado" && (
+                  <div className={`badge ${p.estado}`}>
+                    {t(`approve_dishes.state.${p.estado}`)}
+                  </div>
+                )}
               </li>
             ))}
           </ul>
