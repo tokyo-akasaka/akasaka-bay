@@ -38,9 +38,7 @@ function LineasPedidos() {
                 </p>
                 <p>
                   {t("order_line.price")}:{" "}
-                  <strong>
-                    {(linea.precio_unitario * linea.cantidad).toFixed(2)} €
-                  </strong>
+                  <strong>{linea.precio_unitario * linea.cantidad} €</strong>
                 </p>
                 <p>
                   {t("order_line.status")}:{" "}

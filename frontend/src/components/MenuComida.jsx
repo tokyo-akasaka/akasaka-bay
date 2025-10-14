@@ -58,7 +58,7 @@ function MenuComida() {
                       </p>
                     ))}
                   <p className="menu-price">
-                    {plato.precio.toFixed(2)} €{" "}
+                    {plato.precio} €{" "}
                     {plato.price_descript ? `(${plato.price_descript})` : ""}
                   </p>
                   <button
