@@ -1,0 +1,162 @@
+.admin-comensal-card {
+  background-color: #2f1d19;
+  border: 1px solid #5a3b30;
+  margin: 0.75rem 0;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  color: white;
+  overflow: hidden;
+}
+
+.admin-comensal-card.alerta {
+  background-color: #4b1f1f;
+  border: 2px solid #ff4d4d;
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Header */
+.admin-comensal-header {
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3e2b24;
+  border-bottom: 1px solid #5a3b30;
+}
+
+.admin-comensal-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.estado-dot {
+  font-size: 1.2rem;
+  flex: 0 0 30px;
+}
+
+.admin-comensal-nombre {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Info adicional */
+.admin-comensal-pendientes,
+.admin-comensal-total {
+  font-size: 0.9rem;
+  text-align: right;
+  min-width: 120px;
+}
+
+/* Expandible */
+.admin-comensal-expandible {
+  padding: 0.75rem 1rem;
+  background-color: #3e2b24;
+}
+
+.admin-comensal-expandible.collapsed {
+  display: none;
+}
+
+/* Platos */
+.admin-grupo-platos h4 {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.plato-linea {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  padding: 4px 0;
+}
+
+.plato-nombre {
+  font-weight: 500;
+  color: #fff;
+}
+
+.plato-estado {
+  text-align: right;
+}
+
+/* Badges de estado */
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: white;
+  text-transform: capitalize;
+}
+
+.badge.pendiente {
+  background-color: #f4a261;
+}
+
+.badge.confirmado {
+  background-color: #2a9d8f;
+}
+
+.no-platos {
+  font-style: italic;
+  color: #aaa;
+  margin-top: 0.5rem;
+}
+
+/* Animación de alerta */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+/* Nuevos estilos aplicados a AdminComensalCard (reutilizando los de platos) */
+.platos-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plato-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #3c1f1a;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.plato-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  align-items: center;
+  flex: 1;
+  padding-right: 0.6rem;
+}
+
+.plato-nombre,
+.plato-codigo,
+.plato-precio {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 100;
+}
+
+.plato-nombre {
+  flex: 0.8;
+}
+
+.plato-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}

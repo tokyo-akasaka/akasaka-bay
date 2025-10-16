@@ -1,13 +1,12 @@
-// 📁 frontend/src/pages/comensal/useLineasPedidos.js
+// frontend/src/pages/comensal/useLineasPedidos.js
 
 import { useEffect, useState } from "react";
-import { useParams, useSearchParams, useNavigate } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { supabase } from "../../lib/supabaseClient";
 
 export function useLineasPedidos() {
   const { numero: mesa } = useParams();
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
 
   const [comensal, setComensal] = useState(null);
   const [lineas, setLineas] = useState([]);
@@ -18,10 +17,17 @@ export function useLineasPedidos() {
     const comensalId = searchParams.get("comensal");
     const tokenEncoded = searchParams.get("token");
 
+    console.log(
+      "useLineasPedidos: mesaId=",
+      mesaId,
+      " comensalId=",
+      comensalId,
+      " token=",
+      tokenEncoded
+    );
+
     if (!mesaId || !comensalId || !tokenEncoded) {
-      alert(
-        "⚠️ Faltan datos en la URL. Escanea nuevamente el QR del comensal."
-      );
+      console.warn("Faltan datos en URL");
       setLoading(false);
       return;
     }
@@ -29,17 +35,17 @@ export function useLineasPedidos() {
     let payload = null;
     try {
       payload = JSON.parse(atob(tokenEncoded));
-      console.log("🟢 Token decodificado:", payload);
+      console.log("Token decodificado:", payload);
     } catch (err) {
-      console.error("❌ Error al decodificar token:", err);
-      alert("El QR no es válido o está corrupto.");
+      console.error("Error decodificando token:", err);
       setLoading(false);
       return;
     }
 
     const loadPedidos = async () => {
+      setLoading(true);
       try {
-        const { data: comensalData, error: comErr } = await supabase
+        const { data: comData, error: comErr } = await supabase
           .from("comensales")
           .select("id, nombre, mesa_id, subtotal, activo, pagado")
           .eq("id", comensalId)
@@ -47,27 +53,25 @@ export function useLineasPedidos() {
           .eq("token", payload.token)
           .maybeSingle();
 
-        if (comErr || !comensalData) {
-          console.error("❌ Comensal no encontrado o token inválido:", comErr);
-          alert("Tu sesión no se pudo recuperar.");
-          setLoading(false);
+        console.log("comData:", comData, " comErr:", comErr);
+
+        if (comErr || !comData) {
+          console.warn("Comensal no encontrado o error:", comErr);
+          setComensal(null);
+          setLineas([]);
           return;
         }
 
-        if (!comensalData.activo) {
-          alert("⚠️ Tu sesión fue cerrada. Solicita un nuevo QR.");
-          setLoading(false);
+        if (!comData.activo) {
+          console.warn("Comensal no activo");
+          setComensal(null);
+          setLineas([]);
           return;
         }
 
-        const enriched = {
-          ...comensalData,
-          token: payload.token,
-          session_id: payload.session_id ?? "fake-session",
-        };
-        setComensal(enriched);
+        setComensal(comData);
 
-        const { data: lineasData, error: lineasErr } = await supabase
+        const { data: linData, error: linErr } = await supabase
           .from("lineas_pedido")
           .select(
             `
@@ -80,14 +84,19 @@ export function useLineasPedidos() {
             platos (*)
           `
           )
-          .eq("comensal_id", comensalData.id)
+          .eq("comensal_id", comData.id)
           .order("creado_en", { ascending: true });
 
-        if (lineasErr) throw lineasErr;
-        setLineas(lineasData || []);
+        console.log("linData:", linData, " linErr:", linErr);
+
+        if (linErr) {
+          setLineas([]);
+        } else {
+          setLineas(linData || []);
+        }
       } catch (err) {
-        console.error("💥 Error cargando pedidos:", err);
-        alert("Error al cargar tus pedidos.");
+        console.error("Error en loadPedidos:", err);
+        setLineas([]);
       } finally {
         setLoading(false);
       }
@@ -103,18 +112,27 @@ export function useLineasPedidos() {
           event: "*",
           schema: "public",
           table: "lineas_pedido",
-          filter: `comensal_id=eq.${comensalId}`,
         },
-        () => {
-          loadPedidos();
+        (payload) => {
+          console.log("Realtime event payload:", payload);
+          const affectedId =
+            payload.new?.comensal_id ?? payload.old?.comensal_id;
+          if (parseInt(affectedId, 10) === parseInt(comensalId, 10)) {
+            console.log("Refrescando pedidos porque afecta comensal");
+            loadPedidos();
+          }
         }
       )
       .subscribe();
 
     return () => {
       supabase.removeChannel(channel);
+      console.log(
+        "Suscripción removida:",
+        `lineas_pedido_comensal_${comensalId}`
+      );
     };
-  }, [searchParams, mesa, navigate]);
+  }, [mesa, searchParams]);
 
-  return { mesa, comensal, lineas, loading };
+  return { comensal, lineas, loading };
 }

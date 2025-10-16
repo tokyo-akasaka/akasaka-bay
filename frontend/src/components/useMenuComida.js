@@ -43,7 +43,7 @@ export default function useMenuComida() {
         const { data: comensalData, error: comErr } = await supabase
           .from("comensales")
           .select(
-            "id, nombre, mesa_id, subtotal, activo, pagado, mesas(numero)"
+            "id, nombre, mesa_id, subtotal, activo, pagado, mesa:comensales_mesa_id_fkey ( numero )"
           )
           .eq("id", comensalId)
           .eq("mesa_id", mesaId)

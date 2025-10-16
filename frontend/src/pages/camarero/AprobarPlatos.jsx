@@ -1,34 +1,27 @@
-// frontend/src/pages/camarero/AprobarPlatos.jsx
-
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
 import { useTranslation } from "react-i18next";
 import { getLocalizedText } from "../../services/getLocalizedText";
+import QRCode from "react-qr-code";
+import { useComensalCard } from "../comensal/useComensalCard";
 import "./AprobarPlatos.css";
 
-function AprobarPlatos({ comensalId }) {
+function AprobarPlatos({ comensal, loadData }) {
+  // Recibimos loadData como prop
   const { t } = useTranslation();
   const [platos, setPlatos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { qrValue, mostrarQR, setMostrarQR } = useComensalCard(comensal);
 
-  useEffect(() => {
-    if (!comensalId) return;
-
-    const fetchPendientes = async () => {
-      setLoading(true);
-
+  const fetchPendientes = async () => {
+    setLoading(true);
+    try {
       const { data: lineas, error: err1 } = await supabase
         .from("lineas_pedido")
         .select("id, cantidad, estado, plato_id")
-        .eq("comensal_id", comensalId)
+        .eq("comensal_id", comensal.id)
         .in("estado", ["pendiente", "confirmado"]);
-
-      if (err1) {
-        console.error("❌ Error cargando lineas_pedido:", err1);
-        setPlatos([]);
-        setLoading(false);
-        return;
-      }
+      if (err1) throw err1;
 
       const platoIds = [...new Set(lineas.map((l) => l.plato_id))];
       let platosMap = {};
@@ -38,62 +31,65 @@ function AprobarPlatos({ comensalId }) {
           .from("platos")
           .select("id, code, name_es, name_en, name_cn, precio")
           .in("id", platoIds);
-
-        if (err2) {
-          console.error("❌ Error cargando platos:", err2);
-        } else {
-          platosMap = Object.fromEntries(
-            platosData.map((p) => [
-              p.id,
-              {
-                code: p.code,
-                name_es: p.name_es,
-                name_en: p.name_en,
-                name_cn: p.name_cn,
-                precio: p.precio,
-              },
-            ])
-          );
-        }
+        if (err2) throw err2;
+        platosMap = Object.fromEntries(
+          platosData.map((p) => [
+            p.id,
+            {
+              code: p.code,
+              name_es: p.name_es,
+              name_en: p.name_en,
+              name_cn: p.name_cn,
+              precio: p.precio,
+            },
+          ])
+        );
       }
 
       const enriched = lineas.map((l) => ({
         ...l,
         ...platosMap[l.plato_id],
       }));
-
       setPlatos(enriched);
+    } catch (err) {
+      console.error("💥 Error cargando platos:", err);
+      setPlatos([]);
+    } finally {
       setLoading(false);
-    };
+    }
+  };
 
+  useEffect(() => {
+    if (!comensal?.id) return;
     fetchPendientes();
-
     const channel = supabase
-      .channel(`comensal-${comensalId}-lineas-pedido`)
+      .channel(`comensal-${comensal.id}-lineas-pedido`)
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "lineas_pedido" },
         (payload) => {
-          if (payload.new?.comensal_id === comensalId) fetchPendientes();
+          if (
+            payload.new?.comensal_id === comensal.id ||
+            payload.old?.comensal_id === comensal.id
+          ) {
+            fetchPendientes();
+          }
         }
       )
       .subscribe();
-
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [comensalId]);
+  }, [comensal]);
 
   const aprobarPlato = async (lineaId) => {
     setPlatos((prev) =>
       prev.map((p) => (p.id === lineaId ? { ...p, estado: "confirmado" } : p))
     );
-
     const { error } = await supabase
       .from("lineas_pedido")
       .update({ estado: "confirmado" })
       .eq("id", lineaId);
-
     if (error) console.error("❌ Error al aprobar plato:", error);
   };
 
@@ -102,11 +98,11 @@ function AprobarPlatos({ comensalId }) {
       .from("lineas_pedido")
       .delete()
       .eq("id", lineaId);
-
     if (error) {
       console.error("❌ Error eliminando plato:", error);
     } else {
-      setPlatos((prev) => prev.filter((p) => p.id !== lineaId));
+      await fetchPendientes(); // Recargar platos localmente
+      if (loadData) await loadData(); // Recargar datos del comensal si loadData está disponible
     }
   };
 
@@ -114,9 +110,8 @@ function AprobarPlatos({ comensalId }) {
     const { error } = await supabase
       .from("lineas_pedido")
       .update({ estado: "confirmado" })
-      .eq("comensal_id", comensalId)
+      .eq("comensal_id", comensal.id)
       .eq("estado", "pendiente");
-
     if (error) console.error("❌ Error al aprobar todos:", error);
   };
 
@@ -124,22 +119,38 @@ function AprobarPlatos({ comensalId }) {
 
   return (
     <div className="platos-container">
-      <h4>🍽️ {t("approve_dishes.pending_title")}</h4>
-
       {platos.length > 0 ? (
         <>
-          <button className="btn-aprobar-todos" onClick={aprobarTodos}>
-            {t("approve_dishes.approve_all")} (
-            {platos.filter((p) => p.estado === "pendiente").length})
-          </button>
-
+          <div className="grupo-botones">
+            {qrValue && (
+              <button
+                className="btn-qr"
+                onClick={() => setMostrarQR((prev) => !prev)}
+              >
+                📲 {mostrarQR ? t("card.hide_qr") : t("card.my_qr")}
+              </button>
+            )}
+            <button className="btn-aprobar-todos" onClick={aprobarTodos}>
+              {t("approve_dishes.approve_all")} (
+              {platos.filter((p) => p.estado === "pendiente").length})
+            </button>
+          </div>
+          {mostrarQR && qrValue && (
+            <div className="qr-individual">
+              <QRCode value={qrValue} size={130} />
+              <p>{t("card.rejoin_table")}</p>
+            </div>
+          )}
           <ul className="platos-list">
             {platos.map((p) => (
               <li key={p.id} className="plato-item">
-                <span className="plato-nombre">
-                  {p.code} | {getLocalizedText(p, "name")} | {p.precio} €
-                </span>
-
+                <div className="plato-info">
+                  <span className="plato-codigo">{p.code}</span>
+                  <span className="plato-nombre">
+                    {getLocalizedText(p, "name")}
+                  </span>
+                  <span className="plato-precio">{p.precio} €</span>
+                </div>
                 <div className="plato-actions">
                   {p.estado === "pendiente" ? (
                     <>
@@ -156,14 +167,12 @@ function AprobarPlatos({ comensalId }) {
                         {t("approve_dishes.approve")}
                       </button>
                     </>
-                  ) : null}
+                  ) : (
+                    <span className="badge confirmado">
+                      {t(`approve_dishes.state.${p.estado}`)}
+                    </span>
+                  )}
                 </div>
-
-                {p.estado === "confirmado" && (
-                  <div className={`badge ${p.estado}`}>
-                    {t(`approve_dishes.state.${p.estado}`)}
-                  </div>
-                )}
               </li>
             ))}
           </ul>

@@ -8,7 +8,8 @@
   "add_to_order": "Añadir al pedido",
   "loading_menu": "⏳ Cargando menú...",
   "not_found": "❌ No se encontró tu información.",
- "no_dishes_category": "No hay platos disponibles en esta categoría."
+ "no_dishes_category": "No hay platos disponibles en esta categoría.",
+"show_allergens": "Ver alérgenos"
 },
  "admin": {
     "menu_title": "Administrador",
@@ -110,17 +111,30 @@
     "registering": "Registrando...",
     "join": "Unirme"
   },
-    "admin_tables": {
-    "all_tables": "Todas las Mesas",
-    "table_number": "Número de mesa",
-    "waiter_name": "Nombre de camarero",
+ "admin_tables": {
+    "all_tables": "📋 Todas las Mesas",
+    "table_number": "Mesa",
+    "waiter_name": "Camarero",
     "status": "Estado",
-    "active_guests": "Comensales activos",
-    "total_guests": "Total comensales",
-    "pending_confirmations": "Platos pendientes de confirmar",
-    "open": "Abierta",
-    "closed": "Cerrada"
+    "active_guests": "Activos",
+    "total_guests": "Total",
+    "pending_confirmations": "Pendientes",
+    "total_amount": "Total Mesa",
+    "no_guests": "Sin comensales en esta mesa",
+    "status_open": "🟢 Abierta",
+    "status_closed": "⚪ Cerrada"
   },
+  "admin_comensal_card": {
+    "pending": "Pendientes",
+    "subtotal": "Subtotal",
+    "no_dishes": "Sin platos",
+    "dishes_title": "Platos del comensal",
+    "states": {
+      "pendiente": "Pendiente",
+      "confirmado": "Confirmado"
+    }
+},
+
    "header": {
     "brand": "Carta Digital",
     "logout": "Cerrar sesión",

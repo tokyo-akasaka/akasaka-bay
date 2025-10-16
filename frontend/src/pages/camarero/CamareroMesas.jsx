@@ -9,36 +9,36 @@ function CamareroMesas() {
   const { mesas, verMesa } = useCamareroMesas();
 
   return (
-    <div className="camarero-container">
+    <div className="container">
       <h1>👨‍🍳 {t("waiter_tables.my_tables")}</h1>
       <div className="camarero-grid">
-        {mesas.map((mesa) => (
-          <div
-            key={mesa.numero}
-            className="mesa-card"
-            onClick={() => verMesa(mesa.numero)}
-          >
-            {mesa.platos_pendientes > 0 && (
-              <p className="alerta">
-                🍽️ {t("waiter_tables.pending_dishes")}: {mesa.platos_pendientes}
-              </p>
-            )}
-            <h2>
-              {t("waiter_tables.table")} {mesa.numero}
-            </h2>
-            <p>
-              {t("waiter_tables.status")}:{" "}
-              {mesa.estado
-                ? t("waiter_tables.open")
-                : t("waiter_tables.closed")}
-            </p>
-
-            <p>
-              {t("waiter_tables.guests")}: {mesa.comensales_activos}/
-              {mesa.num_comensales}
-            </p>
-          </div>
-        ))}
+        {mesas.map((mesa) => {
+          const hayPendientes = mesa.platos_pendientes > 0;
+          return (
+            <div
+              key={mesa.numero}
+              className={`mesa-card ${hayPendientes ? "highlight" : ""}`}
+              onClick={() => verMesa(mesa.numero)}
+            >
+              <div className="mesa-row">
+                <div className="col estado-dot">
+                  {mesa.estado ? "🟢" : "⚪"}
+                </div>
+                <div className="col mesa-numero">
+                  {t("waiter_tables.table")} {mesa.numero}
+                </div>
+                <div className="col comensales">
+                  {mesa.comensales_activos}/{mesa.num_comensales}
+                </div>
+                <div className="col pendientes-count">
+                  {mesa.platos_pendientes > 0
+                    ? `🍽️ ${mesa.platos_pendientes}`
+                    : ""}
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

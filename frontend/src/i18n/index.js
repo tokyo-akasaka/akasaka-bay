@@ -1,3 +1,5 @@
+// 📁 frontend/src/i18n/index.js
+
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
@@ -19,6 +21,14 @@ i18n
     interpolation: {
       escapeValue: false,
     },
+
+    // 🧩 Aquí añades el manejador de claves faltantes:
+    missingKeyHandler: (lng, ns, key) => {
+      console.warn(`🈳 Missing i18n key: ${ns}.${key} in language ${lng}`);
+    },
+
+    // (opcional) para mostrar una clave por defecto si falta
+    saveMissing: true,
   });
 
 export default i18n;

@@ -1,12 +1,16 @@
 {
   "_comment": "./ frontend/src/i18n/cn.json",
+
+
   "menu":{
   "menu_title": "桌子菜单",
   "welcome": "欢迎",
   "add_to_order": "添加到订单",
   "loading_menu": "⏳ 正在加载菜单...",
   "not_found": "❌ 未找到您的信息。",
-  "no_dishes_category": "该类别中没有可用的菜品。"
+  "no_dishes_category": "该类别中没有可用的菜品。",
+  "show_allergens": "查看过敏原"
+
   },
 
   "admin": {
@@ -117,16 +121,28 @@
     "registering": "注册中...",
     "join": "加入"
   },
-    "admin_tables": {
-    "all_tables": "所有桌子",
+   "admin_tables": {
+    "all_tables": "📋 所有餐桌",
     "table_number": "桌号",
-    "waiter_name": "服务员姓名",
+    "waiter_name": "服务员",
     "status": "状态",
-    "active_guests": "活动顾客",
-    "total_guests": "总顾客数",
-    "pending_confirmations": "待确认菜品",
-    "open": "开启",
-    "closed": "关闭"
+    "active_guests": "在座",
+    "total_guests": "总数",
+    "pending_confirmations": "待处理",
+    "total_amount": "桌面总额",
+    "no_guests": "此桌无顾客",
+    "status_open": "🟢 开启",
+    "status_closed": "⚪ 关闭"
+  },
+  "admin_comensal_card": {
+    "pending": "待处理",
+    "subtotal": "小计",
+    "no_dishes": "无菜品",
+    "dishes_title": "顾客点餐",
+    "states": {
+      "pendiente": "待处理",
+      "confirmado": "已确认"
+    }
   },
    "header": {
     "brand": "数字菜单",

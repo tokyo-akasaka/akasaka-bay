@@ -1,0 +1,19 @@
+{
+  "allergens": [
+    { "id": 1, "es": "Gluten", "en": "Gluten", "slug": "/alergenos/gluten.svg" },
+    { "id": 2, "es": "Crustáceos", "en": "Crustaceans", "slug": "/alergenos/crustaceans.svg" },
+    { "id": 3, "es": "Huevos", "en": "Eggs", "slug": "/alergenos/eggs.svg" },
+    { "id": 4, "es": "Pescado", "en": "Fish", "slug": "/alergenos/fish.svg" },
+    { "id": 5, "es": "Cacahuetes", "en": "Peanuts", "slug": "/alergenos/peanuts.svg" },
+    { "id": 6, "es": "Soja", "en": "Soybeans", "slug": "/alergenos/soy.svg" },
+    { "id": 7, "es": "Lácteos", "en": "Milk", "slug": "/alergenos/milk.svg" },
+    { "id": 8, "es": "Frutos de cáscara", "en": "Nuts", "slug": "/alergenos/nuts.svg" },
+    { "id": 9, "es": "Apio", "en": "Celery", "slug": "/alergenos/celery.svg" },
+    { "id": 10, "es": "Mostaza", "en": "Mustard", "slug": "/alergenos/mustard.svg" },
+    { "id": 11, "es": "Granos de sésamo", "en": "Sesame seeds", "slug": "/alergenos/sesame.svg" },
+    { "id": 12, "es": "Dióxido de azufre y sulfitos (E220-E228)", "en": "Sulphur dioxide and sulphites", "slug": "/alergenos/sulphites.svg" },
+    { "id": 13, "es": "Moluscos", "en": "Molluscs", "slug": "/alergenos/molluscs.svg" },
+    { "id": 14, "es": "Altramuces", "en": "Lupin", "slug": "/alergenos/lupin.svg" },
+     { "id": 15, "es": "Sin Alergenos", "en": "Free Alergen", "slug": "/alergenos/free-alergen.svg" }
+  ]
+}

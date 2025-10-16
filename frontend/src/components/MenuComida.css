@@ -1,8 +1,19 @@
 /* frontend/src/components/MenuComida.css */
 
+/* Reset y estilos básicos */
 .menu-container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
+   position: relative;
+  width: 100%;
+  max-width: 850px;      /* límite en escritorio */
+  margin: 0 auto;        /* centrado */
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: #422721 solid 10px;
+  border-radius: 12px;
+  box-sizing: border-box;
+
 }
 
 .menu-msg {
@@ -12,55 +23,68 @@
 }
 
 .menu-section {
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .menu-section-title {
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
+  border-bottom: 1px solid #fff3;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
 }
 
-.menu-grid {
+/* Lista de platos, no grid complejo */
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+
+
+/* Línea principal: nombre + precio */
+.menu-line {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
 }
 
-.menu-card {
-  background: #1f10105b;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(57, 42, 42, 0.475);
-  padding: 15px;
-  text-align: center;
-}
-
-.menu-img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-
-.menu-desc {
-  color: #555;
-  font-size: 14px;
-  margin-bottom: 8px;
+.menu-name {
+  font-weight: bold;
+  text-align: left;
 }
 
 .menu-price {
-  font-weight: bold;
-  color: #28a745;
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 600;
 }
 
+.menu-desc {
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+/* Detalles cuando se expande */
+.menu-details {
+  margin-top: 8px;
+  padding-left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Botón "Añadir al pedido" */
 .menu-btn-add {
-  margin-top: 10px;
+  align-self: flex-start;
   padding: 8px 12px;
   background: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -68,6 +92,35 @@
   background: #005fa3;
 }
 
-.menu-empty {
-  color: #999;
+/* Toggle de alérgenos */
+.menu-alergenos-toggle {
+  color: #aaa;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+/* .expanded puede usarse para estilos si quieres destacar */
+.menu-item.expanded .menu-line {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.menu-buttons-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.menu-btn-secondary {
+  padding: 8px 12px;
+  background: #999;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.menu-btn-secondary:hover {
+  background: #777;
 }

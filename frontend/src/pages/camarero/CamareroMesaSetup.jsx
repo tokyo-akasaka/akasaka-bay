@@ -20,7 +20,7 @@ function CamareroMesaSetup() {
   };
 
   return (
-    <div className="setup-container">
+    <div className="container">
       <h1>{t("w_tables_setup.open_table")}</h1>
 
       <div className="mesas-grid">

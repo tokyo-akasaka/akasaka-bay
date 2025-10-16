@@ -1,6 +1,5 @@
 // frontend/src/pages/camarero/MesaDetalleCamarero.jsx
 
-import React from "react";
 import { useTranslation } from "react-i18next";
 import useMesaDetalle from "./useMesaDetalleCamarero";
 import ComensalCard from "../comensal/ComensalCard";
@@ -26,16 +25,17 @@ function MesaDetalleCamarero() {
   const comensalesActivos = comensales.filter((c) => c.activo).length;
 
   return (
-    <div className="mesa-detalle-container">
+    <div className="container">
       <header className="mesa-header">
-        <div className="mesa-left">
-          <button className="back-btn" onClick={() => navigate(-1)}>
-            ⬅ {t("table_detail_waiter.back")}
-          </button>
-          <h1 className="mesa-titulo">
-            🍽️ {t("table_detail_waiter.table")} {mesa.numero}
-          </h1>
-        </div>
+        <button
+          className="back-btn"
+          onClick={() => navigate("/camarero/mesas")}
+        >
+          ⬅ {t("table_detail_waiter.back")}
+        </button>
+        <h1 className="mesa-titulo">
+          🍽️ {t("table_detail_waiter.table")} {mesa.numero}
+        </h1>
         <button
           className="qr-btn small"
           onClick={() => setMostrarQR(!mostrarQR)}
@@ -45,6 +45,15 @@ function MesaDetalleCamarero() {
             : t("table_detail_waiter.show_qr")}
         </button>
       </header>
+
+      {mostrarQR && qrValue && (
+        <section className="qr-section">
+          <QRCode value={qrValue} size={200} />
+          <p>
+            {t("table_detail_waiter.scan_to_join")} {mesa.numero}
+          </p>
+        </section>
+      )}
 
       <section className="mesa-info">
         <div>
@@ -66,7 +75,7 @@ function MesaDetalleCamarero() {
         {comensales.length > 0 ? (
           <div className="comensales-grid">
             {comensales.map((c) => (
-              <ComensalCard key={c.id} comensal={c} />
+              <ComensalCard key={c.id} comensal={c} modoCamarero={true} />
             ))}
           </div>
         ) : (
@@ -75,15 +84,6 @@ function MesaDetalleCamarero() {
           </p>
         )}
       </section>
-
-      {mostrarQR && qrValue ? (
-        <section className="qr-section">
-          <QRCode value={qrValue} size={200} />
-          <p>
-            {t("table_detail_waiter.scan_to_join")} {mesa.numero}
-          </p>
-        </section>
-      ) : null}
     </div>
   );
 }

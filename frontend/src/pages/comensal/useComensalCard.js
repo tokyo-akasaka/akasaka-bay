@@ -3,23 +3,16 @@
 import { useState, useEffect, useMemo } from "react";
 import { supabase } from "../../lib/supabaseClient";
 
-/**
- * Hook que gestiona la lógica del componente ComensalCard:
- * - Escucha en tiempo real los cambios de lineas_pedido y comensales.
- * - Actualiza el número de pendientes y subtotal sin refrescar manualmente.
- * - Genera el QR individual.
- */
 export function useComensalCard(comensal) {
   const [mostrarPlatos, setMostrarPlatos] = useState(false);
   const [mostrarQR, setMostrarQR] = useState(false);
   const [pendientes, setPendientes] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
 
-  /** 🔹 Función reutilizable para recargar datos */
   const loadData = async () => {
     if (!comensal?.id) return;
     try {
-      // 1️⃣ Contar platos pendientes
+      // Contar platos pendientes
       const { count } = await supabase
         .from("lineas_pedido")
         .select("id", { count: "exact" })
@@ -27,7 +20,7 @@ export function useComensalCard(comensal) {
         .eq("estado", "pendiente");
       setPendientes(count || 0);
 
-      // 2️⃣ Cargar subtotal actual
+      // Cargar subtotal actual
       const { data } = await supabase
         .from("comensales")
         .select("subtotal")
@@ -39,12 +32,10 @@ export function useComensalCard(comensal) {
     }
   };
 
-  /** 🟢 Efecto principal: carga inicial + suscripciones */
   useEffect(() => {
     if (!comensal?.id) return;
-    loadData(); // inicial
+    loadData();
 
-    // 🧩 Canal único con ambas suscripciones
     const channel = supabase
       .channel(`comensal-${comensal.id}-listener`)
       .on(
@@ -55,10 +46,7 @@ export function useComensalCard(comensal) {
           table: "lineas_pedido",
           filter: `comensal_id=eq.${comensal.id}`,
         },
-        (payload) => {
-          console.log("📡 Cambios en lineas_pedido:", payload.eventType);
-          loadData();
-        }
+        loadData
       )
       .on(
         "postgres_changes",
@@ -69,22 +57,17 @@ export function useComensalCard(comensal) {
           filter: `id=eq.${comensal.id}`,
         },
         (payload) => {
-          console.log("📡 Cambio en comensales:", payload.eventType);
           const nuevoSubtotal = payload.new?.subtotal ?? 0;
           setSubtotal(nuevoSubtotal);
         }
       )
-      .subscribe((status) => {
-        console.log("🧩 Canal comensal conectado:", status);
-      });
+      .subscribe();
 
-    // 🧹 Limpieza al desmontar
     return () => {
       supabase.removeChannel(channel);
     };
   }, [comensal?.id]);
 
-  /** 🔹 QR individual */
   const qrValue = useMemo(() => {
     if (!comensal?.id || !comensal?.mesa_id) return "";
     const payload = {
@@ -95,7 +78,7 @@ export function useComensalCard(comensal) {
       session_id: comensal.session_id,
       ts: Date.now(),
     };
-    const encoded = btoa(JSON.stringify(payload)); // ← escape eliminado
+    const encoded = btoa(JSON.stringify(payload));
     return `${window.location.origin}/comensal/menu-comida?mesa=${comensal.mesa_id}&comensal=${comensal.id}&token=${encoded}`;
   }, [comensal]);
 
@@ -107,5 +90,6 @@ export function useComensalCard(comensal) {
     pendientes,
     subtotal,
     qrValue,
+    loadData,
   };
 }

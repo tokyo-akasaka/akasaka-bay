@@ -1,4 +1,4 @@
-// 📁 frontend/src/pages/comensal/LineasPedidos.jsx
+// frontend/src/pages/comensal/LineasPedidos.jsx
 
 import { useTranslation } from "react-i18next";
 import { useLineasPedidos } from "./useLineasPedidos";
@@ -12,10 +12,12 @@ function LineasPedidos() {
   if (loading) return <p className="msg">{t("order_line.loading")}</p>;
   if (!comensal) return <p className="msg">{t("order_line.no_session")}</p>;
 
+  const mesaNumero = comensal.mesa?.numero ?? comensal.mesa_id;
+
   return (
     <div className="container">
       <h1>
-        🧾 {t("order_line.order_of_table")} {comensal.mesa_id}
+        🧾 {t("order_line.order_of_table")} {mesaNumero}
       </h1>
       <p>
         {t("order_line.welcome")}, <strong>{comensal.nombre}</strong> 👋
@@ -25,30 +27,30 @@ function LineasPedidos() {
         <p className="msg">{t("order_line.no_dishes")}</p>
       ) : (
         <div className="list">
-          {lineas.map((linea) => (
-            <div key={linea.id} className="card">
-              <div className="info">
-                <h3>
-                  {linea.platos
-                    ? getLocalizedText(linea.platos, "name")
-                    : "🥣 Plato desconocido"}
-                </h3>
-                <p>
-                  {t("order_line.quantity")}: <strong>{linea.cantidad}</strong>
-                </p>
-                <p>
-                  {t("order_line.price")}:{" "}
-                  <strong>{linea.precio_unitario * linea.cantidad} €</strong>
-                </p>
-                <p>
-                  {t("order_line.status")}:{" "}
-                  <span className={`badge ${linea.estado}`}>
+          {lineas.map((linea) => {
+            const nombre = linea.platos
+              ? getLocalizedText(linea.platos, "name")
+              : "🥣 Plato desconocido";
+            const precioTotal = (
+              linea.precio_unitario * linea.cantidad
+            ).toFixed(2);
+
+            return (
+              <div key={linea.id} className="linea-card">
+                <div className="linea-top">
+                  <h3 className="linea-nombre">
+                    <strong>{linea.platos?.code || "—"}</strong>: {nombre}
+                  </h3>
+                  <span className="linea-precio">{precioTotal} €</span>
+                </div>
+                <div className="linea-bot">
+                  <span className={`badge ${linea.estado} linea-estado`}>
                     {t(`order_line.states.${linea.estado}`)}
                   </span>
-                </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>

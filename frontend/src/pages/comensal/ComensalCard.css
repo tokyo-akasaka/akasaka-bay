@@ -1,22 +1,122 @@
+/* Estilos base para la tarjeta */
+.comensal-card {
 
-/*frontend/src/pages/comensal/ComensalCard.css*/
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  border-top: 2px solid transparent;
 
-/* === Botones secundarios === */
+}
+
+/* 🔴 Resaltado si hay pendientes */
+.comensal-card.alerta {
+  border-color: #ff4d4d;
+  box-shadow: 0 0 5px #ff4d4d;
+}
+
+/* Cabecera */
+.comensal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6em 0rem;
+  background-color: #4e2a1f;
+  font-weight: bold;
+  color: white;
+
+  transition: background-color 0.3s ease;
+}
+
+/* Izquierda: punto y nombre */
+.comensal-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.estado-dot {
+  font-size: 0.5rem;
+}
+
+.comensal-nombre {
+  white-space: nowrap;
+}
+
+/* Centro: platos pendientes */
+.comensal-pendientes {
+  flex: 0.5;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #631c1c;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.9rem;
+}
+
+/* Animación: parpadeo */
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* Animación: pequeño movimiento */
+@keyframes sacudida {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+.comensal-card.alerta >.comensal-header >.comensal-pendientes > span {
+   font-size: 1.5rem;
+   animation: parpadeo 2s ease-in-out infinite, sacudida 0.4s ease-in-out infinite;
+   -webkit-animation: parpadeo 2s ease-in-out infinite, sacudida 0.4s ease-in-out infinite;
+}
+
+/* Derecha: total */
+.comensal-total {
+  flex: 1;
+  text-align: right;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.9rem;
+}
+
+/* Sección colapsable con transición */
+.comensal-expandible {
+  max-height: 1000px;
+  overflow: hidden;
+  transition: max-height 0.2s ease;
+  -webkit-transition: max-height 0.2s ease;
+  -moz-transition: max-height 0.2s ease;
+  -ms-transition: max-height 0.2s ease;
+  -o-transition: max-height 0.2s ease;
+}
+
+.comensal-expandible.collapsed {
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Botones */
 .comensal-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.6rem;
-  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  gap: 0.6rem;
+  background-color: #3b1c14;
 }
 
 .btn-toggle,
 .btn-qr {
-  flex: 1;
+ width: 10rem;
   padding: 6px 8px;
   font-weight: 600;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
   transition: 0.2s;
 }
 
@@ -29,14 +129,14 @@
 }
 
 .btn-qr {
-  background-color: #ffeb99;
-  color: #222;
+  background-color: #adaba3;
+  color: #000000;
 }
 .btn-qr:hover {
-  background-color: #ffe36c;
+  background-color: #6b6b66;
 }
 
-/* === QR individual === */
+/* QR */
 .qr-individual {
   text-align: center;
   margin-top: 0.6rem;

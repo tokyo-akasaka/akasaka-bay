@@ -7,7 +7,9 @@
     "add_to_order": "Add to order",
     "loading_menu": "⏳ Loading menu...",
     "not_found": "❌ Your information could not be found.",
-    "no_dishes_category": "No dishes available in this category."
+    "no_dishes_category": "No dishes available in this category.",
+    "show_allergens": "Show allergens"
+
   },
 
   "admin": {
@@ -110,16 +112,28 @@
     "registering": "Registering...",
     "join": "Join"
   },
-   "admin_tables": {
-    "all_tables": "All Tables",
-    "table_number": "Table Number",
-    "waiter_name": "Waiter Name",
+  "admin_tables": {
+    "all_tables": "📋 All Tables",
+    "table_number": "Table",
+    "waiter_name": "Waiter",
     "status": "Status",
-    "active_guests": "Active Guests",
-    "total_guests": "Total Guests",
-    "pending_confirmations": "Pending Confirmations",
-    "open": "Open",
-    "closed": "Closed"
+    "active_guests": "Active",
+    "total_guests": "Total",
+    "pending_confirmations": "Pending",
+    "total_amount": "Table Total",
+    "no_guests": "No guests at this table",
+    "status_open": "🟢 Open",
+    "status_closed": "⚪ Closed"
+  },
+  "admin_comensal_card": {
+    "pending": "Pending",
+    "subtotal": "Subtotal",
+    "no_dishes": "No dishes",
+    "dishes_title": "Guest's Dishes",
+    "states": {
+      "pendiente": "Pending",
+      "confirmado": "Confirmed"
+    }
   },
    "header": {
     "brand": "Digital Menu",
