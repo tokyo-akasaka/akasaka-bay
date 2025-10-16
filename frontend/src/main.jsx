@@ -21,6 +21,7 @@ import CamareroLoginOtp from "./components/CamareroLoginOtp";
 import CamareroMesaSetup from "./pages/camarero/CamareroMesaSetup";
 import CamareroMesas from "./pages/camarero/CamareroMesas";
 import MesaDetalle from "./pages/camarero/MesaDetalleCamarero";
+import CobrarMesa from "./components/cobrarMesa/CobrarMesa";
 
 // 🧑‍💼 Admin
 import AdminMesas from "./pages/admin/AdminMesas";
@@ -32,6 +33,7 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         {/* Página principal */}
         <Route path="/" element={<App />} />
+
         {/* === 🧍‍♂️ COMENSAL === */}
         <Route path="/comensal/menu-comida" element={<MenuComida />} />
         <Route path="/comensal/mesa/:numero" element={<LineasPedidos />} />
@@ -41,6 +43,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/camarero/setup" element={<CamareroMesaSetup />} />
         <Route path="/camarero/mesas" element={<CamareroMesas />} />
         <Route path="/camarero/mesas/:id" element={<MesaDetalle />} />
+        <Route path="/camarero/cobrar/:mesaId" element={<CobrarMesa />} />
         {/* === 🧑‍💼 ADMIN === */}
         <Route path="/admin/mesas" element={<AdminMesas />} />
       </Routes>

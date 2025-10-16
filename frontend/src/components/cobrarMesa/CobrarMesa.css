@@ -1,0 +1,76 @@
+/* src/components/cobrarMesa/CobrarMesa.css */
+
+.cobrar-mesa-container {
+  background-color: #4b2c25;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 1rem auto;
+  font-family: Arial, sans-serif;
+}
+
+.cobrar-mesa-container h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.resumen-mesa {
+  background-color: #5a3b30;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.resumen-mesa p {
+  margin: 0.5rem 0;
+}
+
+.lista-comensales {
+  margin-bottom: 1rem;
+}
+
+.comensal-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #3e2b24;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.comensal-line span {
+  font-size: 0.9rem;
+}
+
+.acciones-cobrar {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn-cobrar {
+  padding: 0.75rem 1.5rem;
+  background-color: #2a9d8f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-cobrar:disabled {
+  background-color: #7f8c8d;
+  cursor: not-allowed;
+}
+
+.msg {
+  text-align: center;
+  margin: 2rem;
+  color: #ccc;
+}
+
+.msg.error {
+  color: #e63946;
+}
