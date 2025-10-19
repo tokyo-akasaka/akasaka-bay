@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
     path: "/comensal/menu-comida",
     element: (
       <LayoutGeneral>
-        <RequireAuth allowed={["comensal", "camarero", "admin"]}>
+        <RequireAuth allowed={["comensal"]}>
           <MenuComida />
         </RequireAuth>
       </LayoutGeneral>
@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
     path: "/comensal/mesa/:numero",
     element: (
       <LayoutGeneral>
-        <RequireAuth allowed={["comensal", "camarero", "admin"]}>
+        <RequireAuth allowed={["comensal"]}>
           <LineasPedidos />
         </RequireAuth>
       </LayoutGeneral>
@@ -68,7 +68,7 @@ export const router = createBrowserRouter([
     path: "/comensal/registro",
     element: (
       <LayoutGeneral>
-        <RequireAuth allowed={["comensal", "camarero", "admin"]}>
+        <RequireAuth allowed={["comensal"]}>
           <RegistroComensal />
         </RequireAuth>
       </LayoutGeneral>

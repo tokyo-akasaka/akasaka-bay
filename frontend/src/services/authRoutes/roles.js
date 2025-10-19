@@ -1,30 +1,35 @@
 // /src/services/authRoutes/roles.js
 import { supabase } from "../../lib/supabaseClient";
 
+/**
+ * Determina el rol actual del usuario.
+ * - Si hay datos del comensal en localStorage → "comensal"
+ * - Si hay sesión Supabase → rol según JWT (app_metadata.role)
+ * - Si no hay nada → null
+ */
 export async function getCurrentUserRole() {
-  // 1️⃣ Obtener la sesión actual
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  // 1️⃣ Comprobación inmediata: comensal local
+  try {
+    const comensalData = localStorage.getItem("comensal");
+    if (comensalData) return "comensal";
+  } catch (e) {
+    console.warn("⚠️ Error leyendo comensal en localStorage:", e);
+  }
 
-  // 2️⃣ Intentar leer el rol del token JWT (app_metadata)
-  const role = session?.user?.app_metadata?.role;
-  if (role) return role;
-
-  // 3️⃣ Si no hay sesión válida
-  if (!session?.user?.id) return null;
-
-  // 4️⃣ Buscar el rol en la tabla "profiles" (según tu esquema real)
-  const { data, error } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", session.user.id)
-    .single();
-
+  // 2️⃣ Consultar sesión Supabase (para camarero/admin)
+  const { data, error } = await supabase.auth.getSession();
   if (error) {
-    console.error("Error obteniendo rol desde profiles:", error.message);
+    console.error("❌ Error obteniendo sesión Supabase:", error.message);
     return null;
   }
 
-  return data?.role ?? null;
+  const session = data?.session;
+  if (!session?.user) return null;
+
+  // 3️⃣ Leer rol desde JWT (app_metadata)
+  const role = session.user.app_metadata?.role;
+  if (role) return role;
+
+  // 4️⃣ Sin rol reconocido
+  return null;
 }
