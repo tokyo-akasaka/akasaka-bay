@@ -2,60 +2,138 @@
 import { createBrowserRouter } from "react-router-dom";
 import { RequireAuth } from "./RequireAuth";
 
-// Ejemplo de layouts y páginas
-import CamareroLayout from "../../pages/camarero/Layout";
-import AdminLayout from "../../pages/admin/Layout";
-import ComensalLayout from "../../pages/comensal/Layout";
+import Header from "../../components/header/Header";
+import Footer from "../../components/Footer";
+import App from "../../App";
 
-import Mesas from "../../pages/camarero/Mesas";
-import MesaDetalle from "../../pages/camarero/MesaDetalle";
-import Cobrar from "../../pages/camarero/Cobrar";
-import SetupCamarero from "../../pages/camarero/Setup";
-import AdminMesa from "../../pages/admin/Mesa";
-import MenuComida from "../../pages/comensal/MenuComida";
-import MesaComensal from "../../pages/comensal/Mesa";
-import Registro from "../../pages/comensal/Registro";
-import Login from "../../pages/Login";
+// 🧍‍♂️ COMENSAL
+import RegistroComensal from "../../pages/comensal/RegistroComensal";
+import LineasPedidos from "../../pages/comensal/LineasPedidos";
+import MenuComida from "../../components/MenuComida";
+
+// 👨‍🍳 CAMARERO
+import CamareroLoginOtp from "../../components/CamareroLoginOtp";
+import CamareroMesaSetup from "../../pages/camarero/CamareroMesaSetup";
+import CamareroMesas from "../../pages/camarero/CamareroMesas";
+import MesaDetalleCamarero from "../../pages/camarero/MesaDetalleCamarero";
+import CobrarMesa from "../../components/cobrarMesa/CobrarMesa";
+
+// 🧑‍💼 ADMIN
+import AdminMesas from "../../pages/admin/AdminMesas";
+
+// Layout principal
+function LayoutGeneral({ children }) {
+  return (
+    <>
+      <Header />
+      <main className="min-h-screen">{children}</main>
+      <Footer />
+    </>
+  );
+}
 
 export const router = createBrowserRouter([
+  // 🏠 Página principal
   {
-    path: "/login",
-    element: <Login />,
+    path: "/",
+    element: (
+      <LayoutGeneral>
+        <App />
+      </LayoutGeneral>
+    ),
+  },
+
+  // === 🧍‍♂️ COMENSAL ===
+  {
+    path: "/comensal/menu-comida",
+    element: (
+      <LayoutGeneral>
+        <RequireAuth allowed={["comensal", "camarero", "admin"]}>
+          <MenuComida />
+        </RequireAuth>
+      </LayoutGeneral>
+    ),
   },
   {
-    path: "/camarero",
+    path: "/comensal/mesa/:numero",
     element: (
-      <RequireAuth allowed={["camarero", "admin"]}>
-        <CamareroLayout />
-      </RequireAuth>
+      <LayoutGeneral>
+        <RequireAuth allowed={["comensal", "camarero", "admin"]}>
+          <LineasPedidos />
+        </RequireAuth>
+      </LayoutGeneral>
     ),
-    children: [
-      { path: "mesas", element: <Mesas /> },
-      { path: "mesas/:id", element: <MesaDetalle /> },
-      { path: "cobrar/:mesaId", element: <Cobrar /> },
-      { path: "setup", element: <SetupCamarero /> },
-    ],
   },
   {
-    path: "/admin",
+    path: "/comensal/registro",
     element: (
-      <RequireAuth allowed={["admin"]}>
-        <AdminLayout />
-      </RequireAuth>
+      <LayoutGeneral>
+        <RequireAuth allowed={["comensal", "camarero", "admin"]}>
+          <RegistroComensal />
+        </RequireAuth>
+      </LayoutGeneral>
     ),
-    children: [{ path: "mesa", element: <AdminMesa /> }],
+  },
+
+  // === 👨‍🍳 CAMARERO ===
+  {
+    path: "/camarero/login",
+    element: (
+      <LayoutGeneral>
+        <CamareroLoginOtp />
+      </LayoutGeneral>
+    ),
   },
   {
-    path: "/comensal",
+    path: "/camarero/setup",
     element: (
-      <RequireAuth allowed={["comensal", "camarero", "admin"]}>
-        <ComensalLayout />
-      </RequireAuth>
+      <LayoutGeneral>
+        <RequireAuth allowed={["camarero", "admin"]}>
+          <CamareroMesaSetup />
+        </RequireAuth>
+      </LayoutGeneral>
     ),
-    children: [
-      { path: "menu-comida", element: <MenuComida /> },
-      { path: "mesa/:numero", element: <MesaComensal /> },
-      { path: "registro", element: <Registro /> },
-    ],
+  },
+  {
+    path: "/camarero/mesas",
+    element: (
+      <LayoutGeneral>
+        <RequireAuth allowed={["camarero", "admin"]}>
+          <CamareroMesas />
+        </RequireAuth>
+      </LayoutGeneral>
+    ),
+  },
+  {
+    path: "/camarero/mesas/:id",
+    element: (
+      <LayoutGeneral>
+        <RequireAuth allowed={["camarero", "admin"]}>
+          <MesaDetalleCamarero />
+        </RequireAuth>
+      </LayoutGeneral>
+    ),
+  },
+  {
+    path: "/camarero/cobrar/:mesaId",
+    element: (
+      <LayoutGeneral>
+        <RequireAuth allowed={["camarero", "admin"]}>
+          <CobrarMesa />
+        </RequireAuth>
+      </LayoutGeneral>
+    ),
+  },
+
+  // === 🧑‍💼 ADMIN ===
+  {
+    path: "/admin/mesas",
+    element: (
+      <LayoutGeneral>
+        <RequireAuth allowed={["admin"]}>
+          <AdminMesas />
+        </RequireAuth>
+      </LayoutGeneral>
+    ),
   },
 ]);
