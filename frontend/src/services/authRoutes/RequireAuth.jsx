@@ -6,17 +6,11 @@ export function RequireAuth({ allowed, children }) {
   const { role, loading } = useAuth();
   const location = useLocation();
 
-  if (loading) return null;
+  if (loading) return null; // evita parpadeos
 
   // ✅ Autorizado
   if (role && allowed.includes(role)) return children;
 
-  // 🚫 Sin acceso
-  if (allowed.includes("comensal")) {
-    return (
-      <Navigate to="/comensal/registro" replace state={{ from: location }} />
-    );
-  }
-
+  // 🚫 Solo usamos este guard para camarero
   return <Navigate to="/camarero/login" replace state={{ from: location }} />;
 }

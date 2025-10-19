@@ -1,4 +1,5 @@
 // /src/services/authRoutes/routers.jsx
+
 import { createBrowserRouter } from "react-router-dom";
 import { RequireAuth } from "./RequireAuth";
 
@@ -18,10 +19,9 @@ import CamareroMesas from "../../pages/camarero/CamareroMesas";
 import MesaDetalleCamarero from "../../pages/camarero/MesaDetalleCamarero";
 import CobrarMesa from "../../components/cobrarMesa/CobrarMesa";
 
-// 🧑‍💼 ADMIN
+// 🧑‍💼 ADMIN (de momento lo suple el camarero)
 import AdminMesas from "../../pages/admin/AdminMesas";
 
-// Layout principal
 function LayoutGeneral({ children }) {
   return (
     <>
@@ -33,7 +33,7 @@ function LayoutGeneral({ children }) {
 }
 
 export const router = createBrowserRouter([
-  // 🏠 Página principal
+  // 🏠 Home
   {
     path: "/",
     element: (
@@ -43,14 +43,12 @@ export const router = createBrowserRouter([
     ),
   },
 
-  // === 🧍‍♂️ COMENSAL ===
+  // === 🧍‍♂️ COMENSAL (SIN RequireAuth) ===
   {
     path: "/comensal/menu-comida",
     element: (
       <LayoutGeneral>
-        <RequireAuth allowed={["comensal"]}>
-          <MenuComida />
-        </RequireAuth>
+        <MenuComida />
       </LayoutGeneral>
     ),
   },
@@ -58,9 +56,7 @@ export const router = createBrowserRouter([
     path: "/comensal/mesa/:numero",
     element: (
       <LayoutGeneral>
-        <RequireAuth allowed={["comensal"]}>
-          <LineasPedidos />
-        </RequireAuth>
+        <LineasPedidos />
       </LayoutGeneral>
     ),
   },
@@ -68,14 +64,12 @@ export const router = createBrowserRouter([
     path: "/comensal/registro",
     element: (
       <LayoutGeneral>
-        <RequireAuth allowed={["comensal"]}>
-          <RegistroComensal />
-        </RequireAuth>
+        <RegistroComensal />
       </LayoutGeneral>
     ),
   },
 
-  // === 👨‍🍳 CAMARERO ===
+  // === 👨‍🍳 CAMARERO (CON RequireAuth) ===
   {
     path: "/camarero/login",
     element: (
@@ -88,7 +82,7 @@ export const router = createBrowserRouter([
     path: "/camarero/setup",
     element: (
       <LayoutGeneral>
-        <RequireAuth allowed={["camarero", "admin"]}>
+        <RequireAuth allowed={["camarero"]}>
           <CamareroMesaSetup />
         </RequireAuth>
       </LayoutGeneral>
@@ -98,7 +92,7 @@ export const router = createBrowserRouter([
     path: "/camarero/mesas",
     element: (
       <LayoutGeneral>
-        <RequireAuth allowed={["camarero", "admin"]}>
+        <RequireAuth allowed={["camarero"]}>
           <CamareroMesas />
         </RequireAuth>
       </LayoutGeneral>
@@ -108,7 +102,7 @@ export const router = createBrowserRouter([
     path: "/camarero/mesas/:id",
     element: (
       <LayoutGeneral>
-        <RequireAuth allowed={["camarero", "admin"]}>
+        <RequireAuth allowed={["camarero"]}>
           <MesaDetalleCamarero />
         </RequireAuth>
       </LayoutGeneral>
@@ -118,19 +112,19 @@ export const router = createBrowserRouter([
     path: "/camarero/cobrar/:mesaId",
     element: (
       <LayoutGeneral>
-        <RequireAuth allowed={["camarero", "admin"]}>
+        <RequireAuth allowed={["camarero"]}>
           <CobrarMesa />
         </RequireAuth>
       </LayoutGeneral>
     ),
   },
 
-  // === 🧑‍💼 ADMIN ===
+  // === 🧑‍💼 ADMIN (temporal → camarero) ===
   {
     path: "/admin/mesas",
     element: (
       <LayoutGeneral>
-        <RequireAuth allowed={["admin"]}>
+        <RequireAuth allowed={["camarero"]}>
           <AdminMesas />
         </RequireAuth>
       </LayoutGeneral>

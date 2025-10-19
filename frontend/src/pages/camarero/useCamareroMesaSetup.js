@@ -1,18 +1,22 @@
 // src/pages/camarero/useCamareroMesaSetup.js
-
 import { useState, useEffect } from "react";
 import { supabase } from "../../lib/supabaseClient";
+import { useAuth } from "../../context/AuthContext"; // 👈 agregado
 
 export default function useCamareroMesaSetup() {
   const [mesasFisicas, setMesasFisicas] = useState([]);
   const [comensalesPorMesa, setComensalesPorMesa] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); // loading local del hook
   const [error, setError] = useState(null);
 
-  // 🔄 Cargar todas las mesas físicas al iniciar
+  const { loading: authLoading } = useAuth(); // 👈 renombrado para evitar conflicto
+
+  // 🔄 Cargar mesas solo cuando Supabase ya esté autenticado
   useEffect(() => {
-    fetchMesasFisicas();
-  }, []);
+    if (!authLoading) {
+      fetchMesasFisicas();
+    }
+  }, [authLoading]);
 
   const fetchMesasFisicas = async () => {
     const { data, error } = await supabase
@@ -95,7 +99,7 @@ export default function useCamareroMesaSetup() {
     comensalesPorMesa,
     setComensalesPorMesa,
     abrirMesa,
-    loading,
+    loading, // 👈 este es el local, no el del contexto
     error,
   };
 }
