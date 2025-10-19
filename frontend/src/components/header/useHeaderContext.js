@@ -1,5 +1,4 @@
-// 📁 components/header/useHeaderContext.js
-
+// src/components/header/useHeaderContext.js
 import { useLocation } from "react-router-dom";
 
 export function useHeaderContext() {

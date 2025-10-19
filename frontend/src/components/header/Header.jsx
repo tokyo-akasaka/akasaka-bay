@@ -1,65 +1,68 @@
-import LanguageSelector from "./LanguageSelector";
-import { useNavigate, Link } from "react-router-dom";
+//     <button className="logout-btn" onClick={handleLogoutCamarero}> Cerrar sesión</button>
+import { useLocation, Link } from "react-router-dom";
 import { useHeader } from "./useHeader";
 import { useHeaderContext } from "./useHeaderContext";
-import NavComensal from "./NavComensal";
 import NavCamarero from "./NavCamarero";
+import NavComensal from "./NavComensal";
 import NavAdmin from "./NavAdmin";
 import { useTranslation } from "react-i18next";
 import "./Header.css";
+import LoginIcon from "../iconosBotones/LoginIcon.jsx";
+import LogoutIcon from "../iconosBotones/LogoutIcon.jsx";
 
-function Header() {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
-
-  const {
-    camarero,
-    comensal,
-    menuComidaLink,
-    misPedidosLink,
-    handleLogoutCamarero,
-  } = useHeader(navigate);
+function Header({ navigate }) {
+  const { camarero, comensal, handleLogoutCamarero } = useHeader(navigate);
   const context = useHeaderContext();
+  const { i18n } = useTranslation();
+  const location = useLocation();
+
+  const changeLang = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
+  const isComensalRoute = location.pathname.startsWith("/comensal");
 
   return (
-    <header className="header-bar fixed">
-      {/* IZQUIERDA */}
-      <div className="left">
-        <Link to="/" className="logo-btn">
-          🍣 {t("header.brand")}
-        </Link>
-
-        <nav className="nav">
-          {context === "comensal" && (
-            <NavComensal
-              menuComidaLink={comensal ? menuComidaLink : "#"}
-              misPedidosLink={comensal ? misPedidosLink : "#"}
-            />
-          )}
-          {context === "camarero" && <NavCamarero />}
-          {context === "admin" && <NavAdmin />}
-        </nav>
+    <header className="header-bar">
+      {/* Fila 1: Logo */}
+      <div className="logo-btn">
+        <a href="/">Carta Digital</a>
       </div>
 
-      {/* DERECHA */}
-      <div className="right">
-        {camarero ? (
-          <div className="session-box">
-            👨‍🍳 <strong>{camarero.nombre}</strong> (ID {camarero.id})
-            <button className="logout-btn" onClick={handleLogoutCamarero}>
-              {t("header.logout")}
-            </button>
-          </div>
-        ) : context === "camarero" ? (
-          <button
-            className="login-btn"
-            onClick={() => navigate("/camarero/login")}
-          >
-            {t("header.login_waiter")}
-          </button>
-        ) : null}
+      {/* Fila 2: nav + sesión a la izquierda, idiomas a la derecha */}
+      <div className="main-row">
+        <div className="left-col">
+          <nav className="nav">
+            {!isComensalRoute && <NavCamarero />}
+            <NavComensal />
+            {!isComensalRoute && <NavAdmin />}
+          </nav>
 
-        <LanguageSelector />
+          <div className="session-box">
+            {isComensalRoute && comensal ? (
+              <span>🍴 {comensal.nombre}</span>
+            ) : camarero ? (
+              <>
+                <span>🧑‍🍳 {camarero.nombre}</span>
+                <button className="logout-btn" onClick={handleLogoutCamarero}>
+                  <LogoutIcon width="26" height="26" />
+                </button>
+              </>
+            ) : (
+              !isComensalRoute && (
+                <Link to="/camarero/login" className="login-btn">
+                  <LoginIcon width="26" height="26" />
+                </Link>
+              )
+            )}
+          </div>
+        </div>
+
+        <div className="language-selector">
+          <button onClick={() => changeLang("es")}>🇪🇸</button>
+          <button onClick={() => changeLang("en")}>🇬🇧</button>
+          <button onClick={() => changeLang("cn")}>🇨🇳</button>
+        </div>
       </div>
     </header>
   );

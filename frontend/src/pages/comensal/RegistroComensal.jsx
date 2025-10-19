@@ -1,12 +1,22 @@
 // frontend/src/pages/comensal/RegistroComensal.jsx
+
 import { useTranslation } from "react-i18next";
 import useRegistroComensal from "./useRegistroComensal";
 import "./RegistroComensal.css";
+import { useEffect, useRef } from "react";
 
 function RegistroComensal() {
   const { t } = useTranslation();
   const { tokenData, nombre, setNombre, loading, handleRegistro, tokenError } =
     useRegistroComensal();
+
+  const inputRef = useRef(null); // 👉 referencia al input
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
 
   if (tokenError) {
     return (
@@ -25,6 +35,7 @@ function RegistroComensal() {
       </h1>
       <label htmlFor="nombre">{t("guest_register.your_name")}</label>
       <input
+        ref={inputRef}
         type="text"
         value={nombre}
         onChange={(e) => setNombre(e.target.value)}

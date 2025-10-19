@@ -4,8 +4,8 @@ import "./i18n";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./styles/resetAllCSS.css";
 import "./styles/main.css";
-import "./styles/layout.css";
 
 import App from "./App";
 import Header from "./components/header/Header";
