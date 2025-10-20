@@ -53,7 +53,7 @@ function CamareroLoginOtp() {
               placeholder={t("login_Otp.code_placeholder")}
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              className="login-input"
+              className="login-input verifity-code"
             />
             <button type="submit" className="login-button">
               {t("login_Otp.verify")}

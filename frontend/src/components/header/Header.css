@@ -73,19 +73,26 @@
 /* Botones de login/logout */
 .login-btn,
 .logout-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  transition: transform 0.2s ease;
-  cursor: pointer;
+padding: 10px;
+border: 1px solid rgb(204, 204, 204);
+background-color: rgba(0, 0, 0, 0); /* transparent */
+cursor: pointer;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+border-radius: 4px;
+transition: transform 0.2s ease;
+
+
 }
 
 .login-btn:hover,
 .logout-btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
 }
 
 /* === Columna derecha: selector de idioma === */
@@ -121,13 +128,14 @@
 
 /* Icono principal */
 .dropbtn {
-  font-size: 1.6rem;
-  padding: 4px;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.15s ease;
+padding: 10px;
+border: 1px solid rgb(204, 204, 204);
+background-color: rgba(0, 0, 0, 0); /* transparent */
+cursor: pointer;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+border-radius: 4px;
 }
 
 .dropbtn:hover {
@@ -189,3 +197,5 @@
   background-color: rgba(75, 44, 37, 0.08);
   color: #b10a0a;
 }
+
+

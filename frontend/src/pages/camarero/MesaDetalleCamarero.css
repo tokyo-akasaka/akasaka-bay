@@ -36,12 +36,16 @@
 
 .qr-btn.small:hover {
   background: #666;
+
 }
 
-.qr-section {
-  margin: 16px 0;
-  text-align: center;
+section.qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+
 
 .mesa-info {
   display: flex;

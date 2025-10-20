@@ -99,7 +99,12 @@
     "email_placeholder": "Your email",
     "send_code": "Send code",
     "code_placeholder": "Enter the received code",
-    "verify": "Verify"
+    "verify": "Verify",
+   "error_sending": "❌ Error sending OTP: {{error}}",
+  "code_sent": "✅ Check your email, we've sent you a code.",
+  "invalid_code": "❌ Incorrect or expired OTP.",
+  "user_not_found": "⚠️ No waiter found with this email.",
+  "welcome": "🎉 Welcome {{name}} (ID {{id}})"
   },
    "guest_register": {
     "invalid_token": "❌ Invalid or missing token.",

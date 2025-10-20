@@ -24,6 +24,7 @@
   border-radius: 5px;
   padding: 10px 15px;
   cursor: pointer;
+
 }
 
 .login-button:hover {
@@ -35,15 +36,38 @@
   margin-top: 15px;
   color: white;
 }
+
+
+/* Initial placeholder styles (static color) */
 input.login-input::placeholder {
-  color: #f8f7f7;
+  color:  #f8f7f7;
   transition: color 0.4s ease;
   -webkit-transition: color 0.4s ease;
   -moz-transition: color 0.4s ease;
   -ms-transition: color 0.4s ease;
   -o-transition: color 0.4s ease;
+
 }
 
 .login-input:focus::placeholder {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(210, 214, 215, 0.354);
+
+
+}
+
+
+
+/* Activa el parpadeo solo cuando lo pidas con la clase */
+.login-input.verifity-code{
+  animation: blink 3s infinite;
+  -webkit-animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+   border: #a4a6a4 solid 1px;
+  }
+  50% {
+    border: 1px solid rgba(164, 166, 164, 0.2);
+  }
 }

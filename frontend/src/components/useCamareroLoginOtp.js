@@ -1,15 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
+import { useTranslation } from "react-i18next";
 
 export default function useCamareroLoginOtp() {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
-  const [step, setStep] = useState("request"); // "request" o "verify"
+  const [step, setStep] = useState("request");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
-  // Paso 1️⃣: Enviar OTP al correo
+  // 🎯 Actualizar el mensaje si se cambia el idioma
+  useEffect(() => {
+    const handleLangChange = () => {
+      setMessage((prev) => {
+        if (prev.includes("✅")) return t("login_Otp.code_sent");
+        if (prev.includes("❌") && prev.includes("OTP"))
+          return t("login_Otp.invalid_code");
+        if (prev.includes("⚠️")) return t("login_Otp.user_not_found");
+        return prev;
+      });
+    };
+
+    i18n.on("languageChanged", handleLangChange);
+    return () => i18n.off("languageChanged", handleLangChange);
+  }, [i18n, t]);
+
   const sendOtp = async () => {
     const { error } = await supabase.auth.signInWithOtp({
       email,
@@ -17,14 +34,13 @@ export default function useCamareroLoginOtp() {
     });
 
     if (error) {
-      setMessage("❌ Error enviando OTP: " + error.message);
+      setMessage(t("login_Otp.error_sending", { error: error.message }));
     } else {
-      setMessage("✅ Revisa tu correo, te hemos enviado un código.");
+      setMessage(t("login_Otp.code_sent"));
       setStep("verify");
     }
   };
 
-  // Paso 2️⃣: Verificar OTP introducido
   const verifyOtp = async () => {
     const {
       data: { session },
@@ -35,41 +51,32 @@ export default function useCamareroLoginOtp() {
       type: "email",
     });
 
-    console.log("DEBUG verifyOtp: session =", session, "error =", error);
-
     if (error || !session) {
-      setMessage("❌ OTP incorrecto o caducado.");
+      setMessage(t("login_Otp.invalid_code"));
       return;
     }
-
     const authUser = session.user;
-    console.log("DEBUG authUser:", authUser);
-
     const { data: camarero, error: camError } = await supabase
       .from("camareros")
       .select("id, nombre, email")
       .eq("email", authUser.email)
       .single();
 
-    console.log("DEBUG camarero:", camarero, "camError:", camError);
-
     if (camError || !camarero) {
-      setMessage("⚠️ No existe un camarero con ese email en la base de datos");
+      setMessage(t("login_Otp.user_not_found"));
       return;
     }
 
     try {
       localStorage.setItem("camarero", JSON.stringify(camarero));
-      window.dispatchEvent(new Event("camarero-login")); // 🔔 Notificar al Header
-      console.log(
-        "DEBUG localStorage after set:",
-        localStorage.getItem("camarero")
-      );
+      window.dispatchEvent(new Event("camarero-login"));
     } catch (e) {
       console.error("ERROR al guardar en localStorage:", e);
     }
 
-    setMessage(`🎉 Bienvenido ${camarero.nombre} (ID ${camarero.id})`);
+    setMessage(
+      t("login_Otp.welcome", { name: camarero.nombre, id: camarero.id })
+    );
 
     setTimeout(() => {
       navigate("/camarero/mesas");

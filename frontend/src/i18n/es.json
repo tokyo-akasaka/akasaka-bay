@@ -98,7 +98,12 @@
     "email_placeholder": "Tu email",
     "send_code": "Enviar código",
     "code_placeholder": "Introduce el código recibido",
-    "verify": "Verificar"
+    "verify": "Verificar",
+    "error_sending": "❌ Error enviando OTP: {{error}}",
+  "code_sent": "✅ Revisa tu correo, te hemos enviado un código.",
+  "invalid_code": "❌ OTP incorrecto o caducado.",
+  "user_not_found": "⚠️ No existe un camarero con ese email en la base de datos.",
+  "welcome": "🎉 Bienvenido {{name}} (ID {{id}})"
   },
   "guest_register": {
     "invalid_token": "❌ Token inválido o faltante.",

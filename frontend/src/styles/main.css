@@ -20,8 +20,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: #422721 solid 10px;
-  border-radius: 12px;
+ 
   box-sizing: border-box;
 }
 
