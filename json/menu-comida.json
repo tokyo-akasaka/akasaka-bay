@@ -11,7 +11,7 @@
         { "code": "004", "name_es": "Edamame Himalaya", "name_en": "Edamame", "name_cn": "毛豆", "price": "6" },
         { "code": "005", "name_es": "Tataki de Wagyu con trufa y cebolleta", "name_en": "Wagyu tataki with truffle and spring onion", "name_cn": "和牛塔塔基配松露和葱", "price": "30" },
         { "code": "006", "name_es": "Kimchi", "name_en": "Kimchi", "name_cn": "特制泡菜", "price": "6" },
-        { "code": "007", "name_es": "Gua Bao de Wagyu (por unidad)", "name_en": "Wagyu Gua Bao", "name_cn": "和牛 叉烧 刈包", "price": "6" },
+        { "code": "007", "name_es": "Gua Bao de Wagyu (por unidad)", "name_en": "Wagyu Gua Bao", "name_cn": "和牛 叉烧 刈包", "price": "8" },
         { "code": "008", "name_es": "Gyoza Casera de Wagyu (6 unidades)", "name_en": "Homemade Wagyu Gyoza", "name_cn": "和牛手工煎饺", "price": "9" },
         { "code": "009", "name_es": "Rollito de Primavera de Wagyu (2 unidades)", "name_en": "Wagyu Spring Roll", "name_cn": "和牛炸春卷(2支)", "price": "6" },
         { "code": "010", "name_es": "Tori Karaage - Conos de muslos de pollo", "name_en": "Tori Karaage - Chicken Thigh Cones", "name_cn": "日式炸鸡块", "price": "11" },
@@ -91,7 +91,7 @@
         { "code": "050", "name_es": "Set de Wagyu", "name_en": "Wagyu Set", "name_cn": "和牛拼盘", "price": "45" },
         { "code": "051", "name_es": "Wagyu - Lomo Bajo", "name_en": "Wagyu - Sirloin Cut", "name_cn": "和牛西冷牛排", "price": "28", "price_descript": "por 100gr." },
         { "code": "051A", "name_es": "Lomo Wagyu Japonés A5 (Miyazaki), cortado al momento", "name_en": "Japanese Wagyu Loin A5 (Miyazaki), cut-to-order", "name_cn": "日本和牛 A5 (宫崎)，现切", "price": "38", "price_descript": "por 100gr." },
-        { "code": "052", "name_es": "Chuletón de rubio gallego a la brasa", "name_en": "Grilled Galician blond steak", "name_cn": "碳烤利西亚牛排", "price": "80", "price_descript": "por 1kg."  }
+        { "code": "052", "name_es": "Chuletón de vaca rubia a la brasa", "name_en": "Grilled Galician blond steak", "name_cn": "碳烤利西亚牛排", "price": "80", "price_descript": "por 1kg."  }
       ]
     },
     {
