@@ -7,6 +7,7 @@
       "items": [
         { "code": "001", "name_es": "Caja del Tesoro de Wagyu", "name_en": "Wagyu Treasure Box", "name_cn": "和牛宝盒", "price": "28" },
         { "code": "002", "name_es": "Caviar Oscietra - 10gr.", "name_en": "Oscietra Caviar - 10g", "name_cn": "Oscietra 鱼子酱-10克", "price": "30" },
+        { "code": "002A", "name_es": "Caviar Oscietra - 30gr.", "name_en": "Oscietra Caviar - 30g", "name_cn": "Oscietra 鱼子酱-30克", "price": "80" },
         { "code": "003", "name_es": "Tartar Clásico de Wagyu", "name_en": "Classic Wagyu Tartar", "name_cn": "经典和牛鞑靼", "price": "25" },
         { "code": "004", "name_es": "Edamame Himalaya", "name_en": "Edamame", "name_cn": "毛豆", "price": "6" },
         { "code": "005", "name_es": "Tataki de Wagyu con trufa y cebolleta", "name_en": "Wagyu tataki with truffle and spring onion", "name_cn": "和牛塔塔基配松露和葱", "price": "30" },
@@ -24,21 +25,36 @@
       ]
     },
     {
-      "title_es": "Nigiri 2 piezas - Sashimi 3 piezas",
-      "title_en": "Nigiri 2 pieces - Sashimi 3 pieces",
-      "title_cn": "握寿司 2 件 - 刺身 3 件",
+      "title_es": "Nigiri 2 piezas",
+      "title_en": "Nigiri 2 pieces",
+      "title_cn": "握寿司 2 件",
       "items": [
-        { "code": "017", "name_es": "Pez de limón - Hamachi", "name_en": "Amberjack", "name_cn": "冰鲜鰤鱼", "price": "8" },
+        { "code": "017N", "name_es": "Pez de limón - Hamachi", "name_en": "Amberjack", "name_cn": "冰鲜鰤鱼", "price": "8" },
         { "code": "018", "name_es": "Langostino - Kuruma", "name_en": "Kuruma Prawn", "name_cn": "车海老", "price": "8" },
         { "code": "019", "name_es": "Carabinero - Karabinero", "name_en": "Carabinero - Red prawn", "name_cn": "昆布腌制红魔虾", "price": "10" },
         { "code": "020", "name_es": "Anguila Tostada", "name_en": "Seared Conger Eel", "name_cn": "炙烧星鳗", "price": "8" },
-        { "code": "021", "name_es": "Salmón - sake", "name_en": "Salmon - sake", "name_cn": "鲑鱼", "price": "6" },
-        { "code": "022", "name_es": "Atún - akami", "name_en": "Tuna - akami", "name_cn": "金枪鱼赤神", "price": "8" },
-        { "code": "023", "name_es": "Vieira - hotate", "name_en": "Scallop - hotate", "name_cn": "扇贝", "price": "8" },
-        { "code": "024", "name_es": "Ventresca - toro", "name_en": "Tuna Belly - Toro", "name_cn": "大腹 - 金枪鱼肚", "price": "10" },
-        { "code": "026", "name_es": "Pargo-madai", "name_en": "Snapper-madai", "name_cn": "鲷鱼", "price": "6" },
+        { "code": "021N", "name_es": "Salmón - sake", "name_en": "Salmon - sake", "name_cn": "鲑鱼", "price": "6" },
+        { "code": "022N", "name_es": "Atún - akami", "name_en": "Tuna - akami", "name_cn": "金枪鱼赤神", "price": "8" },
+        { "code": "023N", "name_es": "Vieira - hotate", "name_en": "Scallop - hotate", "name_cn": "扇贝", "price": "8" },
+        { "code": "024N", "name_es": "Ventresca - toro", "name_en": "Tuna Belly - Toro", "name_cn": "大腹 - 金枪鱼肚", "price": "10" },
+        { "code": "026N", "name_es": "Pargo-madai", "name_en": "Snapper-madai", "name_cn": "鲷鱼", "price": "8" },
         { "code": "027", "name_es": "Selección del chef 9 piezas de nigiri", "name_en": "Chef’s Selection 9 pieces of nigiri", "name_cn": "主厨精选 9 件握寿司", "price": "30" },
-        { "code": "028", "name_es": "Selección del chef 6 piezas de nigiri", "name_en": "Chef’s Selection 6 pieces of nigiri", "name_cn": "主厨精选 6 件握寿司", "price": "20" },
+        { "code": "028", "name_es": "Selección del chef 6 piezas de nigiri", "name_en": "Chef’s Selection 6 pieces of nigiri", "name_cn": "主厨精选 6 件握寿司", "price": "20" }
+
+      ]
+    },
+
+    {
+      "title_es": "Sashimi 3 piezas",
+      "title_en": "Sashimi 3 pieces",
+      "title_cn": "刺身 3 件",
+      "items": [
+        { "code": "017S", "name_es": "Pez de limón - Hamachi", "name_en": "Amberjack", "name_cn": "冰鲜鰤鱼", "price": "8" },
+        { "code": "021S", "name_es": "Salmón - sake", "name_en": "Salmon - sake", "name_cn": "鲑鱼", "price": "6" },
+        { "code": "022S", "name_es": "Atún - akami", "name_en": "Tuna - akami", "name_cn": "金枪鱼赤神", "price": "8" },
+        { "code": "023S", "name_es": "Vieira - hotate", "name_en": "Scallop - hotate", "name_cn": "扇贝", "price": "8" },
+        { "code": "024S", "name_es": "Ventresca - toro", "name_en": "Tuna Belly - Toro", "name_cn": "大腹 - 金枪鱼肚", "price": "10" },
+        { "code": "026S", "name_es": "Pargo-madai", "name_en": "Snapper-madai", "name_cn": "鲷鱼", "price": "8" },
         { "code": "029", "name_es": "Sashimi moriawase: selección del chef 4 variaciones", "name_en": "Sashimi moriawase: Chef’s Selection 4 Variations", "name_cn": "刺身拼盘：厨师精选 4 种变化", "price": "28" },
         { "code": "030", "name_es": "Sashimi moriawase: selección del chef 7 variaciones", "name_en": "Sashimi moriawase: Chef’s Selection 7 Variations", "name_cn": "刺身拼盘：厨师精选 7 种变化", "price": "50" }
       ]
@@ -52,7 +68,7 @@
         { "code": "032", "name_es": "Atún toro con caviar de oscietra", "name_en": "Tuna bull with oscietra caviar", "name_cn": "金枪鱼配奥西特拉鱼子酱", "price": "8" },
         { "code": "033", "name_es": "Hamachi con aguacate y trufa", "name_en": "Hamachi with avocado and truffle", "name_cn": "鰤鱼配牛油果和松露", "price": "8" },
         { "code": "034", "name_es": "Salmón - Ikura y trufa", "name_en": "Salmon - ikura and truffle", "name_cn": "三文鱼 - 鲑鱼籽和松露", "price": "6" },
-        { "code": "035", "name_es": "Wagyu Nigiri Sushi A5 de Miyazaki", "name_en": "Wagyu Nigiri Sushi A5 from Miyazaki", "name_cn": "宫崎和牛握寿司 A5", "price": "10" }
+        { "code": "035", "name_es": "Wagyu Nigiri Sushi A5 de Miyazaki", "name_en": "Wagyu Nigiri Sushi A5 from Miyazaki", "name_cn": "宫崎和牛握寿司 A5", "price": "10","price_descript": "min 2un."  }
       ]
     },
     {
@@ -89,7 +105,7 @@
       "items": [
         { "code": "049", "name_es": "Set de Wagyu + Bistec de Wagyu del Día (60 gramos)", "name_en": "Wagyu Set + Wagyu Steak of the Day", "name_cn": "和牛拼盘+和牛本日牛排", "price": "60" },
         { "code": "050", "name_es": "Set de Wagyu", "name_en": "Wagyu Set", "name_cn": "和牛拼盘", "price": "45" },
-        { "code": "051", "name_es": "Wagyu - Lomo Bajo", "name_en": "Wagyu - Sirloin Cut", "name_cn": "和牛西冷牛排", "price": "28", "price_descript": "por 100gr." },
+        { "code": "051", "name_es": "Wagyu - Entrecot", "name_en": "Wagyu - Ribeye Steak", "name_cn": "现切肋眼", "price": "28", "price_descript": "por 100gr." },
         { "code": "051A", "name_es": "Lomo Wagyu Japonés A5 (Miyazaki), cortado al momento", "name_en": "Japanese Wagyu Loin A5 (Miyazaki), cut-to-order", "name_cn": "日本和牛 A5 (宫崎)，现切", "price": "38", "price_descript": "por 100gr." },
         { "code": "052", "name_es": "Chuletón de vaca rubia a la brasa", "name_en": "Grilled Galician blond steak", "name_cn": "碳烤利西亚牛排", "price": "80", "price_descript": "por 1kg."  }
       ]

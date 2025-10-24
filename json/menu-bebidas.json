@@ -54,7 +54,7 @@
         {"code": "228", "name_es": "Pentecostes Varietal, Albariño, Treixadura - Rías Baixas", "name_en": "Pentecostes Varietal, Albariño, Treixadura – Rías Baixas", "price": "28,00"},
         {"code": "229", "name_es": "Valdebarón - Rioja", "name_en": "Valdebarón - Rioja", "price_by_glass": "6,00", "price_by_bottle": "28,00"},
         {"code": "230", "name_es": "A Telleira Godello - Ribeiro", "name_en": "A Telleira Godello - Ribeiro", "price": "26,00"},
-        {"code": "230A", "name_es": "Circe Verdejo - Rueda", "name_en": "Circe Verdejo - Rueda", "price": "24,00"}
+        {"code": "230A", "name_es": "Circe Verdejo - Rueda", "name_en": "Circe Verdejo - Rueda", "price": "26,00"}
       ]
     },
     {
@@ -81,7 +81,7 @@
       "items": [
         {"code": "237", "name_es": "Cow Boy Yamahai /300ml", "name_en": "Cow Boy Yamahai", "price": "18,00"},
         {"code": "238", "name_es": "Kakunoi /300ml", "name_en": "Kakunoi", "price": "22,00"},
-        {"code": "239", "name_es": "Kubota Senju /300ml", "name_en": "Kubota Senju Ginjo Sake", "price": "15,00"},
+        {"code": "239", "name_es": "Kubota Senju /300ml", "name_en": "Kubota Senju Ginjo Sake", "price": "21,00"},
         {"code": "240", "name_es": "Mutsu Hassen Kuro Label  /300ml", "name_en": "Mutsu Hassen Kuro Label", "price": "21,00"},
         {"code": "241", "name_es": "Umenoyado No Lychee /720ml", "name_en": "Umenoyado No Lychee", "price_by_glass": "6,00", "price_by_bottle": "38,00"},
         {"code": "242", "name_es": "Umeshu The Choya Extra Shiso/720ml", "name_en": "Umeshu The Choya Extra Shiso", "price_by_glass": "8,00", "price_by_bottle": "45,00"},
