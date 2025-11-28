@@ -35,8 +35,8 @@
         {"code": "215", "name_es": "Malasenda Crianza-Ribera del Duero", "name_en": "Malasenda Crianza – Ribera del Duero", "price_by_glass": "5,50", "price_by_bottle": "24,00"},
         {"code": "216", "name_es": "Altos Valdoso Crianza - Ribera del Duero", "name_en": "Altos Valdoso Crianza – Ribera del Duero", "price": "24,50"},
         {"code": "217", "name_es": "Pago de los Capellanes (Tempranillo) - Ribera del Duero", "name_en": "Pago de los Capellanes (Tempranillo) - Ribera del Duero", "price": "35,90"},
-        {"code": "218", "name_es": "Copa Tinto de verano /Sangría", "name_en": "Glass of Summer Red Wine or Sangria", "price": "4,50"},
-        {"code": "219", "name_es": "Jarra de Tinto de verano /Sangría", "name_en": "Pitcher of summer wine or Pitcher of sangria", "price": "14,50"},
+        {"code": "218", "name_es": "Jarra De Sangría", "name_en": "Sangria Pitcher", "price_by_glass": "5,50", "price_by_bottle": "16,50"},
+        {"code": "219", "name_es": "Jarra de Tinto de verano", "name_en": "Pitcher of summer wine", "price_by_glass": "4,50", "price_by_bottle": "14,50"},
         {"code": "220", "name_es": "PSI 2022 - Ribera del Duero", "name_en": "PSI 2022 - Ribera del Duero", "price": "75,90"},
         {"code": "221", "name_es": "Queirón Mi Lugar - Rioja", "name_en": "Queirón Mi Lugar – Rioja", "price": "29,00"},
         {"code": "222", "name_es": "Cerro Añón Crianza - Rioja", "name_en": "Cerro Añón Crianza – Rioja", "price_by_glass": "5,00", "price_by_bottle": "19,50"},
@@ -49,12 +49,12 @@
       "items": [
         {"code": "224", "name_es": "Fortaleza Moscatel Seco - Alicante", "name_en": "Fortaleza Moscatel Seco – Alicante", "price_by_glass": "4,50", "price_by_bottle": "17,00"},
         {"code": "225", "name_es": "Colección Luzon Sauvignon Blanc - Jumilla", "name_en": "Colección Luzón Sauvignon Blanc – Jumilla", "price": "19,50"},
-        {"code": "226", "name_es": "Pousada Albariño - Rías Baixas", "name_en": "Pousada Albariño – Rías Baixas", "price": "32,00"},
+        {"code": "226", "name_es": "Pousada Albariño - Rías Baixas", "name_en": "Pousada Albariño – Rías Baixas",  "price_by_glass": "6,00", "price_by_bottle": "32,00"},
         {"code": "227", "name_es": "Pousada Barrica Albariño - Rías Baixas", "name_en": "Pousada Barrica Albariño – Rías Baixas", "price": "49,00"},
         {"code": "228", "name_es": "Pentecostes Varietal, Albariño, Treixadura - Rías Baixas", "name_en": "Pentecostes Varietal, Albariño, Treixadura – Rías Baixas", "price": "28,00"},
         {"code": "229", "name_es": "Valdebarón - Rioja", "name_en": "Valdebarón - Rioja", "price_by_glass": "6,00", "price_by_bottle": "28,00"},
         {"code": "230", "name_es": "A Telleira Godello - Ribeiro", "name_en": "A Telleira Godello - Ribeiro", "price": "26,00"},
-        {"code": "230A", "name_es": "Circe Verdejo - Rueda", "name_en": "Circe Verdejo - Rueda", "price": "26,00"}
+        {"code": "230A", "name_es": "Circe Verdejo - Rueda", "name_en": "Circe Verdejo - Rueda", "price_by_glass": "6,00", "price_by_bottle": "26,00"}
       ]
     },
     {
@@ -80,14 +80,14 @@
       "title_en": "Sake",
       "items": [
         {"code": "237", "name_es": "Cow Boy Yamahai /300ml", "name_en": "Cow Boy Yamahai", "price": "18,00"},
-        {"code": "238", "name_es": "Kakunoi /300ml", "name_en": "Kakunoi", "price": "22,00"},
+        {"code": "238", "name_es": "Daiginjo Gold Kamotsuru /750ml", "name_en": "Daiginjo Gold Kamotsuru", "price": "48,00"},
         {"code": "239", "name_es": "Kubota Senju /300ml", "name_en": "Kubota Senju Ginjo Sake", "price": "21,00"},
         {"code": "240", "name_es": "Mutsu Hassen Kuro Label  /300ml", "name_en": "Mutsu Hassen Kuro Label", "price": "21,00"},
-        {"code": "241", "name_es": "Umenoyado No Lychee /720ml", "name_en": "Umenoyado No Lychee", "price_by_glass": "6,00", "price_by_bottle": "38,00"},
-        {"code": "242", "name_es": "Umeshu The Choya Extra Shiso/720ml", "name_en": "Umeshu The Choya Extra Shiso", "price_by_glass": "8,00", "price_by_bottle": "45,00"},
+        {"code": "241", "name_es": "Umenoyado No Lychee /720ml", "name_en": "Umenoyado No Lychee", "price_by_glass": "8,00", "price_by_bottle": "38,00"},
+        {"code": "242", "name_es": "Umeshu The Choya Extra Shiso/720ml", "name_en": "Umeshu The Choya Extra Shiso", "price_by_glass": "9,50", "price_by_bottle": "45,00"},
         {"code": "243", "name_es": "Umenoyado No Umeshu /300ml", "name_en": "Umenoyado No Umeshu", "price": "25,00"},
-        {"code": "244", "name_es": "Kinoene /720ml", "name_en": "Kinoene", "price_by_glass": "7,00", "price_by_bottle": "42,00"},
-        {"code": "245", "name_es": "Munemasa /720ml", "name_en": "Munemasa", "price_by_glass": "6,00", "price_by_bottle": "38,00"}
+        {"code": "244", "name_es": "Kinoene /720ml", "name_en": "Kinoene", "price_by_glass": "9,00", "price_by_bottle": "42,00"},
+        {"code": "245", "name_es": "Munemasa /720ml", "name_en": "Munemasa", "price_by_glass": "8,00", "price_by_bottle": "38,00"}
       ]
     },
     {
