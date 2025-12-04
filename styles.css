@@ -8,7 +8,7 @@ html, body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  background-color: #FFFDF7;
+  background-color: #fff3e5;
   font-family: Arial, sans-serif;
   color: #000;
   text-align: center;
@@ -281,7 +281,7 @@ footer {
   align-items: start;
   gap: 12px;
   padding: 8px 0;
-  border-bottom: 1px dashed #fff2;
+  border-bottom: 1px dashed rgb(142, 141, 141);
 }
 .item-info {
   max-width: 70%;
@@ -526,10 +526,11 @@ text-align: left;
 ========================= */
 
 .menu-omakase .menu-content {
-  margin: 6rem auto;
+  margin: 0rem auto;
+margin-top: 6rem;
   padding: 2rem 1rem;
   border-radius: 8px;
-  background: url('img/menu-degustacion.jpg') center top no-repeat;
+   background-color: #faecdb;
   background-size: 100% 100%;
   text-align: center;
 }
