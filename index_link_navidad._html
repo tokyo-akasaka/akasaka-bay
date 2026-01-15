@@ -21,6 +21,16 @@
         <div class="buttons">
           <ul>
             <li>
+              <a
+                href="https://sites.google.com/view/menu-celebracion/inicio"
+                target="_blank"
+                class="menu-btn"
+              >
+                ⭐ Menú Nochevieja y Grupos <br />· New Year’s Eve & Group Menu·
+                跨年及团体菜单
+              </a>
+            </li>
+            <li>
               <a href="carta-comida.html" class="menu-btn">
                 🍽️ Carta comida <br />· Food Menu · 食物菜单
               </a>
