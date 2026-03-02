@@ -106,7 +106,7 @@
         { "code": "049", "name_es": "Set de Wagyu + Bistec de Wagyu del Día (60 gramos)", "name_en": "Wagyu Set + Wagyu Steak of the Day", "name_cn": "和牛拼盘+和牛本日牛排", "price": "60" },
         { "code": "050", "name_es": "Set de Wagyu", "name_en": "Wagyu Set", "name_cn": "和牛拼盘", "price": "45" },
         { "code": "051", "name_es": "Wagyu - Entrecot", "name_en": "Wagyu - Ribeye Steak", "name_cn": "现切肋眼", "price": "28", "price_descript": "por 100gr." },
-        { "code": "051A", "name_es": "Lomo Wagyu Japonés A5 (Miyazaki), cortado al momento", "name_en": "Japanese Wagyu Loin A5 (Miyazaki), cut-to-order", "name_cn": "日本和牛 A5 (宫崎)，现切", "price": "38", "price_descript": "por 100gr." },
+        { "code": "051A", "name_es": "Lomo Wagyu Japonés A5 (Kobe), cortado al momento por peso (pieza mínimo 200gr o más)", "name_en": "Japanese Wagyu Loin A5 (Kobe), cut to order by weight (minimum 200 g per piece)", "name_cn": "日本和牛A5级(神户)西冷，按重量现点现切（每份至少200克）", "price": "38", "price_descript": "por 100gr." },
         { "code": "052", "name_es": "Chuletón de vaca rubia a la brasa", "name_en": "Grilled Galician blond steak", "name_cn": "碳烤利西亚牛排", "price": "80", "price_descript": "por 1kg."  }
       ]
     },
