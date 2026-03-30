@@ -76,11 +76,11 @@
       "title_en": "Hosomaki / Rolls",
       "title_cn": "细卷 / 卷",
       "items": [
-        { "code": "036", "name_es": "Hamachi - maki: mini rollo con hamachi y aguacate", "name_en": "Hamachi - maki: mini roll with hamachi and avocado", "name_cn": "鰤鱼卷：迷你鰤鱼牛油果卷", "price": "8" },
-        { "code": "037", "name_es": "Yasai - maki: jengibre, pepino y aguacate", "name_en": "Yasai - maki: ginger, cucumber and Avocado", "name_cn": "纯素卷：生姜、黄瓜、牛油果", "price": "6" },
-        { "code": "038", "name_es": "Toro - maki: mini rollo con ventresca de atún", "name_en": "Toro - maki: mini roll with tuna belly", "name_cn": "金枪鱼肚迷你卷", "price": "10" },
-        { "code": "039", "name_es": "Maguro - maki: mini rollo con atún", "name_en": "Maguro - maki: mini roll with tuna", "name_cn": "金枪鱼卷: 金枪鱼迷你卷", "price": "8" },
-        { "code": "040", "name_es": "Futo - maki: rollo grueso: selección de pescado y salsa Sriracha con shiso", "name_en": "Futo - maki: Thick roll with a selection of fish, Sriracha sauce and shiso", "name_cn": "太卷： 精选鱼类，辣椒酱和紫苏", "price": "15" },
+        { "code": "036", "name_es": "Hamachi - maki: mini rollo con hamachi y aguacate", "name_en": "Hamachi - maki: mini roll with hamachi and avocado", "name_cn": "鰤鱼卷：迷你鰤鱼牛油果卷", "price": "10" },
+        { "code": "037", "name_es": "Yasai - maki: jengibre, pepino y aguacate", "name_en": "Yasai - maki: ginger, cucumber and Avocado", "name_cn": "纯素卷：生姜、黄瓜、牛油果", "price": "8" },
+        { "code": "038", "name_es": "Toro - maki: mini rollo con ventresca de atún", "name_en": "Toro - maki: mini roll with tuna belly", "name_cn": "金枪鱼肚迷你卷", "price": "12" },
+        { "code": "039", "name_es": "Maguro - maki: mini rollo con atún", "name_en": "Maguro - maki: mini roll with tuna", "name_cn": "金枪鱼卷: 金枪鱼迷你卷", "price": "9" },
+        { "code": "040", "name_es": "Futo - maki: rollo grueso: selección de pescado y salsa Sriracha con shiso", "name_en": "Futo - maki: Thick roll with a selection of fish, Sriracha sauce and shiso", "name_cn": "太卷： 精选鱼类，辣椒酱和紫苏", "price": "18" },
         { "code": "041", "name_es": "Kurumaebi Roll: langostino en tempura, aguacate y trufa", "name_en": "Kurumaebi Roll: tempura prawn, avocado, and truffle", "name_cn": "Kurumaebi Roll：天妇罗虾、牛油果和松露", "price": "18" },
         { "code": "042", "name_es": "Amaebi Matcha Roll: tartar de gamba roja, aguacate, pepino, salmón, crumble de té verde matcha", "name_en": "Amaebi Matcha Roll: red prawn tartar, avocado, cucumber, salmon, matcha green tea crumble", "name_cn": "甘虾抹茶脆卷：红虾他他，牛油果，黄瓜，三文鱼，抹茶绿茶脆粒", "price": "18" },
         { "code": "043", "name_es": "Hamachi Roll: pez limón con aguacate, pepino, wasabi y mayonesa", "name_en": "Hamachi Roll: lemon fish with avocado, cucumber, wasabi and mayonnaise", "name_cn": "鰤鱼卷: 配牛油果、黄瓜、芥末蛋黄酱", "price": "15" },
@@ -138,10 +138,10 @@
       "title_en": "Others",
       "title_cn": "其他烧物类",
       "items": [
-        { "code": "063", "name_es": "Combinación de Cerdo Ibérico de Bellota", "name_en": "Iberico de Bellota Pork Combination", "name_cn": "伊比利猪Bellota三种部位盛合", "price": "25" },
-        { "code": "064", "name_es": "Pluma Ibérica de Bellota en Láminas con Salsa Picante Shichimi", "name_en": "Sliced Iberico de Bellota Pork Collar with Shichimi Spicy Sauce", "name_cn": "薄切伊比利梅花 | 七味酱", "price": "15" },
-        { "code": "065", "name_es": "Secreto Ibérico de Bellota", "name_en": "Acorn-fed Ibérico Pork Secreto", "name_cn": "伊比利亚黑猪梅花肉", "price": "12" },
-        { "code": "066", "name_es": "Muslo de Pollo", "name_en": "Chicken Thigh", "name_cn": "鸡腿肉", "price": "10" }
+        { "code": "063", "name_es": "Combinación de Cerdo Ibérico de Bellota", "name_en": "Iberico de Bellota Pork Combination", "name_cn": "伊比利猪Bellota三种部位盛合", "price": "28" },
+        { "code": "064", "name_es": "Pluma Ibérica de Bellota en Láminas con Salsa Picante Shichimi", "name_en": "Sliced Iberico de Bellota Pork Collar with Shichimi Spicy Sauce", "name_cn": "薄切伊比利梅花 | 七味酱", "price": "18" },
+        { "code": "065", "name_es": "Secreto Ibérico de Bellota", "name_en": "Acorn-fed Ibérico Pork Secreto", "name_cn": "伊比利亚黑猪梅花肉", "price": "15" },
+        { "code": "066", "name_es": "Muslo de Pollo", "name_en": "Chicken Thigh", "name_cn": "鸡腿肉", "price": "12" }
       ]
     },
     {
@@ -169,13 +169,13 @@
       "title_cn": "米饭和面条",
       "items": [
         { "code": "073", "name_es": "Kamameshi de Pollo", "name_en": "Chicken Kamameshi", "name_cn": "鸡肉釜饭", "price": "12" },
-        { "code": "074", "name_es": "Curry de Wagyu clásico del chef con Arroz", "name_en": "Chef’s Classic Wagyu Curry with Rice", "name_cn": "主厨经典和牛咖喱饭", "price": "18" },
+        { "code": "074", "name_es": "Curry de Wagyu clásico del chef con Arroz", "name_en": "Chef’s Classic Wagyu Curry with Rice", "name_cn": "主厨经典和牛咖喱饭", "price": "25" },
         { "code": "075", "name_es": "Kamameshi de Arroz Blanco", "name_en": "Plain Rice Kamameshi", "name_cn": "白釜饭", "price": "5" },
-        { "code": "076", "name_es": "Kamameshi de Anguila y Wagyu", "name_en": "Eel & Wagyu Kamameshi", "name_cn": "蒲烧鳗鱼和牛时雨煮釜饭", "price": "18" },
+        { "code": "076", "name_es": "Kamameshi de Anguila y Wagyu", "name_en": "Eel & Wagyu Kamameshi", "name_cn": "蒲烧鳗鱼和牛时雨煮釜饭", "price": "28" },
         { "code": "077", "name_es": "Kamameshi de Wagyu yakiniku", "name_en": "Wagyu Kamameshi yakiniku", "name_cn": "和牛釜饭", "price": "18" },
         { "code": "078", "name_es": "Ramen con carne y caldo de wagyu", "name_en": "Ramen with wagyu beef and broth", "name_cn": "特制浓醇和牛高汤拉面", "price": "12" },
-        { "code": "079", "name_es": "Wagyu yakimeshi: wagyu, arroz salteado, huevo y cebollino", "name_en": "Wagyu yakimeshi: wagyu, sauteed rice, egg and chives", "name_cn": "和牛炒饭：和牛、炒饭、鸡蛋和小葱", "price": "12" },
-        { "code": "080", "name_es": "Wagyu Yakisoba: tallarines con wagyu y verduras", "name_en": "Wagyu Yakisoba: noodles with wagyu beef and vegetables", "name_cn": "和牛炒面：配和牛和蔬菜", "price": "12" }
+        { "code": "079", "name_es": "Wagyu yakimeshi: wagyu, arroz salteado, huevo y cebollino", "name_en": "Wagyu yakimeshi: wagyu, sauteed rice, egg and chives", "name_cn": "和牛炒饭：和牛、炒饭、鸡蛋和小葱", "price": "15" },
+        { "code": "080", "name_es": "Wagyu Yakisoba: tallarines con wagyu y verduras", "name_en": "Wagyu Yakisoba: noodles with wagyu beef and vegetables", "name_cn": "和牛炒面：配和牛和蔬菜", "price": "15" }
       ]
     },
     {
