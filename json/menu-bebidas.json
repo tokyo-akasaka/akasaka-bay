@@ -32,15 +32,20 @@
         {"code": "212", "name_es": "Vinalopó Petit Verdot - Alicante", "name_en": "Vinalopó Petit Verdot - Alicante", "price_by_glass": "4,50", "price_by_bottle": "17,00"},
         {"code": "213", "name_es": "Patojo 10 - Alicante", "name_en": "Patojo 10 - Alicante", "price": "24,00"},
         {"code": "214", "name_es": "Porti - Jumilla", "name_en": "Porti - Jumilla", "price": "48,00"},
+        {"code": "214A", "name_es": "Clio - Jumilla", "name_en": "Clio - umilla", "price": "78,00"},
         {"code": "215", "name_es": "Malasenda Crianza-Ribera del Duero", "name_en": "Malasenda Crianza – Ribera del Duero", "price_by_glass": "5,50", "price_by_bottle": "24,00"},
         {"code": "216", "name_es": "Altos Valdoso Crianza - Ribera del Duero", "name_en": "Altos Valdoso Crianza – Ribera del Duero", "price": "24,50"},
         {"code": "217", "name_es": "Pago de los Capellanes (Tempranillo) - Ribera del Duero", "name_en": "Pago de los Capellanes (Tempranillo) - Ribera del Duero", "price": "35,90"},
+        {"code": "217A", "name_es": "F de fuentespina - Ribera del duero ", "name_en": "F de fuentespina - Ribera del duero ", "price": "46,00"},
+        {"code": "217B", "name_es": "Avelino Vegas Alpha -Ribera del duero", "name_en": "Avelino Vegas Alpha -Ribera del duero", "price": "249,00"},
         {"code": "218", "name_es": "Jarra De Sangría", "name_en": "Sangria Pitcher", "price_by_glass": "5,50", "price_by_bottle": "16,50"},
         {"code": "219", "name_es": "Jarra de Tinto de verano", "name_en": "Pitcher of summer wine", "price_by_glass": "4,50", "price_by_bottle": "14,50"},
         {"code": "220", "name_es": "PSI 2022 - Ribera del Duero", "name_en": "PSI 2022 - Ribera del Duero", "price": "75,90"},
         {"code": "221", "name_es": "Queirón Mi Lugar - Rioja", "name_en": "Queirón Mi Lugar – Rioja", "price": "29,00"},
+        {"code": "221A", "name_es": "La Escaleruela -Rioja", "name_en": "La Escaleruela – Rioja", "price": "29,00"},
         {"code": "222", "name_es": "Cerro Añón Crianza - Rioja", "name_en": "Cerro Añón Crianza – Rioja", "price_by_glass": "5,00", "price_by_bottle": "19,50"},
         {"code": "223", "name_es": "Saiñas Sinuoso - Ribera Sacra", "name_en": "Saiñas Sinuoso – Ribera Sacra", "price": "32,00"}
+        
       ]
     },
     {
@@ -54,7 +59,9 @@
         {"code": "228", "name_es": "Pentecostes Varietal, Albariño, Treixadura - Rías Baixas", "name_en": "Pentecostes Varietal, Albariño, Treixadura – Rías Baixas", "price": "28,00"},
         {"code": "229", "name_es": "Valdebarón - Rioja", "name_en": "Valdebarón - Rioja", "price_by_glass": "6,00", "price_by_bottle": "28,00"},
         {"code": "230", "name_es": "A Telleira Godello - Ribeiro", "name_en": "A Telleira Godello - Ribeiro", "price": "26,00"},
-        {"code": "230A", "name_es": "Circe Verdejo - Rueda", "name_en": "Circe Verdejo - Rueda", "price_by_glass": "6,00", "price_by_bottle": "26,00"}
+        {"code": "230A", "name_es": "Circe Verdejo - Rueda", "name_en": "Circe Verdejo - Rueda", "price_by_glass": "6,00", "price_by_bottle": "26,00"},
+         {"code": "230B", "name_es": "Gautheron Chamblis", "name_en": "Gautheron Chamblis",  "price": "48,00"},
+         {"code": "230C", "name_es": "J.Moreau & Fils Chamblis", "name_en": "J.Moreau & Fils Chamblis",  "price": "44,00"}
       ]
     },
     {
@@ -72,7 +79,9 @@
         {"code": "233", "name_es": "Segura Viudas Brut Rose - Cava", "name_en": "Segura Viudas Brut Rosé", "price": "25,00"},
         {"code": "234", "name_es": "Segura Viudas Reserva Vintage - Cava", "name_en": "Segura Viudas Reserva Vintage", "price": "25,00"},
         {"code": "235", "name_es": "Alfred Gratien Blanc de Blancs - Champagne", "name_en": "Alfred Gratien Blanc de Blancs - Champagne", "price": "105,00"},
-        {"code": "236", "name_es": "Alfred Gratien Rose - Champagne", "name_en": "Alfred Gratien Rosé - Champagne", "price": "85,00"}
+        {"code": "236", "name_es": "Alfred Gratien Rose - Champagne", "name_en": "Alfred Gratien Rosé - Champagne", "price": "85,00"},
+        {"code": "236A", "name_es": "Alfred Gratien Paradise brut", "name_en": "Alfred Gratien Paradise brut", "price": "166,00"},
+        {"code": "236A", "name_es": "Alfred Gratien Paradise brut rose", "name_en": "Alfred Gratien Paradise brut rose", "price": "173,00"}
       ]
     },
     {
@@ -131,9 +140,15 @@
   "items": [
     {
       "code": "269",
-      "name_es": "Café expreso, descafeinado, solo, cortado o con leche",
-      "name_en": "Espresso, decaffeinated, black, cortado or with milk",
+      "name_es": "Café expreso, (descafeinado, solo, cortado)",
+      "name_en": "Espresso, (decaffeinated, black, macchiato)",
       "price": "2,00"
+    },
+    {
+      "code": "269A",
+      "name_es": "Café con leche",
+      "name_en": "coffee with milk",
+      "price": "2,60"
     },
     {
       "code": "270",
@@ -145,7 +160,7 @@
       "code": "271",
       "name_es": "Café con Baileys",
       "name_en": "Baileys Coffee",
-      "price": "3,00"
+      "price": "3,50"
     },
     {
       "code": "272",
